@@ -1,0 +1,10 @@
+# AdSense ads.txt
+#
+# This file is served at https://www.dividendpayoutcalculator.com/ads.txt.
+# AFTER your AdSense account is approved, replace the placeholder publisher
+# ID below with your real one (ca-pub-XXXXXXXXXXXXXXXX) and UNCOMMENT the line.
+#
+# An ads.txt carrying a wrong or placeholder ID is worse than this commented
+# placeholder, so leave it commented until you have a real, approved publisher ID.
+#
+# google.com, pub-0000000000000000, DIRECT, f08c47fec0942fa0

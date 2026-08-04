@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: 'Dividend Blog — Learn Dividend Investing',
   description:
     'Learn how dividend yield, dividend growth, DRIP reinvestment and payout ratios work — with simple examples and free calculators.',
+  alternates: { canonical: '/blog' },
 };
 
 export default function BlogIndexPage() {

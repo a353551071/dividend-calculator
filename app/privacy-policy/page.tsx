@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Privacy Policy',
   description: 'Privacy policy for the free dividend calculator tools.',
+  alternates: { canonical: '/privacy-policy' },
 };
 
 export default function PrivacyPage() {

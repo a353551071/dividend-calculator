@@ -2,11 +2,13 @@
   "name": "dividendcalculator",
   "version": "0.1.0",
   "private": true,
-  "description": "Dividend Calculator — 头词 dividend calculator + 子计算器矩阵(收益率/增长/DRIP/月收入/支付率)",
+  "description": "Dividend Calculator — free dividend yield, growth, DRIP, monthly income and payout ratio calculators.",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "lint": "next lint",
+    "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:watch": "vitest"
   },
@@ -19,6 +21,8 @@
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "eslint": "^8",
+    "eslint-config-next": "^14.2.5",
     "typescript": "^5",
     "vitest": "^2"
   }

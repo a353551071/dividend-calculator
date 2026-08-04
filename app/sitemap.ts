@@ -14,6 +14,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/calculators/drip-calculator',
     '/calculators/monthly-dividend-calculator',
     '/calculators/dividend-payout-ratio-calculator',
+    '/about',
+    '/contact',
     '/privacy-policy',
     '/terms',
   ];

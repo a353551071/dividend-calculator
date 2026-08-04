@@ -3,11 +3,15 @@ import Link from 'next/link';
 import DripCalc from '@/components/DripCalc';
 import FinanceNote from '@/components/FinanceNote';
 import AdBanner from '@/components/AdBanner';
+import { webAppJsonLd, breadcrumbJsonLd } from '@/lib/schema';
+
+const PATH = '/calculators/drip-calculator';
 
 export const metadata: Metadata = {
-  title: 'DRIP Calculator — Dividend Reinvestment',
+  title: 'DRIP Calculator 2026 — Dividend Reinvestment',
   description:
     'Simulate a Dividend Reinvestment Plan: see how reinvesting dividends compounds your portfolio value, shares and annual income over time.',
+  alternates: { canonical: PATH },
 };
 
 export default function DripPage() {
@@ -45,6 +49,20 @@ export default function DripPage() {
           <Link href="/calculators/dividend-growth-calculator">Dividend Growth Calculator</Link>
         </p>
       </div>
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: webAppJsonLd('DRIP Calculator', PATH) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: breadcrumbJsonLd([
+            { name: 'Home', path: '/' },
+            { name: 'DRIP Calculator', path: PATH },
+          ]),
+        }}
+      />
     </>
   );
 }

@@ -3,11 +3,15 @@ import Link from 'next/link';
 import PayoutRatioCalc from '@/components/PayoutRatioCalc';
 import FinanceNote from '@/components/FinanceNote';
 import AdBanner from '@/components/AdBanner';
+import { webAppJsonLd, breadcrumbJsonLd } from '@/lib/schema';
+
+const PATH = '/calculators/dividend-payout-ratio-calculator';
 
 export const metadata: Metadata = {
-  title: 'Dividend Payout Ratio Calculator',
+  title: 'Dividend Payout Ratio Calculator 2026',
   description:
     'Check if a dividend is sustainable: calculate the payout ratio (dividends ÷ earnings) and understand what the number means.',
+  alternates: { canonical: PATH },
 };
 
 export default function PayoutRatioPage() {
@@ -42,6 +46,20 @@ export default function PayoutRatioPage() {
           <Link href="/calculators/dividend-growth-calculator">Dividend Growth Calculator</Link>
         </p>
       </div>
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: webAppJsonLd('Dividend Payout Ratio Calculator', PATH) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: breadcrumbJsonLd([
+            { name: 'Home', path: '/' },
+            { name: 'Dividend Payout Ratio Calculator', path: PATH },
+          ]),
+        }}
+      />
     </>
   );
 }

@@ -1,0 +1,24 @@
+# Dividend Calculator
+
+> Free dividend calculators: dividend yield, dividend growth, DRIP reinvestment,
+> monthly dividend income and payout ratio.
+
+Dividend Calculator is a free, ad-supported educational tool suite for income
+investors. Every calculator runs client-side in the browser; there is no
+sign-up and no data collection. Estimates only — not financial advice.
+
+## Calculators
+- [Dividend Yield Calculator](https://www.dividendpayoutcalculator.com/calculators/dividend-yield-calculator): annual dividend per share ÷ share price
+- [Dividend Growth Calculator](https://www.dividendpayoutcalculator.com/calculators/dividend-growth-calculator): project future dividends with a compound growth rate
+- [DRIP Calculator](https://www.dividendpayoutcalculator.com/calculators/drip-calculator): simulate dividend reinvestment compounding
+- [Monthly Dividend Income Calculator](https://www.dividendpayoutcalculator.com/calculators/monthly-dividend-calculator): monthly passive income from a portfolio
+- [Dividend Payout Ratio Calculator](https://www.dividendpayoutcalculator.com/calculators/dividend-payout-ratio-calculator): dividends ÷ earnings, sustainability check
+
+## Learn
+- [Dividend Blog](https://www.dividendpayoutcalculator.com/blog)
+
+## Optional
+- [About](https://www.dividendpayoutcalculator.com/about)
+- [Contact](https://www.dividendpayoutcalculator.com/contact)
+- [Privacy Policy](https://www.dividendpayoutcalculator.com/privacy-policy)
+- [Terms of Use](https://www.dividendpayoutcalculator.com/terms)

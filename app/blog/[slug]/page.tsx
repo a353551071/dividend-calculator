@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { POSTS, getPost } from '@/lib/posts';
 import { notFound } from 'next/navigation';
+import { articleJsonLd } from '@/lib/schema';
 
 export function generateStaticParams() {
   return POSTS.map((p) => ({ slug: p.slug }));
@@ -14,6 +15,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: post.title,
     description: post.description,
+    alternates: { canonical: `/blog/${slug}` },
   };
 }
 
@@ -23,6 +25,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
   if (!post) notFound();
 
   const related = POSTS.filter((p) => p.slug !== slug).slice(0, 3);
+  const path = `/blog/${slug}`;
 
   return (
     <article className="prose">
@@ -43,6 +46,18 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
         Try the <Link href="/">dividend calculator</Link> or browse all{' '}
         <Link href="/blog">dividend articles</Link>. Educational only — not financial advice.
       </p>
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: articleJsonLd({
+            title: post.title,
+            description: post.description,
+            path,
+            date: post.date,
+          }),
+        }}
+      />
     </article>
   );
 }

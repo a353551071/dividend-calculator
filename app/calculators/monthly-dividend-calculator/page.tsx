@@ -3,11 +3,15 @@ import Link from 'next/link';
 import MonthlyIncomeCalc from '@/components/MonthlyIncomeCalc';
 import FinanceNote from '@/components/FinanceNote';
 import AdBanner from '@/components/AdBanner';
+import { webAppJsonLd, breadcrumbJsonLd } from '@/lib/schema';
+
+const PATH = '/calculators/monthly-dividend-calculator';
 
 export const metadata: Metadata = {
-  title: 'Monthly Dividend Income Calculator',
+  title: 'Monthly Dividend Income Calculator 2026',
   description:
     'How much monthly passive income will your portfolio generate? Enter your investment and dividend yield to find out.',
+  alternates: { canonical: PATH },
 };
 
 export default function MonthlyDividendPage() {
@@ -42,6 +46,20 @@ export default function MonthlyDividendPage() {
           <Link href="/calculators/dividend-yield-calculator">Dividend Yield Calculator</Link>
         </p>
       </div>
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: webAppJsonLd('Monthly Dividend Income Calculator', PATH) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: breadcrumbJsonLd([
+            { name: 'Home', path: '/' },
+            { name: 'Monthly Dividend Income Calculator', path: PATH },
+          ]),
+        }}
+      />
     </>
   );
 }

@@ -3,11 +3,15 @@ import Link from 'next/link';
 import DividendGrowthCalc from '@/components/DividendGrowthCalc';
 import FinanceNote from '@/components/FinanceNote';
 import AdBanner from '@/components/AdBanner';
+import { webAppJsonLd, breadcrumbJsonLd } from '@/lib/schema';
+
+const PATH = '/calculators/dividend-growth-calculator';
 
 export const metadata: Metadata = {
-  title: 'Dividend Growth Calculator',
+  title: 'Dividend Growth Calculator 2026',
   description:
     'Project future dividend income with a compound annual growth rate. See what a dividend will pay in 10 or 20 years.',
+  alternates: { canonical: PATH },
 };
 
 export default function DividendGrowthPage() {
@@ -41,6 +45,20 @@ export default function DividendGrowthPage() {
           <Link href="/calculators/dividend-yield-calculator">Dividend Yield Calculator</Link>
         </p>
       </div>
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: webAppJsonLd('Dividend Growth Calculator', PATH) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: breadcrumbJsonLd([
+            { name: 'Home', path: '/' },
+            { name: 'Dividend Growth Calculator', path: PATH },
+          ]),
+        }}
+      />
     </>
   );
 }

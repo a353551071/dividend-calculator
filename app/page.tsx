@@ -5,9 +5,10 @@ import FinanceNote from '@/components/FinanceNote';
 import AdBanner from '@/components/AdBanner';
 
 export const metadata: Metadata = {
-  title: 'Dividend Calculator — Yield, Growth, DRIP & Monthly Income',
+  title: 'Dividend Calculator 2026 — Yield, Growth, DRIP & Monthly Income',
   description:
     'Free dividend calculator: instantly compute dividend yield, dividend growth, DRIP reinvestment returns, monthly dividend income and payout ratio.',
+  alternates: { canonical: '/' },
 };
 
 export default function HomePage() {

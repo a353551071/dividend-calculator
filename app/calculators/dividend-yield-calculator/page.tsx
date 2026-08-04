@@ -3,11 +3,15 @@ import Link from 'next/link';
 import DividendYieldCalc from '@/components/DividendYieldCalc';
 import FinanceNote from '@/components/FinanceNote';
 import AdBanner from '@/components/AdBanner';
+import { webAppJsonLd, breadcrumbJsonLd } from '@/lib/schema';
+
+const PATH = '/calculators/dividend-yield-calculator';
 
 export const metadata: Metadata = {
-  title: 'Dividend Yield Calculator',
+  title: 'Dividend Yield Calculator 2026',
   description:
     'Calculate dividend yield instantly: annual dividend per share ÷ current share price. Free, no sign-up, works for any stock.',
+  alternates: { canonical: PATH },
 };
 
 export default function DividendYieldPage() {
@@ -42,6 +46,20 @@ export default function DividendYieldPage() {
           <Link href="/calculators/dividend-payout-ratio-calculator">Payout Ratio Calculator</Link>
         </p>
       </div>
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: webAppJsonLd('Dividend Yield Calculator', PATH) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: breadcrumbJsonLd([
+            { name: 'Home', path: '/' },
+            { name: 'Dividend Yield Calculator', path: PATH },
+          ]),
+        }}
+      />
     </>
   );
 }
