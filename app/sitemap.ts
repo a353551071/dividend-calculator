@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next';
 
-const BASE = 'https://dividendpayoutcalculator.com';
+const BASE = 'https://www.dividendpayoutcalculator.com';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const paths = [

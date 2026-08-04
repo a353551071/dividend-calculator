@@ -5,7 +5,7 @@ import { SITE_NAME, SITE_DESC } from '@/lib/nav';
 import './globals.css';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://dividendpayoutcalculator.com'),
+  metadataBase: new URL('https://www.dividendpayoutcalculator.com'),
   title: {
     default: `${SITE_NAME} — Free Dividend Calculator & Income Tools`,
     template: `%s | ${SITE_NAME}`,
