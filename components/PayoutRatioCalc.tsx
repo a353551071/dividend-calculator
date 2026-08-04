@@ -4,30 +4,30 @@ import Calculator, { type CalcRow } from './Calculator';
 import { payoutRatio } from '@/lib/dividend';
 import { formatPercent } from '@/lib/format';
 
-/** 股息支付率计算器:股息 ÷ 盈利,判断可持续性。 */
+/** Dividend payout ratio calculator: dividends ÷ earnings, checks sustainability. */
 export default function PayoutRatioCalc() {
   return (
     <Calculator
       fields={[
-        { key: 'dps', label: '每股年股息', prefix: '$', defaultValue: 2, help: 'DPS' },
-        { key: 'eps', label: '每股收益', prefix: '$', defaultValue: 4, help: 'EPS(净利润/股本)' },
+        { key: 'dps', label: 'Dividend per share', prefix: '$', defaultValue: 2, help: 'DPS' },
+        { key: 'eps', label: 'Earnings per share', prefix: '$', defaultValue: 4, help: 'EPS (net income / shares)' },
       ]}
       compute={(v): CalcRow[] => {
         const ratio = payoutRatio({ dividendPerShare: v.dps, earningsPerShare: v.eps });
         let verdict = '—';
         if (!Number.isNaN(ratio)) {
-          if (ratio > 100) verdict = '⚠️ 股息超过盈利,不可持续(可能借钱发息)';
-          else if (ratio > 70) verdict = '偏高:派息空间有限,增长可能放缓';
-          else if (ratio > 30) verdict = '健康:留足再投资空间';
-          else verdict = '低:大量利润留存,股息可能快速增长';
+          if (ratio > 100) verdict = '⚠️ Pays out more than it earns — usually unsustainable';
+          else if (ratio > 70) verdict = 'High: little room for dividend growth';
+          else if (ratio > 30) verdict = 'Healthy: balances payout and reinvestment';
+          else verdict = 'Low: most earnings retained, dividends may grow fast';
         }
         return [
-          { label: '股息支付率', value: formatPercent(ratio), highlight: true },
-          { label: '留存率(再投资比例)', value: formatPercent(100 - ratio) },
-          { label: '判断', value: verdict },
+          { label: 'Dividend payout ratio', value: formatPercent(ratio), highlight: true },
+          { label: 'Retention ratio (reinvested)', value: formatPercent(100 - ratio) },
+          { label: 'Verdict', value: verdict },
         ];
       }}
-      footnote="支付率 > 100% 意味着公司用借债/存量现金发息,长期不可持续;30-60% 通常最健康。"
+      footnote="A payout ratio above 100% means the company pays out more than it earns — usually funded by debt or reserves. 30–60% is typically the healthiest range."
     />
   );
 }

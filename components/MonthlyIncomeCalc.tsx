@@ -2,17 +2,17 @@
 
 import Calculator, { type CalcRow } from './Calculator';
 import { monthlyDividendIncome } from '@/lib/dividend';
-import { formatMoney, formatPercent } from '@/lib/format';
+import { formatMoney } from '@/lib/format';
 
-/** 月股息收入计算器:本金 × 年收益率 ÷ 12。 */
+/** Monthly dividend income calculator: investment × annual yield ÷ 12. */
 export default function MonthlyIncomeCalc() {
   return (
     <Calculator
       fields={[
-        { key: 'investment', label: '投入本金', prefix: '$', defaultValue: 50000, help: '总投入金额' },
-        { key: 'yield', label: '年股息率', suffix: '%', defaultValue: 4 },
-        { key: 'growth', label: '股息年增长率', suffix: '%', defaultValue: 0, help: '0=只看当前月收入' },
-        { key: 'years', label: '持有年数', suffix: '年', defaultValue: 0, step: 1, help: '0=不预测未来' },
+        { key: 'investment', label: 'Investment amount', prefix: '$', defaultValue: 50000, help: 'Total amount invested' },
+        { key: 'yield', label: 'Annual dividend yield', suffix: '%', defaultValue: 4 },
+        { key: 'growth', label: 'Dividend growth rate', suffix: '%', defaultValue: 0, help: '0 = current income only' },
+        { key: 'years', label: 'Years held', suffix: 'yrs', defaultValue: 0, step: 1, help: '0 = no projection' },
       ]}
       compute={(v): CalcRow[] => {
         const now = monthlyDividendIncome({ investment: v.investment, dividendYieldPct: v.yield });
@@ -22,12 +22,12 @@ export default function MonthlyIncomeCalc() {
           future = monthlyDividendIncome({ investment: v.investment, dividendYieldPct: futureYield });
         }
         return [
-          { label: '当前月股息收入', value: formatMoney(now), highlight: true },
-          { label: '年股息收入', value: formatMoney(now * 12) },
-          ...(v.years > 0 ? [{ label: `${v.years} 年后月股息收入`, value: formatMoney(future) }] : []),
+          { label: 'Current monthly dividend income', value: formatMoney(now), highlight: true },
+          { label: 'Annual dividend income', value: formatMoney(now * 12) },
+          ...(v.years > 0 ? [{ label: `Monthly income in ${v.years} yrs`, value: formatMoney(future) }] : []),
         ];
       }}
-      footnote="要达到 $1,000/月被动收入,按 4% 股息率需要 $300,000 本金;靠股息增长率能显著缩短进程。"
+      footnote="$1,000 a month of passive income at 4% yield needs roughly $300,000 invested; dividend growth can shorten the path significantly."
     />
   );
 }
