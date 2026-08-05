@@ -5,9 +5,35 @@ export interface Post {
   title: string;
   date: string;
   description: string;
+  /** 可选 FAQ 问答:页面可见 + 由博客页生成 FAQPage schema(抢 PAA/AI Overview)。 */
+  faqs?: { q: string; a: string }[];
   /** 文章正文(JSX)。 */
   body: ReactNode;
 }
+
+/** P4「What is a good dividend yield」的 FAQ,页面可见 + FAQPage schema。 */
+const goodYieldFaqs = [
+  {
+    q: 'What is a good dividend yield?',
+    a: 'Most dividend investors consider 3% to 5% a good yield: high enough to produce meaningful income, low enough that the payout is usually sustainable. Below 1% you are mostly paying for growth; above 8% the dividend is often at risk of being cut.',
+  },
+  {
+    q: 'Is a 2% dividend yield good?',
+    a: 'A 2% yield is normal for large, growing companies — the S&P 500 averages around 1.3%. It is a good yield when the dividend is rising steadily, because a growing 2% yield reinvested can beat a flat high yield over a decade.',
+  },
+  {
+    q: 'Is a 10% dividend yield good?',
+    a: 'Usually a warning sign, not an opportunity. A 10% yield usually follows either a collapsed share price or a payout that earnings cannot sustain. Check the payout ratio before treating it as income.',
+  },
+  {
+    q: 'What is a good dividend yield for an ETF?',
+    a: 'For a broad dividend ETF, 2% to 4% is typical. High-income funds like covered-call ETFs can yield 10% or more, but that yield can include return of capital and cap the upside, so it is not comparable to a normal stock dividend.',
+  },
+  {
+    q: 'How do you know if a dividend yield is sustainable?',
+    a: 'Check three things: the payout ratio (dividend divided by earnings — above 100% is unsustainable), the dividend growth trend (flat or rising beats falling), and why the yield is high (a price collapse is not income).',
+  },
+];
 
 /** 博客文章(既是 Adsense 三件套的「博客」,也吃股息长尾词)。 */
 export const POSTS: Post[] = [
@@ -57,24 +83,24 @@ export const POSTS: Post[] = [
     title: 'What Is a Good Dividend Yield?',
     date: '2026-08-04',
     description:
-      'A 2% yield can be a great investment and a 10% yield a trap. Here is how to judge a yield by looking at payout ratio, growth and sustainability instead of just the number.',
+      'A 2% yield can be a great investment and a 10% yield a trap. Most income investors consider 3% to 5% a good dividend yield — but only if the payout is covered and growing.',
+    faqs: goodYieldFaqs,
     body: (
       <>
         <p>
-          There is no single &ldquo;good&rdquo; yield. Whether 3% is excellent or a 9% yield is a trap
-          depends entirely on <em>why</em> the yield is what it is.
+          <strong>A good dividend yield is usually 3% to 5%.</strong> Below 1% you are mostly paying
+          for growth; above 8% you are usually buying a problem. But the number alone never decides —
+          a 2% yield growing 10% a year beats a flat 6% yield, and a 10% yield from a falling stock is
+          a loss, not income.
         </p>
-        <h2>Rough ranges</h2>
+        <h2>Rough ranges for dividend yields</h2>
         <ul>
           <li><strong>1–3%</strong>: normal for large, growing companies (the S&amp;P 500 averages around 1.3%).</li>
           <li><strong>3–5%</strong>: solid income — utilities, REITs, quality dividend payers.</li>
           <li><strong>5–8%</strong>: high. Check the payout ratio and the business model carefully.</li>
           <li><strong>8%+</strong>: usually a warning. Either the price collapsed or the dividend is unsustainable.</li>
         </ul>
-        <h2>The test that matters</h2>
-        <p>
-          Instead of chasing a number, ask three questions:
-        </p>
+        <h2>The three tests that matter more than the number</h2>
         <ol>
           <li><strong>Payout ratio</strong> — is the dividend covered by earnings? Above 100% is unsustainable.</li>
           <li><strong>Growth</strong> — is the dividend rising? A 2% yield growing 10% a year beats a flat 6% yield.</li>
@@ -82,10 +108,18 @@ export const POSTS: Post[] = [
         </ol>
         <p>
           Run the numbers with the{' '}
-          <a href="/calculators/dividend-payout-ratio-calculator">payout ratio calculator</a> and the{' '}
-          <a href="/calculators/dividend-growth-calculator">dividend growth calculator</a> to judge a
-          yield on fundamentals, not on the headline number.
+          <a href="/calculators/dividend-yield-calculator">dividend yield calculator</a>, check the{' '}
+          <a href="/calculators/dividend-payout-ratio-calculator">payout ratio calculator</a>, and
+          model growth with the{' '}
+          <a href="/calculators/dividend-growth-calculator">dividend growth calculator</a>.
         </p>
+        <h2>Frequently asked questions</h2>
+        {goodYieldFaqs.map((f) => (
+          <div key={f.q}>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </div>
+        ))}
       </>
     ),
   },

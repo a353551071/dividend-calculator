@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { POSTS, getPost } from '@/lib/posts';
 import { notFound } from 'next/navigation';
-import { articleJsonLd } from '@/lib/schema';
+import { articleJsonLd, faqJsonLd } from '@/lib/schema';
 
 export function generateStaticParams() {
   return POSTS.map((p) => ({ slug: p.slug }));
@@ -58,6 +58,12 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
           }),
         }}
       />
+      {post.faqs && post.faqs.length > 0 && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: faqJsonLd(post.faqs) }}
+        />
+      )}
     </article>
   );
 }
