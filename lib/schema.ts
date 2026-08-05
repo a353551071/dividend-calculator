@@ -58,6 +58,19 @@ export function breadcrumbJsonLd(items: Crumb[]): string {
   });
 }
 
+/** FAQPage schema — Q&A pairs to win PAA boxes and AI Overview. */
+export function faqJsonLd(items: { q: string; a: string }[]): string {
+  return JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: items.map((i) => ({
+      '@type': 'Question',
+      name: i.q,
+      acceptedAnswer: { '@type': 'Answer', text: i.a },
+    })),
+  });
+}
+
 /** Article schema — for blog posts. */
 export function articleJsonLd(input: ArticleInput): string {
   return JSON.stringify({
