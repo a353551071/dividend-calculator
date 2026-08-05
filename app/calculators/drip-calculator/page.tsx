@@ -3,16 +3,43 @@ import Link from 'next/link';
 import DripCalc from '@/components/DripCalc';
 import FinanceNote from '@/components/FinanceNote';
 import AdBanner from '@/components/AdBanner';
-import { webAppJsonLd, breadcrumbJsonLd } from '@/lib/schema';
+import { webAppJsonLd, breadcrumbJsonLd, faqJsonLd } from '@/lib/schema';
 
 const PATH = '/calculators/drip-calculator';
 
 export const metadata: Metadata = {
   title: { absolute: 'DRIP Calculator 2026 — Dividend Reinvestment' },
   description:
-    'Free DRIP calculator: simulate a Dividend Reinvestment Plan and see how reinvesting dividends compounds your shares, portfolio value and annual income over time.',
+    'Free DRIP calculator and dividend reinvestment calculator in one: see how reinvested dividends compound your shares, portfolio value and annual income over time.',
   alternates: { canonical: PATH },
 };
+
+const faqs = [
+  {
+    q: 'What is a dividend reinvestment calculator (DRIP calculator)?',
+    a: 'A dividend reinvestment calculator — also called a DRIP calculator — simulates the compounding loop of reinvesting each dividend payment to buy more shares. It shows how your share count, portfolio value and annual dividend income grow year by year under your own assumptions for yield, dividend growth and contributions.',
+  },
+  {
+    q: 'Is a dividend drip calculator the same as a DRIP calculator?',
+    a: 'Yes. "Dividend drip calculator" and "DRIP calculator" are two names for the same tool — both project the effect of a dividend reinvestment plan (DRIP), where dividends automatically buy more shares instead of arriving as cash.',
+  },
+  {
+    q: 'How do I calculate dividend reinvestment?',
+    a: 'Use the calculator above: enter your starting investment, share price, dividend yield, dividend growth rate, monthly contribution and years. It compounds each payment into new shares and reports the final value, shares owned and annual income. As a rough manual rule, a reinvested position grows roughly like (1 + dividend growth rate) per year, but the calculator handles the year-by-year detail.',
+  },
+  {
+    q: 'Is dividend reinvestment worth it?',
+    a: 'Generally yes for long-term investors who do not need the income today — reinvested dividends compound your position, and in tax-advantaged accounts the reinvestment triggers no immediate tax. If you live on the income, or the holding looks overvalued, taking cash may be better. See the DRIP vs taking cash section above.',
+  },
+  {
+    q: 'Do DRIP calculators include dividend growth?',
+    a: 'Only if you tell them to. This calculator has a dividend growth rate input: set it to 0 for flat payouts, or to a historical rate (like roughly 10% for SCHD) to model growing dividends. Growth rates are planning assumptions, not guarantees.',
+  },
+  {
+    q: 'Do I pay taxes on reinvested dividends?',
+    a: 'In taxable accounts, yes — reinvested dividends are taxable in the year paid even though you never receive the cash. In tax-advantaged accounts (like IRAs and 401(k)s), reinvestment typically creates no immediate tax. This calculator does not model taxes; consult a tax professional.',
+  },
+];
 
 export default function DripPage() {
   return (
@@ -45,6 +72,35 @@ export default function DripPage() {
           more shares; those extra shares pay dividends next year, which buy still more shares.
           Over a decade or two the share count — and therefore the income — curves upward, even if
           the share price goes nowhere.
+        </p>
+
+        <h2>Dividend Reinvestment Calculator: what it tells you</h2>
+        <p>
+          A dividend reinvestment calculator takes the same inputs a DRIP calculator does —
+          starting investment, share price, dividend yield, dividend growth, price growth, monthly
+          contributions and a time horizon — and projects the result of automatically reinvesting
+          every payment. The key output is how much faster your position grows compared with taking
+          the cash: reinvested shares earn dividends of their own, so both your share count and
+          your annual dividend income rise year after year.
+        </p>
+        <p>
+          Use it when you want to compare the reinvestment path against cashing out, or when you
+          are deciding how much to contribute monthly to reach a target income by retirement.
+        </p>
+
+        <h2>Dividend Drip Calculator: the compounding math</h2>
+        <p>
+          &ldquo;Dividend drip&rdquo; is just another name for DRIP — the same dividend
+          reinvestment loop, drip by drip. The math that makes it powerful is compounding. If
+          dividends are reinvested at a growth rate <code>g</code>, the shares you own after{' '}
+          <code>n</code> years grow roughly like <code>(1 + g)^n</code>, and the income on those
+          shares grows with it.
+        </p>
+        <p>
+          Even a modest 4% starting yield plus a few percent of dividend growth turns a single lump
+          sum into a much larger income stream over a decade. The calculator above runs this loop
+          year by year with your actual numbers — try raising the dividend growth rate or the years
+          to see the compound effect yourself.
         </p>
 
         <h2>A worked DRIP example</h2>
@@ -92,9 +148,19 @@ export default function DripPage() {
           </li>
         </ul>
 
+        <h2>Frequently asked questions</h2>
+        {faqs.map((f) => (
+          <div key={f.q}>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </div>
+        ))}
+
         <h2>Related calculators</h2>
         <p>
           <Link href="/">Dividend Calculator</Link> ·{' '}
+          <Link href="/calculators/schd-dividend-calculator">SCHD Dividend Calculator</Link> ·{' '}
+          <Link href="/calculators/qqqi-dividend-calculator">QQQI Dividend Calculator</Link> ·{' '}
           <Link href="/calculators/monthly-dividend-calculator">Monthly Dividend Income Calculator</Link> ·{' '}
           <Link href="/calculators/dividend-growth-calculator">Dividend Growth Calculator</Link>
         </p>
@@ -112,6 +178,10 @@ export default function DripPage() {
             { name: 'DRIP Calculator', path: PATH },
           ]),
         }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: faqJsonLd(faqs) }}
       />
     </>
   );
