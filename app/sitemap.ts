@@ -9,6 +9,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/blog/what-is-dividend-yield-and-how-to-calculate-it',
     '/blog/what-is-a-good-dividend-yield',
     '/blog/how-dividend-reinvestment-works-drip',
+    '/blog/dividend-yield-vs-dividend-rate',
+    '/blog/drip-vs-taking-cash-dividends',
     '/calculators/dividend-yield-calculator',
     '/calculators/dividend-growth-calculator',
     '/calculators/drip-calculator',
