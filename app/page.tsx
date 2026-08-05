@@ -5,7 +5,7 @@ import FinanceNote from '@/components/FinanceNote';
 import AdBanner from '@/components/AdBanner';
 
 export const metadata: Metadata = {
-  title: 'Dividend Calculator 2026 — Yield, Growth, DRIP & Monthly Income',
+  title: { absolute: 'Dividend Calculator 2026 — Yield, DRIP & Income' },
   description:
     'Free dividend calculator: instantly compute dividend yield, dividend growth, DRIP reinvestment returns, monthly dividend income and payout ratio.',
   alternates: { canonical: '/' },
@@ -58,6 +58,40 @@ export default function HomePage() {
       <FinanceNote />
 
       <AdBanner slot="home-top" />
+
+      <section>
+        <h2>What is a dividend?</h2>
+        <p>
+          A dividend is a cash payment a company distributes to its shareholders, usually drawn
+          from profits. Mature, cash-generating businesses — consumer staples, utilities, banks,
+          healthcare, REITs — pay them regularly, most often quarterly in the U.S. The board sets
+          the amount per share; as an investor, your dividend income equals dividends per share
+          times the number of shares you own.
+        </p>
+        <p>
+          Dividends matter for two reasons. First, they are real cash that hits your account
+          whether the market is up or down. Second, a long history of <em>growing</em> dividends is
+          one of the clearest signals that a business is genuinely profitable and compounding.
+          This dividend calculator turns those ideas into numbers you can see in seconds.
+        </p>
+      </section>
+
+      <section>
+        <h2>How to use this dividend calculator</h2>
+        <p>
+          Enter a share price and an annual dividend per share, and the calculator returns your
+          dividend yield instantly. From there you can layer on a dividend growth rate to project
+          future income, toggle DRIP to see how reinvesting each payment compounds your position,
+          and switch to monthly mode for portfolios that pay monthly. Every input is editable —
+          change the yield from 3% to 6% and watch how the 10-year income curve reshapes.
+        </p>
+        <p>
+          A realistic example: a $50,000 portfolio at a blended 4% yield pays about $2,000 a year,
+          or roughly $167 a month. Push yield growth to 7% and reinvest, and the year-10 income
+          projection is dramatically higher — not because the yield doubled, but because you own
+          many more shares by then. That compounding effect is the whole point of the DRIP view.
+        </p>
+      </section>
 
       <section>
         <h2>Dividend Tools</h2>

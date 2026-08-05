@@ -8,9 +8,9 @@ import { webAppJsonLd, breadcrumbJsonLd, faqJsonLd } from '@/lib/schema';
 const PATH = '/calculators/schd-dividend-calculator';
 
 export const metadata: Metadata = {
-  title: 'SCHD Dividend Calculator 2026 — DRIP & Yield',
+  title: { absolute: 'SCHD Dividend Calculator 2026: Yield & DRIP' },
   description:
-    'Project SCHD dividend income and DRIP reinvestment year by year. See yield, annual income and portfolio value for the Schwab U.S. Dividend Equity ETF.',
+    'This SCHD dividend calculator projects Schwab U.S. Dividend Equity ETF income, yield and DRIP reinvestment year by year. Free, no signup.',
   alternates: { canonical: PATH },
 };
 
@@ -75,7 +75,7 @@ export default function SchdPage() {
           for the exact math on any stock or ETF.
         </p>
 
-        <h2>How SCHD DRIP works</h2>
+        <h2>How this SCHD dividend calculator works</h2>
         <p>
           SCHD pays <strong>quarterly</strong>. When you reinvest each payment, your share count
           rises, so the next quarter’s dividend is paid on more shares. With historical dividend
@@ -88,9 +88,48 @@ export default function SchdPage() {
 
         <h2>SCHD dividend history (recent, approximate)</h2>
         <p>
-          SCHD has grown its annual distribution every full year since launch. Distributions rise as
-          the underlying companies raise their dividends. Treat the figures below as approximate and
-          verify current values with Schwab.
+          SCHD has grown its annual distribution every full year since its 2011 launch. The table
+          below shows approximate annual distributions per share — treat them as a rough guide and
+          verify current figures with Schwab or your broker before deciding.
+        </p>
+        <table>
+          <thead>
+            <tr><th>Year</th><th>Approx. annual distribution / share</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>2024</td><td>~$2.60</td></tr>
+            <tr><td>2023</td><td>~$2.36</td></tr>
+            <tr><td>2022</td><td>~$2.04</td></tr>
+            <tr><td>2021</td><td>~$1.70</td></tr>
+            <tr><td>2020</td><td>~$1.45</td></tr>
+          </tbody>
+        </table>
+
+        <h2>What drives SCHD&rsquo;s dividend</h2>
+        <p>
+          SCHD tracks an index of roughly 100 U.S. companies with a track record of paying
+          dividends, screened for fundamentals like cash-flow growth, return on equity and
+          five-year dividend growth. The ETF&rsquo;s own payout is simply the aggregated cash
+          dividends of those holdings, so SCHD&rsquo;s yield rises when its holdings are cheap and
+          falls when they rally. Top sectors historically include consumer staples, healthcare,
+          industrials and utilities — businesses that generate steady cash through most economic
+          cycles.
+        </p>
+        <p>
+          Because the payout comes from real company profits rather than option premiums or return
+          of capital, it tends to be more durable than the sky-high yields on covered-call ETFs.
+          The trade-off is a lower starting yield near 3.5%.
+        </p>
+
+        <h2>A worked SCHD example</h2>
+        <p>
+          Say you invest $10,000 in SCHD at $80/share with a 3.5% yield, 10% dividend growth and 7%
+          price growth, reinvesting every quarterly payment. After the first year you own a few
+          extra shares bought with dividends; by year 10 your reinvested dividends have added a
+          meaningful slice of shares on top of your original 125, and your projected annual
+          dividend income has grown well beyond the initial $350. Run your own numbers in the
+          calculator above — change the yield or growth assumption to see how sensitive the
+          outcome is to those two inputs.
         </p>
 
         <h2>SCHD vs QQQI</h2>

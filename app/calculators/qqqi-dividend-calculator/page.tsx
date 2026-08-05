@@ -8,9 +8,9 @@ import { webAppJsonLd, breadcrumbJsonLd, faqJsonLd } from '@/lib/schema';
 const PATH = '/calculators/qqqi-dividend-calculator';
 
 export const metadata: Metadata = {
-  title: 'QQQI Dividend Calculator 2026 — Monthly Income',
+  title: { absolute: 'QQQI Dividend Calculator 2026: Monthly Income' },
   description:
-    'Project QQQI monthly income and DRIP reinvestment. NEOS Nasdaq-100 High Income ETF — estimate yield, cash flow and tax-aware returns.',
+    'This QQQI dividend calculator projects NEOS Nasdaq-100 High Income ETF monthly income, yield and DRIP reinvestment, with tax and NAV trade-offs explained.',
   alternates: { canonical: PATH },
 };
 
@@ -64,7 +64,7 @@ export default function QqqiPage() {
       <AdBanner slot="qqqi" />
 
       <div className="prose">
-        <h2>How QQQI’s monthly income works</h2>
+        <h2>How this QQQI dividend calculator works</h2>
         <p>
           QQQI holds the Nasdaq-100 and sells call options on a portion of it. The{' '}
           <strong>option premiums</strong> become your monthly distribution, which is why the yield
@@ -101,6 +101,33 @@ export default function QqqiPage() {
           Return of capital lowers your cost basis and is taxed later as a capital gain. This is
           more complex than a plain dividend ETF — consult a tax professional before assuming any
           rate.
+        </p>
+
+        <h2>A worked QQQI example</h2>
+        <p>
+          Suppose you put $10,000 into QQQI at $50/share with a 13% distribution yield, no
+          distribution growth and 4% price growth, reinvesting each monthly payment. Month one
+          delivers roughly $108 in distributions; reinvested, that buys about 2 extra shares. After
+          a year you hold more shares than you started with, but because distribution growth is set
+          to 0%, your per-share payout does not rise the way SCHD&rsquo;s does — the income grows
+          only because you own more shares. Use the calculator above to test what happens if yield
+          drops to 10% or NAV growth turns negative: the income line bends fast.
+        </p>
+
+        <h2>QQQI vs QQQ vs QYLD</h2>
+        <p>
+          <strong>QQQ</strong> simply holds the Nasdaq-100 — full upside, full downside, a yield
+          near 0.6%. <strong>QQQI</strong> holds the same index but sells covered calls on roughly
+          half of it, converting some upside into ~13% monthly income. <strong>QYLD</strong> sells
+          calls on nearly 100% of the portfolio, generating even higher income but capping almost
+          all upside — its NAV has historically drifted down over time. QQQI sits in the middle:
+          more income than QQQ, more upside than QYLD, with the same Nasdaq-100 exposure at the
+          core.
+        </p>
+        <p>
+          If your goal is long-term wealth, QQQ usually wins on total return. If your goal is
+          monthly cash flow today and you accept capped upside, QQQI is the compromise. This
+          calculator helps you see the income side clearly — it does not predict NAV erosion.
         </p>
 
         <h2>QQQI vs SCHD</h2>

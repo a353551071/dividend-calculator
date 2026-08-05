@@ -8,9 +8,9 @@ import { webAppJsonLd, breadcrumbJsonLd } from '@/lib/schema';
 const PATH = '/calculators/drip-calculator';
 
 export const metadata: Metadata = {
-  title: 'DRIP Calculator 2026 — Dividend Reinvestment',
+  title: { absolute: 'DRIP Calculator 2026 — Dividend Reinvestment' },
   description:
-    'Simulate a Dividend Reinvestment Plan: see how reinvesting dividends compounds your portfolio value, shares and annual income over time.',
+    'Free DRIP calculator: simulate a Dividend Reinvestment Plan and see how reinvesting dividends compounds your shares, portfolio value and annual income over time.',
   alternates: { canonical: PATH },
 };
 
@@ -32,16 +32,66 @@ export default function DripPage() {
       <AdBanner slot="drip" />
 
       <div className="prose">
-        <h2>Why reinvest dividends?</h2>
+        <h2>How this DRIP calculator works</h2>
         <p>
-          Take a $10,000 position at 4% yield with 5% dividend growth and a $100 monthly contribution.
-          After 15 years you own far more than what you put in — and your <em>annual dividend income</em>{' '}
-          from those reinvested shares keeps rising even if the stock price stalls.
+          A DRIP (Dividend Reinvestment Plan) automatically uses each dividend payment to buy more
+          shares of the same stock or ETF, instead of sending you cash. This DRIP calculator
+          simulates that loop year by year: it takes your starting investment, share price,
+          dividend yield, dividend growth rate and an optional monthly contribution, then projects
+          your share count, portfolio value and annual dividend income into the future.
         </p>
         <p>
-          A note on growth rates: dividend growth compounds, so small differences add up. This tool is
-          a planning estimate, not a prediction.
+          The mechanic that makes it powerful is compounding. Each reinvested dividend buys a few
+          more shares; those extra shares pay dividends next year, which buy still more shares.
+          Over a decade or two the share count — and therefore the income — curves upward, even if
+          the share price goes nowhere.
         </p>
+
+        <h2>A worked DRIP example</h2>
+        <p>
+          Take a $10,000 position at a 4% yield with 5% dividend growth and a $100 monthly
+          contribution, reinvesting every payment. In year one you earn roughly $400 in dividends
+          and buy extra shares with it. By year 15 you own far more shares than your contributions
+          alone would have bought, and your annual dividend income from those reinvested shares
+          keeps rising even if the stock price stalls. Use the calculator above to test your own
+          assumptions — the two inputs that move the result most are dividend growth rate and time
+          horizon.
+        </p>
+
+        <h2>DRIP vs taking cash: when each wins</h2>
+        <p>
+          Reinvesting wins when you do not need the income today, you believe in the long-term
+          business, and taxes on reinvested dividends are manageable (in many tax-advantaged
+          accounts, dividends reinvested inside the wrapper generate no immediate tax). Taking cash
+          wins when you rely on the income to live on, when the holding looks overvalued and you
+          would rather deploy the cash elsewhere, or when reinvesting would over-concentrate you in
+          a single stock.
+        </p>
+        <p>
+          There is no universally right answer — the DRIP calculator just shows you the
+          reinvestment path clearly so you can compare it against cash-in-hand.
+        </p>
+
+        <h2>What this DRIP calculator does not predict</h2>
+        <ul>
+          <li>
+            <strong>Dividend cuts.</strong> Companies can suspend or reduce dividends; past growth
+            does not guarantee future payouts.
+          </li>
+          <li>
+            <strong>Share price moves.</strong> The price-growth assumption is a planning input,
+            not a forecast.
+          </li>
+          <li>
+            <strong>Taxes and fees.</strong> In taxable accounts, reinvested dividends are still
+            owed tax in the year paid, even though you never see the cash.
+          </li>
+          <li>
+            <strong>Fractional shares.</strong> Most modern brokers support fractional
+            reinvestment; some older DRIP plans round to whole shares.
+          </li>
+        </ul>
+
         <h2>Related calculators</h2>
         <p>
           <Link href="/">Dividend Calculator</Link> ·{' '}
