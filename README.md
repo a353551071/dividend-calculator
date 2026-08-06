@@ -76,3 +76,4 @@ that integration — nothing renders, the build is unaffected.
 
 - Calculator logic lives in `lib/dividend.ts` (pure functions; run `npm test` after any change)
 - Structured-data helpers live in `lib/schema.ts`; site config + nav in `lib/nav.ts` (single source)
+- Deployment: Vercel auto-deploys from `main` on push (Git integration reconnected 2026-08-06)
