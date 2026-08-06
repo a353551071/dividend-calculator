@@ -15,7 +15,7 @@ export default function ContactPage() {
         Questions, corrections or feedback about a calculator? We would love to hear from you.
       </p>
       <p>
-        Email: <a href="mailto:hello@dividendpayoutcalculator.com">hello@dividendpayoutcalculator.com</a>
+        Email: <a href="mailto:contact@dividendpayoutcalculator.com">contact@dividendpayoutcalculator.com</a>
       </p>
       <p>
         Found a calculation bug? Please include the inputs you used and the result you expected —
