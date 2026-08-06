@@ -117,6 +117,14 @@ export default function HomePage() {
             <h3>Payout Ratio Calculator</h3>
             <p>Check if a dividend is sustainable against earnings.</p>
           </Link>
+          <Link href="/calculators/schd-dividend-calculator" className="tool-card">
+            <h3>SCHD Dividend Calculator</h3>
+            <p>Yield, DRIP and projections for the Schwab dividend ETF.</p>
+          </Link>
+          <Link href="/calculators/qqqi-dividend-calculator" className="tool-card">
+            <h3>QQQI Dividend Calculator</h3>
+            <p>Monthly income and yield for the Nasdaq-100 covered-call ETF.</p>
+          </Link>
         </div>
       </section>
 
