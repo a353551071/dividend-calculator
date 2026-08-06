@@ -11,6 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/blog/how-dividend-reinvestment-works-drip',
     '/blog/dividend-yield-vs-dividend-rate',
     '/blog/drip-vs-taking-cash-dividends',
+    '/blog/schd-dividend-calendar',
     '/calculators/dividend-yield-calculator',
     '/calculators/dividend-growth-calculator',
     '/calculators/drip-calculator',

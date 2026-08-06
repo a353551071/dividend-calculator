@@ -75,6 +75,30 @@ const dripVsCashFaqs = [
   },
 ];
 
+/** P7「SCHD Dividend Calendar」的 FAQ,页面可见 + FAQPage schema。 */
+const schdCalendarFaqs = [
+  {
+    q: 'Does SCHD pay monthly or quarterly dividends?',
+    a: 'Quarterly. SCHD (the Schwab U.S. Dividend Equity ETF) pays four dividends a year, in March, June, September, and December. It is not a monthly payer, unlike some high-income ETFs.',
+  },
+  {
+    q: 'What months does SCHD pay dividends?',
+    a: 'March, June, September, and December. The exact ex-dividend and payment dates shift slightly each year, but the four-payments-per-year cadence in those months has been consistent.',
+  },
+  {
+    q: 'How do I make sure I receive the next SCHD dividend?',
+    a: 'Buy shares before the ex-dividend date and hold through that date. If you own the shares at the start of the ex-dividend day you receive the payment; if you buy on or after the ex-dividend date, the seller receives it. The payment arrives roughly one to two weeks later.',
+  },
+  {
+    q: 'How much does SCHD pay per share?',
+    a: 'The per-share dividend changes every quarter. Over the past year the four payments have totaled roughly $1 per share, for a yield around 3%. The exact amount is set each quarter, so confirm the current figure on the official Schwab fund page.',
+  },
+  {
+    q: 'Are SCHD dividend dates the same every year?',
+    a: 'The months are consistent (March, June, September, December), but the exact dates move a few days each year and are only final when Schwab declares them. Always check the declared ex-dividend and payment dates for the specific quarter before trading around them.',
+  },
+];
+
 /** 博客文章(既是 Adsense 三件套的「博客」,也吃股息长尾词)。 */
 export const POSTS: Post[] = [
   {
@@ -307,6 +331,109 @@ export const POSTS: Post[] = [
         </p>
         <h2>Frequently asked questions</h2>
         {dripVsCashFaqs.map((f) => (
+          <div key={f.q}>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </div>
+        ))}
+      </>
+    ),
+  },
+  {
+    slug: 'schd-dividend-calendar',
+    title: 'SCHD Dividend Calendar 2026: Ex-Dividend and Pay Dates',
+    date: '2026-08-06',
+    description:
+      'SCHD pays dividends quarterly in March, June, September, and December. See the typical ex-dividend and pay dates and how to confirm the exact 2026 SCHD dividend calendar.',
+    faqs: schdCalendarFaqs,
+    body: (
+      <>
+        <p>
+          <strong>SCHD (the Schwab U.S. Dividend Equity ETF) pays dividends <em>quarterly</em>, in
+          March, June, September, and December.</strong> It is not a monthly payer. The exact
+          ex-dividend and payment dates move a few days each year and are only final once Schwab
+          declares them. This page lays out the typical schedule, how the dividend cycle works, and
+          how to confirm the live 2026 dates.
+        </p>
+        <h2>SCHD dividend calendar: dates by quarter</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Quarter</th>
+              <th>Typical ex-dividend month</th>
+              <th>Typical payment timing</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Q1</td>
+              <td>March</td>
+              <td>Late March to early April</td>
+            </tr>
+            <tr>
+              <td>Q2</td>
+              <td>June</td>
+              <td>Late June to early July</td>
+            </tr>
+            <tr>
+              <td>Q3</td>
+              <td>September</td>
+              <td>Late September to early October</td>
+            </tr>
+            <tr>
+              <td>Q4</td>
+              <td>December</td>
+              <td>Mid to late December</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>
+          The ex-dividend date usually falls in the last third of those months, with payment
+          following about one to two weeks later. Recent ex-dividend dates have landed around late
+          June (Q2) and early-to-mid December (Q4), but treat these as a pattern, not a fixed
+          calendar.
+        </p>
+        <h2>How the dividend cycle works</h2>
+        <ul>
+          <li><strong>Declaration date:</strong> Schwab announces the amount and the key dates.</li>
+          <li><strong>Ex-dividend date:</strong> the cutoff. Buy before this date to receive the dividend; buy on or after it and the seller keeps the payment.</li>
+          <li><strong>Record date:</strong> usually one business day after the ex-dividend date, when Schwab checks who owns the shares.</li>
+          <li><strong>Payment date:</strong> the cash lands in your brokerage account, typically one to two weeks after the ex-dividend date.</li>
+        </ul>
+        <p>
+          For SCHD, the date that matters for your trading is the <strong>ex-dividend date</strong>;
+          the record and payment dates follow automatically.
+        </p>
+        <h2>How much does SCHD pay?</h2>
+        <p>
+          The per-share dividend changes every quarter. Over the past year the four payments have
+          totaled roughly <strong>$1 per share</strong>, for a yield around <strong>3%</strong>, but
+          the exact amount is set each quarter and the yield moves with the share price. Estimate
+          the current return with the{' '}
+          <a href="/calculators/schd-dividend-calculator">SCHD dividend calculator</a>.
+        </p>
+        <h2>How to confirm the exact 2026 dates</h2>
+        <ol>
+          <li>Open the official Schwab fund page for SCHD and check the &ldquo;Distributions&rdquo; section.</li>
+          <li>Watch for the declaration announcement a few weeks before the ex-dividend date each quarter.</li>
+          <li>In your brokerage, the ex-dividend and payment dates appear under the corporate-action details for your position.</li>
+        </ol>
+        <p>
+          Dates published before the official declaration are estimates. Always confirm the declared
+          dates for the quarter you care about before trading around a dividend.
+        </p>
+        <p>
+          <em>Dividend dates and amounts can change and are not official until declared. This page
+          is information, not financial or tax advice.</em>
+        </p>
+        <p>
+          Want to model how reinvested SCHD dividends could grow? Try the{' '}
+          <a href="/calculators/drip-calculator">DRIP calculator</a>, compare with a monthly payer
+          on the <a href="/calculators/monthly-dividend-calculator">monthly dividend calculator</a>,
+          or read <a href="/blog/what-is-a-good-dividend-yield">what makes a good dividend yield</a>.
+        </p>
+        <h2>Frequently asked questions</h2>
+        {schdCalendarFaqs.map((f) => (
           <div key={f.q}>
             <h3>{f.q}</h3>
             <p>{f.a}</p>
