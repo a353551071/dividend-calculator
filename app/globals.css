@@ -131,6 +131,11 @@ h2 { font-size: 1.4rem; margin-top: 36px; letter-spacing: -0.01em; }
 .prose { max-width: 760px; }
 .prose h2 { font-size: 1.25rem; margin-top: 28px; }
 .prose ul { padding-left: 20px; }
+.prose table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: .9rem; }
+.prose table th, .prose table td { padding: 8px 10px; border: 1px solid var(--card-border); text-align: left; }
+.prose table th { background: var(--muted); font-weight: 600; }
+.prose table tbody tr:nth-child(even) { background: var(--primary-soft); }
+.prose table { display: block; overflow-x: auto; } /* mobile: allow horizontal scroll */
 
 @media (max-width: 640px) {
   h1 { font-size: 1.6rem; }
