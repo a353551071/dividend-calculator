@@ -12,6 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/blog/dividend-yield-vs-dividend-rate',
     '/blog/drip-vs-taking-cash-dividends',
     '/blog/schd-dividend-calendar',
+    '/blog/best-monthly-dividend-stocks',
     '/calculators/dividend-yield-calculator',
     '/calculators/dividend-growth-calculator',
     '/calculators/drip-calculator',
