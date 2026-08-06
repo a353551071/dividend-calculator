@@ -17,3 +17,13 @@ export function formatNumber(v: number, digits = 2): string {
   if (!Number.isFinite(v)) return '—';
   return v.toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: digits });
 }
+
+/** 紧凑金额(SVG 轴标签用):$1.2K / $34K / $1.2M。 */
+export function formatCompact(v: number, currency = '$'): string {
+  if (!Number.isFinite(v)) return '—';
+  const abs = Math.abs(v);
+  const sign = v < 0 ? '-' : '';
+  if (abs >= 1_000_000) return `${sign}${currency}${(abs / 1_000_000).toFixed(abs >= 10_000_000 ? 0 : 1)}M`;
+  if (abs >= 1_000) return `${sign}${currency}${(abs / 1_000).toFixed(abs >= 10_000 ? 0 : 1)}K`;
+  return `${sign}${currency}${Math.round(abs)}`;
+}

@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import type { ReactNode } from 'react';
 
 export interface CalcField {
   key: string;
@@ -11,6 +12,8 @@ export interface CalcField {
   prefix?: string;
   suffix?: string;
   help?: string;
+  /** 输入框占位文案(真实感示例,不影响默认值)。 */
+  placeholder?: string;
 }
 
 export interface CalcRow {
@@ -23,10 +26,12 @@ interface CalculatorProps {
   fields: CalcField[];
   compute: (values: Record<string, number>) => CalcRow[];
   footnote?: string;
+  /** 结果卡下方额外渲染(逐年表/图等),共享当前输入值。 */
+  extra?: (values: Record<string, number>) => ReactNode;
 }
 
 /** 通用计算器外壳:字段表单 + 结果卡片。纯 client,负责交互。 */
-export default function Calculator({ fields, compute, footnote }: CalculatorProps) {
+export default function Calculator({ fields, compute, footnote, extra }: CalculatorProps) {
   const [values, setValues] = useState<Record<string, number>>(() =>
     Object.fromEntries(fields.map((f) => [f.key, f.defaultValue]))
   );
@@ -45,6 +50,7 @@ export default function Calculator({ fields, compute, footnote }: CalculatorProp
                 inputMode="decimal"
                 step={f.step ?? 0.01}
                 value={values[f.key]}
+                placeholder={f.placeholder}
                 onChange={(e) =>
                   setValues((v) => ({ ...v, [f.key]: Number(e.target.value) }))
                 }
@@ -63,6 +69,7 @@ export default function Calculator({ fields, compute, footnote }: CalculatorProp
           </div>
         ))}
       </div>
+      {extra && <div className="calc-extra">{extra(values)}</div>}
       {footnote && <p className="calc-footnote">{footnote}</p>}
     </div>
   );

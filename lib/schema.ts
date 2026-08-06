@@ -28,6 +28,8 @@ export function organizationJsonLd(): string {
     url: SITE_URL,
     description:
       'Free dividend calculators: yield, growth, DRIP reinvestment, monthly income and payout ratio.',
+    logo: { '@type': 'ImageObject', url: `${SITE_URL}/opengraph-image` },
+    sameAs: ['https://github.com/a353551071/dividend-calculator'],
   });
 }
 
@@ -82,6 +84,6 @@ export function articleJsonLd(input: ArticleInput): string {
     dateModified: input.date,
     url: `${SITE_URL}${input.path}`,
     author: { '@type': 'Organization', name: SITE_NAME },
-    publisher: { '@type': 'Organization', name: SITE_URL },
+    publisher: { '@type': 'Organization', name: SITE_NAME },
   });
 }

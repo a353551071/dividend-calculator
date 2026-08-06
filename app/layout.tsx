@@ -25,10 +25,9 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: SITE_URL,
-    images: [{ url: '/og.png', width: 1200, height: 630, alt: SITE_NAME }],
   },
   twitter: {
-    card: 'summary',
+    card: 'summary_large_image',
     title: `${SITE_NAME} 2026 — Free Dividend Calculator`,
     description: SITE_DESC,
   },

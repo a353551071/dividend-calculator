@@ -94,6 +94,36 @@ h2 { font-size: 1.4rem; margin-top: 36px; letter-spacing: -0.01em; }
 /* Finance note */
 .finance-note { color: var(--muted-foreground); font-size: .82rem; border-left: 3px solid var(--primary); padding: 4px 12px; background: var(--muted); border-radius: 4px; margin: 14px 0; }
 
+/* Trust badges (hero highlight row) */
+.trust-badges { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin: -4px 0 18px; font-size: .85rem; font-weight: 600; color: var(--primary-hover); letter-spacing: .01em; }
+.trust-badges span[aria-hidden="true"] { color: var(--muted-foreground); font-weight: 400; }
+
+/* Calculator extra (results table + chart) */
+.calc-extra { display: grid; gap: 16px; margin-top: 4px; }
+.calc-extra .results-title { font-size: .95rem; margin: 0 0 6px; color: var(--foreground); }
+.results-empty { color: var(--muted-foreground); font-size: .85rem; margin: 8px 0 0; }
+.results-table-wrap { overflow-x: auto; border: 1px solid var(--card-border); border-radius: var(--radius); background: #fff; }
+.results-table { width: 100%; border-collapse: collapse; font-size: .82rem; min-width: 560px; }
+.results-table th, .results-table td { padding: 8px 10px; text-align: right; white-space: nowrap; }
+.results-table th { position: sticky; top: 0; background: var(--muted); color: var(--foreground); font-weight: 600; border-bottom: 1px solid var(--card-border); }
+.results-table thead th:first-child, .results-table tbody td:first-child { text-align: left; }
+.results-table tbody tr:nth-child(even) { background: var(--primary-soft); }
+.results-table tbody tr:hover { background: #dbeafe; }
+.results-chart-wrap { background: #fff; border: 1px solid var(--card-border); border-radius: var(--radius); padding: 12px; }
+.results-chart { width: 100%; height: auto; display: block; }
+.chart-legend { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; list-style: none; margin: 10px 0 0; padding: 0; font-size: .82rem; color: var(--foreground); }
+.chart-legend li { display: flex; align-items: center; gap: 6px; }
+.legend-swatch { display: inline-block; width: 12px; height: 12px; border-radius: 3px; }
+
+/* Payout sustainability gauge */
+.payout-gauge { background: #fff; border: 1px solid var(--card-border); border-radius: var(--radius); padding: 16px; display: grid; gap: 10px; }
+.payout-gauge-tier { font-weight: 700; font-size: 1.05rem; }
+.payout-gauge-desc { color: var(--muted-foreground); font-size: .85rem; }
+.payout-bar { position: relative; display: flex; height: 14px; border-radius: 7px; overflow: hidden; border: 1px solid var(--card-border); }
+.payout-seg { display: block; height: 100%; }
+.payout-marker { position: absolute; top: -4px; bottom: -4px; width: 3px; background: var(--foreground); border-radius: 2px; transform: translateX(-50%); box-shadow: 0 0 0 2px #fff; }
+.payout-scale { display: flex; justify-content: space-between; font-size: .72rem; color: var(--muted-foreground); }
+
 /* Ad */
 .ad-slot { min-height: 90px; margin: 20px 0; display: flex; justify-content: center; align-items: center; background: var(--muted); border: 1px dashed var(--card-border); border-radius: var(--radius); color: var(--muted-foreground); font-size: .8rem; }
 

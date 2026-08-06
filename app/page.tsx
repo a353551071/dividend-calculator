@@ -3,6 +3,7 @@ import Link from 'next/link';
 import HeadlineDividendCalc from '@/components/HeadlineDividendCalc';
 import FinanceNote from '@/components/FinanceNote';
 import AdBanner from '@/components/AdBanner';
+import { faqJsonLd } from '@/lib/schema';
 
 export const metadata: Metadata = {
   title: { absolute: 'Dividend Calculator 2026 — Yield, DRIP & Income' },
@@ -30,15 +31,7 @@ export default function HomePage() {
       a: 'A payout ratio between 30% and 60% is generally considered healthy — the company returns meaningful cash to shareholders while retaining enough to reinvest in growth. Above 100% is usually unsustainable.',
     },
   ];
-  const faqJsonLd = JSON.stringify({
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: faq.map((f) => ({
-      '@type': 'Question',
-      name: f.q,
-      acceptedAnswer: { '@type': 'Answer', text: f.a },
-    })),
-  });
+  const faqLd = faqJsonLd(faq);
 
   return (
     <>
@@ -49,6 +42,14 @@ export default function HomePage() {
           calculator shows your dividend yield, future dividend growth, DRIP reinvestment returns
           and monthly dividend income.
         </p>
+      </section>
+
+      <section className="trust-badges" aria-label="Site highlights">
+        <span>Free</span>
+        <span aria-hidden="true">·</span>
+        <span>No sign-up</span>
+        <span aria-hidden="true">·</span>
+        <span>Built for 2026 dividends</span>
       </section>
 
       <div className="card">
@@ -133,7 +134,7 @@ export default function HomePage() {
 
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: faqJsonLd }}
+        dangerouslySetInnerHTML={{ __html: faqLd }}
       />
     </>
   );

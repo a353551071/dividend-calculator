@@ -3,6 +3,13 @@
 import Calculator, { type CalcRow } from './Calculator';
 import { dripCalculator } from '@/lib/dividend';
 import { formatMoney, formatNumber } from '@/lib/format';
+import DripResultsExtra from './DripResultsExtra';
+
+const toInput = (v: Record<string, number>) => ({
+  initialInvestment: v.initial, price: v.price, dividendYieldPct: v.yield,
+  dividendGrowthPct: v.divGrowth, priceGrowthPct: v.priceGrowth,
+  monthlyContribution: v.monthly, years: v.years,
+});
 
 interface TickerDripProps {
   /** Ticker symbol, e.g. "SCHD" / "QQQI". Drives labels and result rows. */
@@ -47,11 +54,7 @@ export default function TickerDripCalc({
         { key: 'years', label: 'Years', suffix: 'yrs', defaultValue: defaultYears, step: 1 },
       ]}
       compute={(v): CalcRow[] => {
-        const r = dripCalculator({
-          initialInvestment: v.initial, price: v.price, dividendYieldPct: v.yield,
-          dividendGrowthPct: v.divGrowth, priceGrowthPct: v.priceGrowth,
-          monthlyContribution: v.monthly, years: v.years,
-        });
+        const r = dripCalculator(toInput(v));
         const gain = r.finalValue - r.totalInvested;
         return [
           { label: 'Final portfolio value', value: formatMoney(r.finalValue), highlight: true },
@@ -62,6 +65,7 @@ export default function TickerDripCalc({
           { label: 'Final annual income', value: formatMoney(r.finalAnnualDividendIncome), highlight: true },
         ];
       }}
+      extra={(v) => <DripResultsExtra input={toInput(v)} />}
       footnote={`DRIP compounding for ${ticker}: distributions buy more shares, which pay more distributions next period. Growth rates are planning assumptions, not predictions.`}
     />
   );

@@ -74,6 +74,38 @@ export interface DripResult {
   finalAnnualDividendIncome: number;
 }
 
+/** DRIP 单年明细 — 对标 dripcalc 逐年表。 */
+export interface DripYearResult {
+  /** 第几年(1-based) */
+  year: number;
+  /** 期初股份数 */
+  startShares: number;
+  /** 期初市值(期初股份 × 当年股价,美元) */
+  startBalance: number;
+  /** 当年股价(期初价,美元) */
+  sharePrice: number;
+  /** 当年每股年股息(美元) */
+  dividendPerShare: number;
+  /** 当年收到股息总额(美元) */
+  annualDividend: number;
+  /** 成本收益率(当年股息 ÷ 累计投入,%;无投入时 NaN) */
+  yieldOnCost: number;
+  /** 当年通过股息再投资新增的股份(取现模式为 0) */
+  reinvestedShares: number;
+  /** 期末股份数 */
+  endShares: number;
+  /** 期末市值(期末股份 × 年末股价,美元) */
+  endBalance: number;
+}
+
+/** DRIP 模拟结果 = 期末汇总 + 逐年明细。 */
+export interface DripSimulation {
+  /** 期末标量汇总(向后兼容 dripCalculator) */
+  summary: DripResult;
+  /** 逐年明细(空数组 = 非法输入) */
+  yearly: DripYearResult[];
+}
+
 /** 年化每股股息:传入月股息时 ×12。 */
 export function annualizeDividend(dividend: number, isMonthly: boolean): number {
   return isMonthly ? dividend * 12 : dividend;
@@ -118,42 +150,80 @@ export function payoutRatio(input: PayoutRatioInput): number {
 }
 
 /**
- * DRIP(股息再投资)逐年模拟。
+ * DRIP(股息再投资)逐年模拟 — 单一真相源。
  *
  * 逐年:期初股息率随股息增长率提升 → 年股息 = 股份×股价×当期股息率
  *  → 股息按当期股价再投资(股份 += 股息/股价)→ 股价按 priceGrowthPct 增长
  *  → 每月追加投入按当期股价买入。
- * 输出期末股份/市值/累计投入/累计股息。
+ * `reinvest=true`(默认)= DRIP 模式,股息再买入股份;
+ * `reinvest=false` = 取现模式,股息当现金拿走(股份只随月供增长)—— 用于结果页对比图。
+ * 同时输出期末汇总(向后兼容 dripCalculator)与逐年明细(结果表/图消费)。
  */
-export function dripCalculator(input: DripInput): DripResult {
-  if (input.initialInvestment < 0 || input.price <= 0 || input.years < 0) {
-    return { shares: NaN, finalPrice: NaN, finalValue: NaN,
-             totalInvested: NaN, totalDividends: NaN, finalAnnualDividendIncome: NaN };
+export function simulateDrip(input: DripInput, reinvest = true): DripSimulation {
+  const invalid =
+    input.initialInvestment < 0 || input.price <= 0 || input.years < 0 || !Number.isFinite(input.years);
+  if (invalid) {
+    const nanSummary: DripResult = {
+      shares: NaN, finalPrice: NaN, finalValue: NaN,
+      totalInvested: NaN, totalDividends: NaN, finalAnnualDividendIncome: NaN,
+    };
+    return { summary: nanSummary, yearly: [] };
   }
+
   let shares = input.initialInvestment / input.price;
   let price = input.price;
   let yieldPct = input.dividendYieldPct;
   let totalDividends = 0;
   let totalInvested = input.initialInvestment;
+  const yearly: DripYearResult[] = [];
 
   for (let y = 1; y <= input.years; y++) {
-    // 本年股息(基于本年收益率)
-    const dividend = shares * price * (yieldPct / 100);
+    const startShares = shares;
+    const startPrice = price;
+    const startBalance = startShares * startPrice;
+    const dividend = startShares * startPrice * (yieldPct / 100);
+    const dps = startPrice * (yieldPct / 100);
     totalDividends += dividend;
-    // 再投资 + 追加投入
     const annualContribution = input.monthlyContribution * 12;
     totalInvested += annualContribution;
-    shares += dividend / price + annualContribution / price;
+    const reinvestedShares = reinvest ? dividend / startPrice : 0;
+    const contributionShares = annualContribution / startPrice;
+    shares += reinvestedShares + contributionShares;
+    const yieldOnCost = totalInvested > 0 ? (dividend / totalInvested) * 100 : NaN;
     // 年末股价增长 + 股息率增长
     price *= 1 + input.priceGrowthPct / 100;
     yieldPct *= 1 + input.dividendGrowthPct / 100;
+    yearly.push({
+      year: y,
+      startShares,
+      startBalance,
+      sharePrice: startPrice,
+      dividendPerShare: dps,
+      annualDividend: dividend,
+      yieldOnCost,
+      reinvestedShares,
+      endShares: shares,
+      endBalance: shares * price,
+    });
   }
+
   return {
-    shares,
-    finalPrice: price,
-    finalValue: shares * price,
-    totalInvested,
-    totalDividends,
-    finalAnnualDividendIncome: shares * price * (yieldPct / 100),
+    summary: {
+      shares,
+      finalPrice: price,
+      finalValue: shares * price,
+      totalInvested,
+      totalDividends,
+      finalAnnualDividendIncome: shares * price * (yieldPct / 100),
+    },
+    yearly,
   };
+}
+
+/**
+ * DRIP 期末汇总(向后兼容包装)。
+ * 等价于 `simulateDrip(input, true).summary`,保留原签名不破坏调用方与现有测试。
+ */
+export function dripCalculator(input: DripInput): DripResult {
+  return simulateDrip(input, true).summary;
 }
