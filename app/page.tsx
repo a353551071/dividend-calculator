@@ -100,7 +100,7 @@ export default function HomePage() {
           These two terms get confused often, and a dividend payout calculator is built to keep
           them straight. <strong>Dividend yield</strong> measures the annual dividend relative to
           the share price — the return you earn for what you pay. <strong>Dividend payout</strong>{' '}
-          (the payout ratio) measures the dividend relative to the company's earnings — how much
+          (the payout ratio) measures the dividend relative to the company&rsquo;s earnings — how much
           profit the company actually hands back. A stock can show a tempting high yield while
           paying out more than it earns, which is exactly the kind of sustainability risk this
           calculator helps you spot. Pair the{' '}
@@ -117,7 +117,7 @@ export default function HomePage() {
           This dividend payout calculator is built for income-focused investors: retirees living
           off portfolio cash, long-term holders comparing ETFs like SCHD and QQQI, and anyone
           mapping out how long it takes to reach a target monthly income. If you have ever asked
-          "how much do I need to invest to earn $1,000 a month in dividends", the dividend payout
+          &ldquo;how much do I need to invest to earn $1,000 a month in dividends&rdquo;, the dividend payout
           calculator answers it directly — set a yield, a starting amount and a growth rate, then
           read off the monthly and yearly projections. The math mirrors what your brokerage
           statement reports, just faster and forward-looking. The{' '}
@@ -141,7 +141,7 @@ export default function HomePage() {
           long-time holders of consistently raising stocks often show yields far above today's
           market yield. The <strong>DRIP projection</strong> shows how reinvesting each payment
           buys more shares, accelerating both your share count and future income; the gap between
-          "reinvest" and "take cash" is the clearest illustration of compounding most people will
+          &ldquo;reinvest&rdquo; and &ldquo;take cash&rdquo; is the clearest illustration of compounding most people will
           see. Finally, remember that very high yields (often above 8–10%) can signal a struggling
           share price or an unsustainable payout — a number this calculator surfaces but never
           endorses. Past dividends do not guarantee future ones; treat every projection as an
