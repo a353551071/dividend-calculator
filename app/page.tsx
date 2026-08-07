@@ -150,6 +150,19 @@ export default function HomePage() {
       </section>
 
       <section>
+        <h2>Common dividend payout scenarios</h2>
+        <p>
+          The dividend payout calculator adapts to several real situations. A retiree drawing 4%
+          from a $500,000 portfolio models about $1,667 a month in cash flow. A younger saver
+          reinvesting a 3.5% yield on a dividend growth ETF like SCHD watches the year-10 balance
+          pull ahead of the take-cash path by a wide margin. An income hunter comparing a
+          high-yield covered-call ETF like QQQI against a slower-growing index fund uses the same
+          inputs to weigh monthly cash now against long-term compounding. Switch the yield, growth
+          and starting amount to match your own case — every projection updates instantly.
+        </p>
+      </section>
+
+      <section>
         <h2>Dividend Tools</h2>
         <div className="tool-grid">
           <Link href="/calculators/dividend-yield-calculator" className="tool-card">
