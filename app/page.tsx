@@ -138,7 +138,7 @@ export default function HomePage() {
           A few numbers deserve extra attention when you use the dividend payout calculator. The{' '}
           <strong>yield on cost</strong> — your yield based on the price you actually paid, not the
           current price — climbs over time when a company grows its dividend, which is why
-          long-time holders of consistently raising stocks often show yields far above today's
+          long-time holders of consistently raising stocks often show yields far above today&rsquo;s
           market yield. The <strong>DRIP projection</strong> shows how reinvesting each payment
           buys more shares, accelerating both your share count and future income; the gap between
           &ldquo;reinvest&rdquo; and &ldquo;take cash&rdquo; is the clearest illustration of compounding most people will
