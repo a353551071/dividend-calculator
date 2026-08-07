@@ -47,6 +47,7 @@ export default function SchdPage() {
         using a starting yield near 3.5% and historical dividend growth near 10%.
       </p>
 
+      <h2>Calculate your SCHD dividends</h2>
       <div className="card">
         <TickerDripCalc
           ticker="SCHD"

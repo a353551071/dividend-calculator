@@ -47,6 +47,7 @@ export default function QqqiPage() {
         reinvestment — with the trade-offs explained honestly.
       </p>
 
+      <h2>Calculate your QQQI monthly income</h2>
       <div className="card">
         <TickerDripCalc
           ticker="QQQI"
