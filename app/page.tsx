@@ -6,9 +6,9 @@ import AdBanner from '@/components/AdBanner';
 import { faqJsonLd } from '@/lib/schema';
 
 export const metadata: Metadata = {
-  title: { absolute: 'Dividend Calculator 2026 — Yield, DRIP & Income' },
+  title: { absolute: 'Dividend Payout Calculator 2026 — Yield, DRIP & Income' },
   description:
-    'Free dividend calculator: instantly compute dividend yield, dividend growth, DRIP reinvestment returns, monthly dividend income and payout ratio.',
+    'Free dividend payout calculator: compute dividend yield, dividend growth, DRIP reinvestment returns, monthly income and payout ratio in seconds.',
   alternates: { canonical: '/' },
 };
 
@@ -36,11 +36,11 @@ export default function HomePage() {
   return (
     <>
       <section>
-        <h1>Dividend Calculator</h1>
+        <h1>Dividend Payout Calculator</h1>
         <p className="lead">
-          Estimate your dividend income in seconds. Enter a price and dividend, and this free
-          calculator shows your dividend yield, future dividend growth, DRIP reinvestment returns
-          and monthly dividend income.
+          Estimate your dividend income in seconds. This free dividend payout calculator shows
+          your dividend yield, future dividend growth, DRIP reinvestment returns and monthly
+          dividend income — enter a share price and dividend to start.
         </p>
       </section>
 
@@ -78,7 +78,7 @@ export default function HomePage() {
       </section>
 
       <section>
-        <h2>How to use this dividend calculator</h2>
+        <h2>How to use this dividend payout calculator</h2>
         <p>
           Enter a share price and an annual dividend per share, and the calculator returns your
           dividend yield instantly. From there you can layer on a dividend growth rate to project
@@ -91,6 +91,61 @@ export default function HomePage() {
           or roughly $167 a month. Push yield growth to 7% and reinvest, and the year-10 income
           projection is dramatically higher — not because the yield doubled, but because you own
           many more shares by then. That compounding effect is the whole point of the DRIP view.
+        </p>
+      </section>
+
+      <section>
+        <h2>Dividend payout vs dividend yield</h2>
+        <p>
+          These two terms get confused often, and a dividend payout calculator is built to keep
+          them straight. <strong>Dividend yield</strong> measures the annual dividend relative to
+          the share price — the return you earn for what you pay. <strong>Dividend payout</strong>{' '}
+          (the payout ratio) measures the dividend relative to the company's earnings — how much
+          profit the company actually hands back. A stock can show a tempting high yield while
+          paying out more than it earns, which is exactly the kind of sustainability risk this
+          calculator helps you spot. Pair the{' '}
+          <Link href="/calculators/dividend-yield-calculator">dividend yield calculator</Link> with
+          the{' '}
+          <Link href="/calculators/dividend-payout-ratio-calculator">payout ratio calculator</Link>{' '}
+          to see both the return and the safety of a dividend.
+        </p>
+      </section>
+
+      <section>
+        <h2>Who needs a dividend payout calculator</h2>
+        <p>
+          This dividend payout calculator is built for income-focused investors: retirees living
+          off portfolio cash, long-term holders comparing ETFs like SCHD and QQQI, and anyone
+          mapping out how long it takes to reach a target monthly income. If you have ever asked
+          "how much do I need to invest to earn $1,000 a month in dividends", the dividend payout
+          calculator answers it directly — set a yield, a starting amount and a growth rate, then
+          read off the monthly and yearly projections. The math mirrors what your brokerage
+          statement reports, just faster and forward-looking. The{' '}
+          <a
+            href="https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            U.S. SEC guide to dividend stocks
+          </a>{' '}
+          is a trustworthy reference for how dividends are declared, recorded and paid.
+        </p>
+      </section>
+
+      <section>
+        <h2>Reading your dividend payout calculator results</h2>
+        <p>
+          A few numbers deserve extra attention when you use the dividend payout calculator. The{' '}
+          <strong>yield on cost</strong> — your yield based on the price you actually paid, not the
+          current price — climbs over time when a company grows its dividend, which is why
+          long-time holders of consistently raising stocks often show yields far above today's
+          market yield. The <strong>DRIP projection</strong> shows how reinvesting each payment
+          buys more shares, accelerating both your share count and future income; the gap between
+          "reinvest" and "take cash" is the clearest illustration of compounding most people will
+          see. Finally, remember that very high yields (often above 8–10%) can signal a struggling
+          share price or an unsustainable payout — a number this calculator surfaces but never
+          endorses. Past dividends do not guarantee future ones; treat every projection as an
+          estimate, not a promise.
         </p>
       </section>
 
