@@ -11,7 +11,7 @@ sign-up and no data collection. Estimates only — not financial advice.
 - [Dividend Yield Calculator](https://www.dividendpayoutcalculator.com/calculators/dividend-yield-calculator): annual dividend per share ÷ share price
 - [Dividend Growth Calculator](https://www.dividendpayoutcalculator.com/calculators/dividend-growth-calculator): project future dividends with a compound growth rate
 - [DRIP Calculator](https://www.dividendpayoutcalculator.com/calculators/drip-calculator): simulate dividend reinvestment compounding
-- [Monthly Dividend Income Calculator](https://www.dividendpayoutcalculator.com/calculators/monthly-dividend-calculator): monthly passive income from a portfolio
+- [Monthly Dividend Calculator](https://www.dividendpayoutcalculator.com/calculators/monthly-dividend-calculator): monthly dividend income from a portfolio
 - [Dividend Payout Ratio Calculator](https://www.dividendpayoutcalculator.com/calculators/dividend-payout-ratio-calculator): dividends ÷ earnings, sustainability check
 
 ## Learn

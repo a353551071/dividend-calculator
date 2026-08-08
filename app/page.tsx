@@ -178,8 +178,8 @@ export default function HomePage() {
             <p>Simulate dividend reinvestment compounding over years.</p>
           </Link>
           <Link href="/calculators/monthly-dividend-calculator" className="tool-card">
-            <h3>Monthly Dividend Income Calculator</h3>
-            <p>How much monthly passive income your portfolio generates.</p>
+            <h3>Monthly Dividend Calculator</h3>
+            <p>How much monthly dividend income your portfolio generates.</p>
           </Link>
           <Link href="/calculators/dividend-payout-ratio-calculator" className="tool-card">
             <h3>Payout Ratio Calculator</h3>

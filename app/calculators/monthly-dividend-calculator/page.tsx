@@ -8,9 +8,9 @@ import { webAppJsonLd, breadcrumbJsonLd, faqJsonLd } from '@/lib/schema';
 const PATH = '/calculators/monthly-dividend-calculator';
 
 export const metadata: Metadata = {
-  title: 'Monthly Dividend Income Calculator 2026',
+  title: 'Monthly Dividend Calculator 2026 — Monthly Income',
   description:
-    'How much monthly passive income will your portfolio generate? Enter your investment and dividend yield to find out.',
+    'Use this monthly dividend calculator to project how much monthly dividend income your portfolio generates — today and years ahead.',
   alternates: { canonical: PATH },
 };
 
@@ -40,10 +40,11 @@ const faqs = [
 export default function MonthlyDividendPage() {
   return (
     <>
-      <h1>Monthly Dividend Income Calculator</h1>
+      <h1>Monthly Dividend Calculator</h1>
       <p className="lead">
-        Work backwards from your goal: enter the money you have invested and the dividend yield, and
-        see exactly how much monthly passive income it generates — today and years into the future.
+        This monthly dividend calculator works backwards from your goal: enter the money you have
+        invested and the dividend yield, and see exactly how much monthly income it generates — today
+        and years into the future.
       </p>
 
       <div className="card">
@@ -171,14 +172,14 @@ export default function MonthlyDividendPage() {
 
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: webAppJsonLd('Monthly Dividend Income Calculator', PATH) }}
+        dangerouslySetInnerHTML={{ __html: webAppJsonLd('Monthly Dividend Calculator', PATH) }}
       />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: breadcrumbJsonLd([
             { name: 'Home', path: '/' },
-            { name: 'Monthly Dividend Income Calculator', path: PATH },
+            { name: 'Monthly Dividend Calculator', path: PATH },
           ]),
         }}
       />
