@@ -8,7 +8,7 @@ import { webAppJsonLd, breadcrumbJsonLd, faqJsonLd } from '@/lib/schema';
 const PATH = '/calculators/dividend-yield-calculator';
 
 export const metadata: Metadata = {
-  title: 'Dividend Yield Calculator 2026',
+  title: { absolute: 'Dividend Yield Calculator 2026 — Free Online' },
   description:
     'Calculate dividend yield instantly: annual dividend per share ÷ current share price. Free, no sign-up, works for any stock.',
   alternates: { canonical: PATH },

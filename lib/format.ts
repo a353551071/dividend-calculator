@@ -2,7 +2,7 @@
 export function formatMoney(v: number, currency = '$'): string {
   if (!Number.isFinite(v)) return '—';
   const abs = Math.abs(v);
-  const digits = abs >= 10000 ? 0 : abs >= 100 ? 2 : 2;
+  const digits = abs >= 10000 ? 0 : 2;
   return `${currency}${v.toLocaleString('en-US', { minimumFractionDigits: digits, maximumFractionDigits: digits })}`;
 }
 

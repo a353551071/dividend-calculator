@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from 'next';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { SITE_NAME, SITE_DESC, SITE_URL } from '@/lib/nav';
-import { organizationJsonLd } from '@/lib/schema';
+import { organizationJsonLd, webSiteJsonLd } from '@/lib/schema';
 import './globals.css';
 
 const gscVerification = process.env.NEXT_PUBLIC_GSC_VERIFICATION;
@@ -45,6 +45,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <head>
+        {adsense && <link rel="preconnect" href="https://pagead2.googlesyndication.com" />}
+        {gaId && <link rel="preconnect" href="https://www.googletagmanager.com" />}
         {adsense && (
           <script
             async
@@ -83,6 +85,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: organizationJsonLd() }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: webSiteJsonLd() }}
         />
       </body>
     </html>

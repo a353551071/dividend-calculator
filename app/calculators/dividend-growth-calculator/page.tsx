@@ -8,7 +8,7 @@ import { webAppJsonLd, breadcrumbJsonLd, faqJsonLd } from '@/lib/schema';
 const PATH = '/calculators/dividend-growth-calculator';
 
 export const metadata: Metadata = {
-  title: 'Dividend Growth Calculator 2026',
+  title: { absolute: 'Dividend Growth Calculator 2026 — Project Income' },
   description:
     'Project future dividend income with a compound annual growth rate. See what a dividend will pay in 10 or 20 years.',
   alternates: { canonical: PATH },

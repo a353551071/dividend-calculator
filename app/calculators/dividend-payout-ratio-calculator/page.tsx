@@ -8,7 +8,7 @@ import { webAppJsonLd, breadcrumbJsonLd, faqJsonLd } from '@/lib/schema';
 const PATH = '/calculators/dividend-payout-ratio-calculator';
 
 export const metadata: Metadata = {
-  title: 'Dividend Payout Ratio Calculator 2026',
+  title: { absolute: 'Dividend Payout Ratio Calculator 2026 — Is It Safe?' },
   description:
     'Check if a dividend is sustainable: calculate the payout ratio (dividends ÷ earnings) and understand what the number means.',
   alternates: { canonical: PATH },

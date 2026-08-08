@@ -33,6 +33,24 @@ export function organizationJsonLd(): string {
   });
 }
 
+/** WebSite schema with SearchAction — enables the Google sitelinks search box. */
+export function webSiteJsonLd(): string {
+  return JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: SITE_NAME,
+    url: SITE_URL,
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: {
+        '@type': 'EntryPoint',
+        urlTemplate: `${SITE_URL}/?q={search_term_string}`,
+      },
+      'query-input': 'required name=search_term_string',
+    },
+  });
+}
+
 /** WebApplication schema — one per calculator / tool page. */
 export function webAppJsonLd(name: string, path: string): string {
   return JSON.stringify({

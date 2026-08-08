@@ -61,7 +61,7 @@ export default function TickerDripCalc({
           { label: 'Total invested', value: formatMoney(r.totalInvested) },
           { label: `Total ${ticker} distributions received`, value: formatMoney(r.totalDividends) },
           { label: 'Investment gain (value − invested)', value: formatMoney(gain) },
-          { label: `Shares owned at end`, value: formatNumber(r.shares, 1) },
+          { label: 'Shares owned at end', value: formatNumber(r.shares, 1) },
           { label: 'Final annual income', value: formatMoney(r.finalAnnualDividendIncome), highlight: true },
         ];
       }}
