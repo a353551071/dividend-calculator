@@ -3,6 +3,8 @@ import Link from 'next/link';
 import { POSTS, getPost } from '@/lib/posts';
 import { notFound } from 'next/navigation';
 import { articleJsonLd, faqJsonLd } from '@/lib/schema';
+import { MDXRemote } from 'next-mdx-remote/rsc';
+import remarkGfm from 'remark-gfm';
 
 export function generateStaticParams() {
   return POSTS.map((p) => ({ slug: p.slug }));
@@ -31,7 +33,19 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
     <article className="prose">
       <p style={{ color: 'var(--muted-foreground)', fontSize: '.85rem', marginBottom: 4 }}>{post.date}</p>
       <h1 style={{ marginTop: 0 }}>{post.title}</h1>
-      {post.body}
+      <MDXRemote source={post.body} options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }} />
+
+      {post.faqs && post.faqs.length > 0 && (
+        <>
+          <h2>Frequently asked questions</h2>
+          {post.faqs.map((f) => (
+            <div key={f.q}>
+              <h3>{f.q}</h3>
+              <p>{f.a}</p>
+            </div>
+          ))}
+        </>
+      )}
 
       <h2>Related articles</h2>
       <ul>
