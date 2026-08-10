@@ -152,6 +152,10 @@ export default function QqqiPage() {
           <Link href="/calculators/monthly-dividend-calculator">Monthly Income Calculator</Link> ·{' '}
           <Link href="/calculators/drip-calculator">DRIP Calculator</Link>
         </p>
+        <p>
+          For a similar monthly-pay covered-call ETF, see the{' '}
+          <Link href="/blog/jepi-dividend-calendar">JEPI dividend calendar</Link>.
+        </p>
       </div>
 
       <script

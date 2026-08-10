@@ -168,6 +168,10 @@ export default function MonthlyDividendPage() {
           <Link href="/calculators/dividend-yield-calculator">Dividend Yield Calculator</Link> ·{' '}
           <Link href="/calculators/dividend-growth-calculator">Dividend Growth Calculator</Link>
         </p>
+        <p>
+          For a real monthly-pay ETF example, see the{' '}
+          <Link href="/blog/jepi-dividend-calendar">JEPI dividend calendar</Link>.
+        </p>
       </div>
 
       <script
