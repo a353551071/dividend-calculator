@@ -169,8 +169,9 @@ export default function MonthlyDividendPage() {
           <Link href="/calculators/dividend-growth-calculator">Dividend Growth Calculator</Link>
         </p>
         <p>
-          For a real monthly-pay ETF example, see the{' '}
-          <Link href="/blog/jepi-dividend-calendar">JEPI dividend calendar</Link>.
+          For real monthly-pay ETF examples, run the numbers on the{' '}
+          <Link href="/calculators/qqqi-dividend-calculator">QQQI Dividend Calculator</Link> or see
+          the <Link href="/blog/jepi-dividend-calendar">JEPI dividend calendar</Link>.
         </p>
       </div>
 
