@@ -9,6 +9,8 @@ export interface Post {
   description: string;
   /** 可选 FAQ 问答:页面可见(模板渲染)+ FAQPage schema(抢 PAA/AI Overview)。 */
   faqs?: { q: string; a: string }[];
+  /** 可选 ticker(如 JEPI):日历博客挂动态数据块(UpcomingDistribution)。 */
+  ticker?: string;
   /** 文章正文(raw MDX 源:markdown 或 HTML-in-MDX)。由 [slug] 页 MDXRemote 渲染。 */
   body: string;
 }
@@ -32,6 +34,7 @@ function loadPosts(): Post[] {
         date: String(data.date ?? ''),
         description: String(data.description ?? ''),
         faqs: faqs && faqs.length > 0 ? faqs : undefined,
+        ticker: data.ticker ? String(data.ticker).trim().toUpperCase() : undefined,
         body: content.trim(),
       };
     });

@@ -1,0 +1,117 @@
+{
+  "asOf": "2026-08-20",
+  "tickers": {
+    "JEPI": {
+      "cadence": "monthly",
+      "cadenceDays": 30,
+      "lastExDate": "2026-08-03",
+      "lastAmount": 0.367,
+      "recent3": [
+        {
+          "exDate": "2026-06-01",
+          "amount": 0.389
+        },
+        {
+          "exDate": "2026-07-01",
+          "amount": 0.387
+        },
+        {
+          "exDate": "2026-08-03",
+          "amount": 0.367
+        }
+      ],
+      "projectedNext": [
+        "2026-09-02",
+        "2026-10-02",
+        "2026-11-01"
+      ],
+      "price": 57.86,
+      "ttmYieldPct": 7.92,
+      "source": "Yahoo chart?events=div"
+    },
+    "SCHD": {
+      "cadence": "quarterly",
+      "cadenceDays": 91,
+      "lastExDate": "2026-06-24",
+      "lastAmount": 0.253,
+      "recent3": [
+        {
+          "exDate": "2025-12-10",
+          "amount": 0.278
+        },
+        {
+          "exDate": "2026-03-25",
+          "amount": 0.257
+        },
+        {
+          "exDate": "2026-06-24",
+          "amount": 0.253
+        }
+      ],
+      "projectedNext": [
+        "2026-09-23",
+        "2026-12-23",
+        "2027-03-24"
+      ],
+      "price": 35.005,
+      "ttmYieldPct": 2.99,
+      "source": "Yahoo chart?events=div"
+    },
+    "QQQI": {
+      "cadence": "monthly",
+      "cadenceDays": 28,
+      "lastExDate": "2026-08-19",
+      "lastAmount": 0.652,
+      "recent3": [
+        {
+          "exDate": "2026-06-16",
+          "amount": 0.657
+        },
+        {
+          "exDate": "2026-07-22",
+          "amount": 0.635
+        },
+        {
+          "exDate": "2026-08-19",
+          "amount": 0.652
+        }
+      ],
+      "projectedNext": [
+        "2026-09-16",
+        "2026-10-14",
+        "2026-11-11"
+      ],
+      "price": 54.148,
+      "ttmYieldPct": 14.13,
+      "source": "Yahoo chart?events=div"
+    },
+    "JEPQ": {
+      "cadence": "monthly",
+      "cadenceDays": 30,
+      "lastExDate": "2026-08-03",
+      "lastAmount": 0.705,
+      "recent3": [
+        {
+          "exDate": "2026-06-01",
+          "amount": 0.564
+        },
+        {
+          "exDate": "2026-07-01",
+          "amount": 0.637
+        },
+        {
+          "exDate": "2026-08-03",
+          "amount": 0.705
+        }
+      ],
+      "projectedNext": [
+        "2026-09-02",
+        "2026-10-02",
+        "2026-11-01"
+      ],
+      "price": 59.735,
+      "ttmYieldPct": 10.92,
+      "source": "Yahoo chart?events=div"
+    }
+  }
+}

@@ -17,6 +17,8 @@ interface ArticleInput {
   description: string;
   path: string;
   date: string;
+  /** 可选:内容实际刷新日(动态数据页传 dividends.json 的 asOf,首发日 datePublished 不变)。 */
+  dateModified?: string;
 }
 
 /** Organization schema — emitted once site-wide in RootLayout. */
@@ -99,7 +101,7 @@ export function articleJsonLd(input: ArticleInput): string {
     headline: input.title,
     description: input.description,
     datePublished: input.date,
-    dateModified: input.date,
+    dateModified: input.dateModified ?? input.date,
     url: `${SITE_URL}${input.path}`,
     author: { '@type': 'Organization', name: SITE_NAME },
     publisher: { '@type': 'Organization', name: SITE_NAME },
