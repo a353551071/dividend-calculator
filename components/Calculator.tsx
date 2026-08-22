@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import type { ReactNode } from 'react';
+import KpiRow, { type KpiItem } from './KpiRow';
 
 export interface CalcField {
   key: string;
@@ -28,14 +29,17 @@ interface CalculatorProps {
   footnote?: string;
   /** 结果卡下方额外渲染(逐年表/图等),共享当前输入值。 */
   extra?: (values: Record<string, number>) => ReactNode;
+  /** 结果卡上方的 KPI 大数字卡行(可选,传入时行列表降为详情层)。 */
+  kpis?: (values: Record<string, number>) => KpiItem[];
 }
 
 /** 通用计算器外壳:字段表单 + 结果卡片。纯 client,负责交互。 */
-export default function Calculator({ fields, compute, footnote, extra }: CalculatorProps) {
+export default function Calculator({ fields, compute, footnote, extra, kpis }: CalculatorProps) {
   const [values, setValues] = useState<Record<string, number>>(() =>
     Object.fromEntries(fields.map((f) => [f.key, f.defaultValue]))
   );
   const rows = compute(values);
+  const kpiItems = kpis ? kpis(values) : [];
 
   return (
     <div className="calc">
@@ -61,6 +65,7 @@ export default function Calculator({ fields, compute, footnote, extra }: Calcula
           </label>
         ))}
       </div>
+      {kpiItems.length > 0 && <KpiRow items={kpiItems} />}
       <div className="calc-result">
         {rows.map((r) => (
           <div key={r.label} className={r.highlight ? 'calc-row highlight' : 'calc-row'}>

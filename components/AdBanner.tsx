@@ -11,7 +11,7 @@ export default function AdBanner({ slot }: { slot: string }) {
     <div className="ad-slot">
       <ins
         className="adsbygoogle"
-        style={{ display: 'block' }}
+        style={{ display: 'block', minHeight: 90 }}
         data-ad-client={client}
         data-ad-slot={slot}
         data-ad-format="auto"

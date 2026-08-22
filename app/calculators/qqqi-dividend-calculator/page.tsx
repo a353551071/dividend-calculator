@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import TickerDripCalc from '@/components/TickerDripCalc';
+import TickerStatsBar from '@/components/TickerStatsBar';
 import FinanceNote from '@/components/FinanceNote';
 import AdBanner from '@/components/AdBanner';
 import { webAppJsonLd, breadcrumbJsonLd, faqJsonLd } from '@/lib/schema';
@@ -46,6 +47,8 @@ export default function QqqiPage() {
         covered calls on the Nasdaq-100. This calculator projects your cash flow, yield and DRIP
         reinvestment — with the trade-offs explained honestly.
       </p>
+
+      <TickerStatsBar ticker="QQQI" />
 
       <h2>Calculate your QQQI monthly income</h2>
       <div className="card">

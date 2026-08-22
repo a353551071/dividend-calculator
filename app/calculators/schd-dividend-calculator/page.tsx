@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import TickerDripCalc from '@/components/TickerDripCalc';
+import TickerStatsBar from '@/components/TickerStatsBar';
 import FinanceNote from '@/components/FinanceNote';
 import AdBanner from '@/components/AdBanner';
 import { webAppJsonLd, breadcrumbJsonLd, faqJsonLd } from '@/lib/schema';
@@ -46,6 +47,8 @@ export default function SchdPage() {
         calculator projects your SCHD dividend income and DRIP reinvestment growth year by year,
         using a starting yield near 3.5% and historical dividend growth near 10%.
       </p>
+
+      <TickerStatsBar ticker="SCHD" />
 
       <h2>Calculate your SCHD dividends</h2>
       <div className="card">

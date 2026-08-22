@@ -35,6 +35,15 @@ export default function HeadlineDividendCalc() {
           { label: `Monthly income on ${formatNumber(v.investment, 0)}`, value: formatMoney(monthIncome), highlight: true },
         ];
       }}
+      kpis={(v) => {
+        const annual = annualizeDividend(v.dividend, v.isMonthly >= 1);
+        const yieldPct = dividendYield({ annualDividendPerShare: annual, price: v.price });
+        const monthIncome = monthlyDividendIncome({ investment: v.investment, dividendYieldPct: yieldPct });
+        return [
+          { label: 'Current dividend yield', value: formatPercent(yieldPct) },
+          { label: 'Monthly income', value: formatMoney(monthIncome), sub: `on ${formatNumber(v.investment, 0)}`, tone: 'green' as const },
+        ];
+      }}
       footnote="Example: $100 price, $2 annual dividend → 2% yield. Yield plus growth drives long-term compounding — don't judge a stock on yield alone."
     />
   );

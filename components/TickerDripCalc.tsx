@@ -65,6 +65,14 @@ export default function TickerDripCalc({
           { label: 'Final annual income', value: formatMoney(r.finalAnnualDividendIncome), highlight: true },
         ];
       }}
+      kpis={(v) => {
+        const r = dripCalculator(toInput(v));
+        return [
+          { label: 'Final portfolio value', value: formatMoney(r.finalValue) },
+          { label: `Total ${ticker} distributions`, value: formatMoney(r.totalDividends), tone: 'green' as const },
+          { label: 'Final annual income', value: formatMoney(r.finalAnnualDividendIncome), sub: formatMoney(r.finalAnnualDividendIncome / 12) + '/mo', tone: 'green' as const },
+        ];
+      }}
       extra={(v) => <DripResultsExtra input={toInput(v)} />}
       footnote={`DRIP compounding for ${ticker}: distributions buy more shares, which pay more distributions next period. Growth rates are planning assumptions, not predictions.`}
     />

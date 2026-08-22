@@ -25,7 +25,7 @@ export default function UpcomingDistribution({ ticker }: { ticker: string }) {
   return (
     <section
       style={{
-        border: '1px solid var(--border)',
+        border: '1px solid var(--card-border)',
         borderRadius: 12,
         padding: '14px 18px',
         margin: '18px 0 26px',
