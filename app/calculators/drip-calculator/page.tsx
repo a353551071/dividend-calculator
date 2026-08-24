@@ -71,7 +71,11 @@ export default function DripPage() {
           The mechanic that makes it powerful is compounding. Each reinvested dividend buys a few
           more shares; those extra shares pay dividends next year, which buy still more shares.
           Over a decade or two the share count — and therefore the income — curves upward, even if
-          the share price goes nowhere.
+          the share price goes nowhere. If you are new to the concept, see{' '}
+          <Link href="/blog/how-dividend-reinvestment-works-drip">
+            how dividend reinvestment (DRIP) works
+          </Link>{' '}
+          step by step.
         </p>
 
         <h2>Dividend Reinvestment Calculator: what it tells you</h2>

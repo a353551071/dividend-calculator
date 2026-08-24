@@ -72,7 +72,8 @@ export default function QqqiPage() {
         <p>
           QQQI holds the Nasdaq-100 and sells call options on a portion of it. The{' '}
           <strong>option premiums</strong> become your monthly distribution, which is why the yield
-          is much higher than a plain index fund.
+          is much higher than a plain index fund. For month-by-month payout dates and recent
+          amounts, see the <Link href="/blog/qqqi-dividend-calendar">QQQI dividend calendar</Link>.
         </p>
         <p>
           The trade-off: upside above the option strike is given up. In a sharp rally, QQQI will
@@ -157,7 +158,9 @@ export default function QqqiPage() {
         </p>
         <p>
           For a similar monthly-pay covered-call ETF, see the{' '}
-          <Link href="/blog/jepi-dividend-calendar">JEPI dividend calendar</Link>.
+          <Link href="/blog/jepi-dividend-calendar">JEPI dividend calendar</Link>. For QQQI&apos;s
+          own projected payout schedule, see{' '}
+          <Link href="/blog/qqqi-dividend-calendar">QQQI ex-dividend dates</Link> month by month.
         </p>
       </div>
 
