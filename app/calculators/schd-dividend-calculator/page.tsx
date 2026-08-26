@@ -11,14 +11,14 @@ const PATH = '/calculators/schd-dividend-calculator';
 export const metadata: Metadata = {
   title: { absolute: 'SCHD Dividend Calculator 2026: Yield & DRIP' },
   description:
-    'This SCHD dividend calculator projects Schwab U.S. Dividend Equity ETF income, yield and DRIP reinvestment year by year. Free, no signup.',
+    'SCHD pays quarterly with a ~3% yield, the next ex-dividend date projected around Sep 23, 2026. This calculator projects Schwab U.S. Dividend Equity ETF income, yield and DRIP reinvestment year by year. Free, no signup.',
   alternates: { canonical: PATH },
 };
 
 const faqs = [
   {
     q: 'What is SCHD’s current dividend yield?',
-    a: 'SCHD’s yield fluctuates with its share price but has recently been around 3.5%. Yield equals annual dividends per share divided by price, times 100. Always verify the latest figure with Schwab or your broker.',
+    a: 'SCHD’s yield fluctuates with its share price but has recently been around 3%. Yield equals annual dividends per share divided by price, times 100. Always verify the latest figure with Schwab or your broker.',
   },
   {
     q: 'How often does SCHD pay dividends?',
@@ -43,9 +43,10 @@ export default function SchdPage() {
     <>
       <h1>SCHD Dividend Calculator (2026)</h1>
       <p className="lead">
-        SCHD (Schwab U.S. Dividend Equity ETF) is one of the most popular dividend ETFs. This
-        calculator projects your SCHD dividend income and DRIP reinvestment growth year by year,
-        using a starting yield near 3.5% and historical dividend growth near 10%.
+        SCHD (Schwab U.S. Dividend Equity ETF) pays <strong>quarterly</strong> — the next
+        ex-dividend date is projected around <strong>Sep 23, 2026</strong> — with a trailing yield
+        near <strong>3%</strong> and roughly 10% annual dividend growth since its 2011 inception.
+        This calculator projects your SCHD income and DRIP reinvestment year by year.
       </p>
 
       <TickerStatsBar ticker="SCHD" />
@@ -68,7 +69,7 @@ export default function SchdPage() {
       <div className="prose">
         <h2>What is SCHD’s dividend yield?</h2>
         <p>
-          SCHD’s yield has recently been near <strong>3.5%</strong>, varying as the share price
+          SCHD’s yield has recently been near <strong>3%</strong>, varying as the share price
           moves. Yield follows the formula:
         </p>
         <p>
@@ -122,12 +123,12 @@ export default function SchdPage() {
         <p>
           Because the payout comes from real company profits rather than option premiums or return
           of capital, it tends to be more durable than the sky-high yields on covered-call ETFs.
-          The trade-off is a lower starting yield near 3.5%.
+          The trade-off is a lower starting yield near 3%.
         </p>
 
         <h2>A worked SCHD example</h2>
         <p>
-          Say you invest $10,000 in SCHD at $80/share with a 3.5% yield, 10% dividend growth and 7%
+          Say you invest $10,000 in SCHD at $80/share with a 3% yield, 10% dividend growth and 7%
           price growth, reinvesting every quarterly payment. After the first year you own a few
           extra shares bought with dividends; by year 10 your reinvested dividends have added a
           meaningful slice of shares on top of your original 125, and your projected annual
@@ -138,12 +139,22 @@ export default function SchdPage() {
 
         <h2>SCHD vs QQQI</h2>
         <p>
-          SCHD is a <strong>dividend-growth</strong> story (lower ~3.5% yield, quarterly, rising
+          SCHD is a <strong>dividend-growth</strong> story (lower ~3% yield, quarterly, rising
           payouts). If you want a high <strong>monthly</strong> cash flow instead, QQQI uses covered
           calls to target ~13% yield — at the cost of capped upside and different tax treatment. See
           the <Link href="/calculators/qqqi-dividend-calculator">QQQI Dividend Calculator</Link> for
           that comparison.
         </p>
+
+        <h2>Frequently Asked Questions</h2>
+        <div className="faq">
+          {faqs.map((f) => (
+            <details key={f.q}>
+              <summary>{f.q}</summary>
+              <p>{f.a}</p>
+            </details>
+          ))}
+        </div>
 
         <h2>Related calculators</h2>
         <p>

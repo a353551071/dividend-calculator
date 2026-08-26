@@ -11,7 +11,7 @@ const PATH = '/calculators/qqqi-dividend-calculator';
 export const metadata: Metadata = {
   title: { absolute: 'QQQI Dividend Calculator 2026: Monthly Income' },
   description:
-    'This QQQI dividend calculator projects NEOS Nasdaq-100 High Income ETF monthly income, yield and DRIP reinvestment, with tax and NAV trade-offs explained.',
+    'QQQI pays roughly $0.65 per share monthly with a ~14% yield (as of Aug 2026) and the next ex-dividend date projected near mid-September. This calculator projects NEOS Nasdaq-100 High Income ETF income, yield and DRIP reinvestment, with tax and NAV trade-offs explained.',
   alternates: { canonical: PATH },
 };
 
@@ -43,9 +43,11 @@ export default function QqqiPage() {
     <>
       <h1>QQQI Dividend Calculator (2026)</h1>
       <p className="lead">
-        QQQI (NEOS Nasdaq-100 High Income ETF) pays <strong>monthly</strong> income by selling
-        covered calls on the Nasdaq-100. This calculator projects your cash flow, yield and DRIP
-        reinvestment — with the trade-offs explained honestly.
+        QQQI (NEOS Nasdaq-100 High Income ETF) pays <strong>monthly</strong> — roughly{' '}
+        <strong>$0.65 per share</strong> — and yields around <strong>14% a year</strong> as of Aug
+        2026, with the next ex-dividend date projected near <strong>mid-September</strong>. This
+        calculator projects your cash flow, yield and DRIP reinvestment — with the trade-offs
+        explained honestly.
       </p>
 
       <TickerStatsBar ticker="QQQI" />
@@ -137,7 +139,7 @@ export default function QqqiPage() {
 
         <h2>QQQI vs SCHD</h2>
         <p>
-          Two very different tools. <strong>SCHD</strong> (~3.5% yield, quarterly, ~10% dividend
+          Two very different tools. <strong>SCHD</strong> (~3% yield, quarterly, ~10% dividend
           growth) is a <em>dividend-growth</em> holding. <strong>QQQI</strong> (~13% yield, monthly,
           flat growth, capped upside) is an <em>income</em> holding. Many investors blend the two:
           growth at the core, a smaller high-income sleeve for cash flow.
@@ -148,6 +150,16 @@ export default function QqqiPage() {
           <Link href="/calculators/monthly-dividend-calculator">Monthly Dividend Income Calculator</Link>{' '}
           for monthly cash-flow math.
         </p>
+
+        <h2>Frequently Asked Questions</h2>
+        <div className="faq">
+          {faqs.map((f) => (
+            <details key={f.q}>
+              <summary>{f.q}</summary>
+              <p>{f.a}</p>
+            </details>
+          ))}
+        </div>
 
         <h2>Related calculators</h2>
         <p>
