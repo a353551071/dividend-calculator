@@ -17,4 +17,6 @@ export const NAV_ITEMS: NavItem[] = [
   { href: '/calculators/drip-calculator', label: 'DRIP Calculator' },
   { href: '/calculators/monthly-dividend-calculator', label: 'Monthly Income Calculator' },
   { href: '/calculators/dividend-payout-ratio-calculator', label: 'Payout Ratio Calculator' },
+  { href: '/calculators/schd-dividend-calculator', label: 'SCHD Calculator' },
+  { href: '/calculators/qqqi-dividend-calculator', label: 'QQQI Calculator' },
 ];
