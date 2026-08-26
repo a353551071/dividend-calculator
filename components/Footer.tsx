@@ -1,12 +1,12 @@
 import Link from 'next/link';
-import { NAV_ITEMS, SITE_NAME } from '@/lib/nav';
+import { FOOTER_NAV, SITE_NAME } from '@/lib/nav';
 
 export default function Footer() {
   return (
     <footer className="site-footer">
       <div className="container">
         <nav className="footer-nav" aria-label="Footer navigation">
-          {NAV_ITEMS.map((item) => (
+          {FOOTER_NAV.map((item) => (
             <Link key={item.href} href={item.href}>
               {item.label}
             </Link>
