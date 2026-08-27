@@ -18,8 +18,8 @@ export default function PayoutRatioCalc() {
         let verdict = '—';
         if (!Number.isNaN(ratio)) {
           if (ratio > 100) verdict = '⚠️ Pays out more than it earns — usually unsustainable';
-          else if (ratio > 70) verdict = 'High: little room for dividend growth';
-          else if (ratio > 30) verdict = 'Healthy: balances payout and reinvestment';
+          else if (ratio > 75) verdict = 'High: little room for dividend growth';
+          else if (ratio > 35) verdict = 'Healthy: balances payout and reinvestment';
           else verdict = 'Low: most earnings retained, dividends may grow fast';
         }
         return [
@@ -32,7 +32,7 @@ export default function PayoutRatioCalc() {
         const ratio = payoutRatio({ dividendPerShare: v.dps, earningsPerShare: v.eps });
         return <PayoutGauge ratio={ratio} />;
       }}
-      footnote="A payout ratio above 100% means the company pays out more than it earns — usually funded by debt or reserves. 30–60% is typically the healthiest range."
+      footnote="A payout ratio above 100% means the company pays out more than it earns — usually funded by debt or reserves. 35–75% is typically the healthiest range."
     />
   );
 }
