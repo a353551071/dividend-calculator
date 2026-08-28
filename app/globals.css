@@ -11,7 +11,8 @@
   --color-primary-hover: #1d4ed8;
   --color-primary-soft: #eff6ff;
   --color-foreground: #1e293b;
-  --color-card: #f8fafc;
+  --color-page: #f6f8fc;
+  --color-card: #ffffff;
   --color-card-border: #e2e8f0;
   --color-muted: #f1f5f9;
   --color-muted-foreground: #64748b;
@@ -19,8 +20,8 @@
   --color-money: #047857;
   --color-navy: #0a2540;
   --radius-card: 1rem;
-  --shadow-card: 0 1px 3px rgba(37, 99, 235, 0.06), 0 4px 12px rgba(37, 99, 235, 0.08);
-  --shadow-card-hover: 0 6px 20px rgba(37, 99, 235, 0.14);
+  --shadow-card: 0 1px 3px rgba(15, 23, 42, 0.05), 0 4px 14px rgba(15, 23, 42, 0.07);
+  --shadow-card-hover: 0 6px 22px rgba(15, 23, 42, 0.12);
   --animate-accordion-down: accordion-down 0.2s ease-out;
   --animate-accordion-up: accordion-up 0.2s ease-out;
 
@@ -35,9 +36,9 @@
 }
 
 :root {
-  --background: #ffffff;
+  --background: #f6f8fc;      /* 页面画布:极浅冷灰(白卡浮起,消白上白的眼花感) */
   --foreground: #1e293b;
-  --card: #f8fafc;
+  --card: #ffffff;            /* 卡片翻白:灰画布 + 白卡 = 金融工具站经典层次 */
   --card-border: #e2e8f0;
   --muted: #f1f5f9;
   --muted-foreground: #64748b;
@@ -48,7 +49,7 @@
   --highlight-bg: #eff6ff;
   --red: #b91c1c;
   --radius: 1rem;
-  --shadow: 0 1px 3px rgba(37, 99, 235, 0.06), 0 4px 12px rgba(37, 99, 235, 0.08);
+  --shadow: 0 1px 3px rgba(15, 23, 42, 0.05), 0 4px 14px rgba(15, 23, 42, 0.07);
 }
 
 * { box-sizing: border-box; }
