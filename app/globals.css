@@ -17,6 +17,7 @@
   --color-muted-foreground: #64748b;
   --color-ring: #3b82f6;
   --color-money: #047857;
+  --color-navy: #0a2540;
   --radius-card: 1rem;
   --shadow-card: 0 1px 3px rgba(37, 99, 235, 0.06), 0 4px 12px rgba(37, 99, 235, 0.08);
   --shadow-card-hover: 0 6px 20px rgba(37, 99, 235, 0.14);
@@ -67,14 +68,14 @@ body {
 
 .container { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
 
-/* Header */
-.site-header { background: var(--foreground); color: #fff; position: sticky; top: 0; z-index: 10; box-shadow: 0 1px 0 rgba(255,255,255,.08), 0 4px 16px rgba(15,23,42,.18); }
+/* Header(编辑金融惯例:白底+发丝线,衬线品牌 — Investopedia/NerdWallet/stockanalysis 同款) */
+.site-header { background: #fff; color: var(--foreground); position: sticky; top: 0; z-index: 10; border-bottom: 1px solid var(--card-border); box-shadow: 0 2px 10px rgba(15, 23, 42, 0.04); }
 .header-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 13px 20px; }
-.brand { color: #fff; text-decoration: none; font-weight: 700; font-size: 1.12rem; letter-spacing: -0.01em; display: inline-flex; align-items: center; font-family: var(--font-serif), Georgia, serif; }
+.brand { color: var(--foreground); text-decoration: none; font-weight: 700; font-size: 1.14rem; letter-spacing: -0.01em; display: inline-flex; align-items: center; font-family: var(--font-serif), Georgia, serif; }
 .brand-mark-svg { width: 27px; height: 27px; margin-right: 9px; flex-shrink: 0; }
 .main-nav { display: flex; align-items: center; gap: 6px; }
-.nav-link { color: rgba(255,255,255,.78); text-decoration: none; font-size: .92rem; padding: 7px 10px; border-radius: 8px; transition: color .15s, background .15s; background: none; border: none; cursor: pointer; font-family: inherit; }
-.nav-link:hover, .nav-link:focus-visible { color: #fff; background: rgba(255,255,255,.09); }
+.nav-link { color: #475569; text-decoration: none; font-size: .92rem; padding: 7px 10px; border-radius: 8px; transition: color .15s, background .15s; background: none; border: none; cursor: pointer; font-family: inherit; }
+.nav-link:hover, .nav-link:focus-visible { color: var(--foreground); background: var(--muted); }
 .nav-link:focus-visible, .nav-drop-link:focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; }
 
 /* Calculators dropdown (F5.5: 全量 7 计算器进 header,纯 CSS 零 JS) */
@@ -82,7 +83,7 @@ body {
 .nav-caret { display: inline-block; font-size: .7rem; margin-left: 3px; transition: transform .15s; }
 .nav-drop:hover .nav-caret, .nav-drop:focus-within .nav-caret { transform: rotate(180deg); }
 .nav-drop-btn { font-weight: 600; }
-.nav-drop-menu { position: absolute; top: calc(100% + 8px); left: 0; min-width: 300px; background: #fff; border: 1px solid var(--card-border); border-radius: .9rem; box-shadow: 0 12px 32px rgba(15,23,42,.16); padding: 8px; opacity: 0; visibility: hidden; transform: translateY(6px); transition: opacity .15s, transform .15s, visibility .15s; z-index: 20; }
+.nav-drop-menu { position: absolute; top: calc(100% + 8px); left: 0; min-width: 300px; background: #fff; border: 1px solid var(--card-border); border-radius: .9rem; box-shadow: 0 12px 32px rgba(15,23,42,.14); padding: 8px; opacity: 0; visibility: hidden; transform: translateY(6px); transition: opacity .15s, transform .15s, visibility .15s; z-index: 20; }
 .nav-drop:hover .nav-drop-menu, .nav-drop:focus-within .nav-drop-menu { opacity: 1; visibility: visible; transform: translateY(0); }
 .nav-drop-group + .nav-drop-group { border-top: 1px solid var(--card-border); margin-top: 6px; padding-top: 6px; }
 .nav-drop-title { margin: 4px 10px 2px; font-size: .68rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--muted-foreground); }
@@ -90,7 +91,7 @@ body {
 .nav-drop-link:hover { background: var(--primary-soft); color: var(--primary-hover); }
 /* 移动端汉堡(纯 CSS checkbox hack,零 JS) */
 .nav-toggle { display: none; }
-.nav-toggle-label { display: none; color: #fff; font-size: 1.35rem; line-height: 1; cursor: pointer; user-select: none; }
+.nav-toggle-label { display: none; color: var(--foreground); font-size: 1.35rem; line-height: 1; cursor: pointer; user-select: none; }
 
 /* Main */
 main { padding: 36px 0 56px; }
@@ -155,8 +156,8 @@ h2 { font-size: 1.45rem; margin-top: 36px; letter-spacing: -0.01em; font-weight:
 .faq details[open] summary::before { content: '▾ '; }
 .faq p { margin: 8px 0 0; color: var(--foreground); }
 
-/* Footer (F5.5 分栏网格:品牌 + 计算器两组 + 站点页,全量内链不再堆一行) */
-.site-footer { background: var(--foreground); color: rgba(255,255,255,.75); padding: 36px 0 24px; margin-top: 48px; font-size: .88rem; }
+/* Footer (机构金融藏青 — 重量收在页尾,呼应白底 header 的编辑布局) */
+.site-footer { background: #0a2540; color: rgba(255,255,255,.75); padding: 36px 0 24px; margin-top: 48px; font-size: .88rem; }
 .footer-grid { display: grid; grid-template-columns: 2.2fr 1fr 1fr 1fr; gap: 28px; margin-bottom: 26px; }
 .footer-col { display: grid; gap: 7px; align-content: start; }
 .footer-col a { color: rgba(255,255,255,.8); text-decoration: none; }
@@ -246,11 +247,11 @@ h2 { font-size: 1.45rem; margin-top: 36px; letter-spacing: -0.01em; font-weight:
   /* 下拉在移动端菜单里平铺展开(无 hover,直接显示全部分组) */
   .nav-drop-btn { pointer-events: none; }
   .nav-caret { display: none; }
-  .nav-drop-menu { position: static; opacity: 1; visibility: visible; transform: none; box-shadow: none; border: none; background: rgba(255,255,255,.05); border-radius: 8px; min-width: 0; padding: 4px 0; margin: 2px 0 6px; }
-  .nav-drop-group + .nav-drop-group { border-top: 1px solid rgba(255,255,255,.12); }
-  .nav-drop-title { color: rgba(255,255,255,.45); }
-  .nav-drop-link { color: rgba(255,255,255,.85); }
-  .nav-drop-link:hover { background: rgba(255,255,255,.09); color: #fff; }
+  .nav-drop-menu { position: static; opacity: 1; visibility: visible; transform: none; box-shadow: none; border: none; background: var(--muted); border-radius: 8px; min-width: 0; padding: 4px 0; margin: 2px 0 6px; }
+  .nav-drop-group + .nav-drop-group { border-top: 1px solid var(--card-border); }
+  .nav-drop-title { color: var(--muted-foreground); }
+  .nav-drop-link { color: #334155; }
+  .nav-drop-link:hover { background: var(--primary-soft); color: var(--primary-hover); }
   .footer-grid { grid-template-columns: 1fr 1fr; }
   .footer-brand { grid-column: 1 / -1; }
 }
