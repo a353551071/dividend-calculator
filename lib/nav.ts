@@ -24,4 +24,5 @@ export const FOOTER_NAV: NavItem[] = [
   ...HEADER_NAV,
   { href: '/calculators/schd-dividend-calculator', label: 'SCHD Calculator' },
   { href: '/calculators/qqqi-dividend-calculator', label: 'QQQI Calculator' },
+  { href: '/methodology', label: 'Methodology' },
 ];

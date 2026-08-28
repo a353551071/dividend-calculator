@@ -42,6 +42,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     [
       { path: '', changeFrequency: 'daily' as const, priority: 1, lastModified: now },
       { path: '/blog', changeFrequency: 'daily' as const, priority: 0.9, lastModified: now },
+      { path: '/methodology', changeFrequency: 'monthly' as const, priority: 0.4, lastModified: now },
       { path: '/about', changeFrequency: 'yearly' as const, priority: 0.3, lastModified: trustDate },
       { path: '/contact', changeFrequency: 'yearly' as const, priority: 0.3, lastModified: trustDate },
       { path: '/privacy-policy', changeFrequency: 'yearly' as const, priority: 0.3, lastModified: trustDate },

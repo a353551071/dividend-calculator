@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import DripCalc from '@/components/DripCalc';
+import ScenarioCards from '@/components/ScenarioCards';
 import FinanceNote from '@/components/FinanceNote';
 import AdBanner from '@/components/AdBanner';
 import { webAppJsonLd, breadcrumbJsonLd, faqJsonLd } from '@/lib/schema';
@@ -117,6 +118,32 @@ export default function DripPage() {
           assumptions — the two inputs that move the result most are dividend growth rate and time
           horizon.
         </p>
+
+        <ScenarioCards
+          title="DRIP example scenarios (precomputed)"
+          intro="Three generic runs at the calculator's own defaults (4% yield, 5% dividend growth, 5% price growth) with only the savings plan changed — the same math you see above, so you can sanity-check your own inputs against a known reference."
+          subject="dividend"
+          scenarios={[
+            {
+              name: 'From $1,000',
+              setup: '$1,000 lump sum, no monthly additions, 20 years, DRIP on',
+              input: { initialInvestment: 1000, price: 100, dividendYieldPct: 4, dividendGrowthPct: 5, priceGrowthPct: 5, monthlyContribution: 0, years: 20 },
+              note: 'A thousand dollars is enough to see the mechanism: after two decades, reinvested dividends account for a large share of the final value.',
+            },
+            {
+              name: '$10,000 for 20 years',
+              setup: '$10,000 lump sum, no additions, 20 years, DRIP on',
+              input: { initialInvestment: 10000, price: 100, dividendYieldPct: 4, dividendGrowthPct: 5, priceGrowthPct: 5, monthlyContribution: 0, years: 20 },
+              note: 'Ten times the money, the same percentages — notice the income at end grows to several times the starting $400-a-year payout.',
+            },
+            {
+              name: '$500 a month',
+              setup: '$0 to start, $500 added every month for 20 years, DRIP on',
+              input: { initialInvestment: 0, price: 100, dividendYieldPct: 4, dividendGrowthPct: 5, priceGrowthPct: 5, monthlyContribution: 500, years: 20 },
+              note: 'The slow-and-steady plan: compare the final value against the $120,000 contributed to see what reinvestment added on top.',
+            },
+          ]}
+        />
 
         <h2>DRIP vs taking cash: when each wins</h2>
         <p>

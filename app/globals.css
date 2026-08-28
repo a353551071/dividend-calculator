@@ -146,8 +146,29 @@ h2 { font-size: 1.4rem; margin-top: 36px; letter-spacing: -0.01em; }
 .payout-marker { position: absolute; top: -4px; bottom: -4px; width: 3px; background: var(--foreground); border-radius: 2px; transform: translateX(-50%); box-shadow: 0 0 0 2px #fff; }
 .payout-scale { display: flex; justify-content: space-between; font-size: .72rem; color: var(--muted-foreground); }
 
-/* Ad */
+/* Ad slot */
 .ad-slot { min-height: 90px; margin: 20px 0; display: flex; justify-content: center; align-items: center; background: var(--muted); border: 1px dashed var(--card-border); border-radius: var(--radius); color: var(--muted-foreground); font-size: .8rem; }
+
+/* Prefill transparency note (NN/g calculator guideline #4 — misleading defaults scare users) */
+.calc-prefill-note { color: var(--muted-foreground); font-size: .8rem; margin: 0 0 6px; }
+
+/* Scenario cards (SSG-precomputed worked examples) */
+.scenario-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin: 16px 0; }
+.scenario-card { background: #fff; border: 1px solid var(--card-border); border-radius: var(--radius); padding: 18px; box-shadow: var(--shadow); }
+.scenario-card h3 { margin: 0 0 4px; font-size: 1.02rem; color: var(--primary-hover); }
+.sc-setup { color: var(--muted-foreground); font-size: .85rem; margin: 0 0 10px; }
+.sc-nums { display: grid; gap: 8px; margin: 0; }
+.sc-nums > div { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; font-size: .88rem; border-bottom: 1px dashed var(--card-border); padding-bottom: 6px; }
+.sc-nums dt { color: var(--muted-foreground); }
+.sc-nums dd { margin: 0; font-weight: 700; color: var(--primary-hover); text-align: right; }
+.sc-sub { font-weight: 400; color: var(--muted-foreground); font-size: .78rem; }
+.sc-note { color: var(--muted-foreground); font-size: .82rem; margin: 10px 0 0; }
+.sc-footnote { color: var(--muted-foreground); font-size: .8rem; }
+
+/* Advertising disclosure fold (about page, E-E-A-T trust suite) */
+.ad-disclosure { border: 1px solid var(--card-border); border-radius: .75rem; background: var(--card); padding: 10px 14px; margin: 12px 0; }
+.ad-disclosure summary { cursor: pointer; font-weight: 600; }
+.ad-disclosure p { margin: 8px 0 2px; }
 
 /* Prose pages */
 .prose { max-width: 760px; }

@@ -2,11 +2,33 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import TickerDripCalc from '@/components/TickerDripCalc';
 import TickerStatsBar from '@/components/TickerStatsBar';
+import DistributionHistory from '@/components/DistributionHistory';
+import ScenarioCards from '@/components/ScenarioCards';
 import FinanceNote from '@/components/FinanceNote';
 import AdBanner from '@/components/AdBanner';
+import { getDividendsAsOf, getTickerData } from '@/lib/dividendData';
 import { webAppJsonLd, breadcrumbJsonLd, faqJsonLd } from '@/lib/schema';
 
 const PATH = '/calculators/schd-dividend-calculator';
+
+// 动态真数默认值(AdSense 整改 A1):build 时读 dividends.json,无数据回退静态值。
+const schd = getTickerData('SCHD');
+const asOf = getDividendsAsOf();
+const livePrice = schd?.price != null ? Math.round(schd.price * 100) / 100 : 80;
+const liveYield = schd?.ttmYieldPct != null ? Math.round(schd.ttmYieldPct * 10) / 10 : 3.5;
+const asOfText = asOf
+  ? new Date(asOf + 'T00:00:00Z').toLocaleDateString('en-US', {
+      month: 'short',
+      day: 'numeric',
+      year: 'numeric',
+      timeZone: 'UTC',
+    })
+  : 'Aug 2026';
+const prefillNote = `Inputs are prefilled with SCHD's actual share price ($${livePrice.toFixed(
+  2
+)}) and trailing dividend yield (${liveYield.toFixed(
+  1
+)}%) as of ${asOfText} — edit any field to model your own scenario.`;
 
 export const metadata: Metadata = {
   title: { absolute: 'SCHD Dividend Calculator 2026: Yield & DRIP' },
@@ -55,10 +77,11 @@ export default function SchdPage() {
       <div className="card">
         <TickerDripCalc
           ticker="SCHD"
-          defaultPrice={80}
-          defaultYield={3.5}
+          defaultPrice={livePrice}
+          defaultYield={liveYield}
           defaultDivGrowth={10}
           defaultPriceGrowth={7}
+          prefillNote={prefillNote}
         />
       </div>
 
@@ -136,6 +159,37 @@ export default function SchdPage() {
           calculator above — change the yield or growth assumption to see how sensitive the
           outcome is to those two inputs.
         </p>
+
+        <DistributionHistory
+          ticker="SCHD"
+          intro="SCHD raises its payout once a year with the December declaration, so the recent history below typically shows three equal payments and then a step up — the projected rows assume the newest amount keeps repeating on the quarterly cadence until the next annual raise."
+        />
+
+        <ScenarioCards
+          title="SCHD example scenarios (precomputed)"
+          intro="Three runs through the same engine as the calculator above, using the live prefilled price and yield — dividend growth 10% a year, share price growth 7%, DRIP on. The story these numbers tell is dividend growth: the payout you end with is very different from the one you start with."
+          subject="SCHD"
+          scenarios={[
+            {
+              name: 'The $1,000 starter',
+              setup: '$1,000 lump sum, no monthly additions, 20 years, DRIP on',
+              input: { initialInvestment: 1000, price: livePrice, dividendYieldPct: liveYield, dividendGrowthPct: 10, priceGrowthPct: 7, monthlyContribution: 0, years: 20 },
+              note: 'Twenty years of ~10% dividend growth turns a small starting payout into a yield-on-cost far above the price you paid — check the Yield on cost column in the year-by-year table above.',
+            },
+            {
+              name: '$10,000 for 20 years',
+              setup: '$10,000 lump sum, no additions, 20 years, DRIP on',
+              input: { initialInvestment: 10000, price: livePrice, dividendYieldPct: liveYield, dividendGrowthPct: 10, priceGrowthPct: 7, monthlyContribution: 0, years: 20 },
+              note: 'The classic dividend-growth demo: most of the final income comes from raises and reinvestment, not the starting check.',
+            },
+            {
+              name: 'Building with $500 a month',
+              setup: '$0 to start, $500 added every month for 20 years, DRIP on',
+              input: { initialInvestment: 0, price: livePrice, dividendYieldPct: liveYield, dividendGrowthPct: 10, priceGrowthPct: 7, monthlyContribution: 500, years: 20 },
+              note: 'Compare final value against the $120,000 you put in — then run the same plan in the QQQI calculator to see the income-now vs income-later trade-off side by side.',
+            },
+          ]}
+        />
 
         <h2>SCHD vs QQQI</h2>
         <p>

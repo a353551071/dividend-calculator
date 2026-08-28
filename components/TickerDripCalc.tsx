@@ -25,6 +25,8 @@ interface TickerDripProps {
   defaultMonthly?: number;
   /** Projection horizon, years. */
   defaultYears?: number;
+  /** 默认值出处透明化(NN/g 计算器准则 #4):一行 as-of 说明,由页面(server 侧)生成传入。 */
+  prefillNote?: string;
 }
 
 /**
@@ -41,9 +43,12 @@ export default function TickerDripCalc({
   defaultPriceGrowth,
   defaultMonthly = 100,
   defaultYears = 15,
+  prefillNote,
 }: TickerDripProps) {
   return (
-    <Calculator
+    <>
+      {prefillNote && <p className="calc-prefill-note">{prefillNote}</p>}
+      <Calculator
       fields={[
         { key: 'initial', label: 'Initial investment', prefix: '$', defaultValue: 10000, help: 'Buy amount in year one' },
         { key: 'price', label: `${ticker} share price`, prefix: '$', defaultValue: defaultPrice },
@@ -76,5 +81,6 @@ export default function TickerDripCalc({
       extra={(v) => <DripResultsExtra input={toInput(v)} />}
       footnote={`DRIP compounding for ${ticker}: distributions buy more shares, which pay more distributions next period. Growth rates are planning assumptions, not predictions.`}
     />
+    </>
   );
 }

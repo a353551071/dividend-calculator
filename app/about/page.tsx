@@ -30,9 +30,22 @@ export default function AboutPage() {
 
       <h2>Our data and methodology</h2>
       <p>
-        Every calculator uses <strong>standard, publicly known formulas</strong> rather than live
-        market data. That is a deliberate choice: it keeps the tools free, instant, and verifiable,
-        and it means the math never depends on a paid data feed.
+        Every calculator uses <strong>standard, publicly known formulas</strong>. The math never
+        depends on a paid feed, which keeps the tools free, instant, and verifiable. On our ETF
+        pages (SCHD, QQQI and the ticker calendars), inputs are additionally{' '}
+        <strong>prefilled with live market data</strong> — share price and trailing yield from
+        Yahoo Finance, refreshed on a roughly bi-weekly cadence and always labeled with an{' '}
+        <em>as of</em> date. The full story — formulas, data pipeline, testing and rounding
+        conventions — lives on the{' '}
+        <Link href="/methodology">methodology page</Link>, and the projection engine itself is{' '}
+        <a
+          href="https://github.com/a353551071/dividend-math"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          open source
+        </a>
+        .
       </p>
       <ul>
         <li>
@@ -57,9 +70,10 @@ export default function AboutPage() {
         </li>
       </ul>
       <p>
-        The default values pre-filled in each input (for example, a $100 share price or a 4% yield)
-        are <strong>realistic examples</strong>, not live quotes for any specific stock. They exist
-        so you can see how the calculator behaves before entering your own numbers.
+        The default values pre-filled in each input are <strong>realistic examples</strong> so you
+        can see how the calculator behaves before entering your own numbers. On the ETF pages those
+        defaults are live quotes, labeled with their <em>as of</em> date; everywhere else they are
+        generic placeholders, not recommendations.
       </p>
 
       <h2>How we keep it accurate</h2>
@@ -67,8 +81,9 @@ export default function AboutPage() {
         The core formulas live in one tested module and are covered by automated unit tests that
         guard against arithmetic regressions. We periodically re-check the math against worked
         examples done by hand and against established finance references. When we find an error, we
-        fix it and note it on the page. We do not, however, verify live ticker data — the inputs are
-        always yours to provide.
+        fix it and note it on the page. Live prefill figures on ETF pages carry their{' '}
+        <em>as of</em> date and are refreshed by our data pipeline — see{' '}
+        <Link href="/methodology">how the data is sourced</Link>.
       </p>
 
       <h2>How this site is funded</h2>
@@ -77,10 +92,20 @@ export default function AboutPage() {
         interrupting the calculators, and no advertiser has any influence over the numbers a
         calculator returns or the content of our articles.
       </p>
+      <details className="ad-disclosure">
+        <summary>Advertising disclosure</summary>
+        <p>
+          This site participates in the Google AdSense program. Ad units are clearly separated from
+          calculator results and editorial content; we do not write pages to trigger specific ads,
+          and we never trade coverage or rankings for advertising. Pages that show live market data
+          state their data source and <em>as of</em> date next to the numbers, independently of any
+          advertising.
+        </p>
+      </details>
 
       <h2>Last updated</h2>
       <p>
-        <time dateTime="2026-08-06">August 6, 2026</time>.
+        <time dateTime="2026-08-28">August 28, 2026</time>.
       </p>
 
       <h2>Educational only — not financial advice</h2>

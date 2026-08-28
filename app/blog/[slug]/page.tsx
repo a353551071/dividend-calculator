@@ -36,7 +36,10 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
 
   return (
     <article className="prose">
-      <p style={{ color: 'var(--muted-foreground)', fontSize: '.85rem', marginBottom: 4 }}>{post.date}</p>
+      <p style={{ color: 'var(--muted-foreground)', fontSize: '.85rem', marginBottom: 4 }}>
+        By the Dividend Payout Calculator editorial team · {post.date} ·{' '}
+        <Link href="/methodology">How we calculate</Link>
+      </p>
       <h1 style={{ marginTop: 0 }}>{post.title}</h1>
       {post.ticker && <UpcomingDistribution ticker={post.ticker} />}
       <MDXRemote source={post.body} options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }} />

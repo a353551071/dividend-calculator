@@ -2,11 +2,33 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import TickerDripCalc from '@/components/TickerDripCalc';
 import TickerStatsBar from '@/components/TickerStatsBar';
+import DistributionHistory from '@/components/DistributionHistory';
+import ScenarioCards from '@/components/ScenarioCards';
 import FinanceNote from '@/components/FinanceNote';
 import AdBanner from '@/components/AdBanner';
+import { getDividendsAsOf, getTickerData } from '@/lib/dividendData';
 import { webAppJsonLd, breadcrumbJsonLd, faqJsonLd } from '@/lib/schema';
 
 const PATH = '/calculators/qqqi-dividend-calculator';
+
+// 动态真数默认值(AdSense 整改 A1):build 时读 dividends.json,无数据回退静态值。
+const qqqi = getTickerData('QQQI');
+const asOf = getDividendsAsOf();
+const livePrice = qqqi?.price != null ? Math.round(qqqi.price * 100) / 100 : 50;
+const liveYield = qqqi?.ttmYieldPct != null ? Math.round(qqqi.ttmYieldPct * 10) / 10 : 13;
+const asOfText = asOf
+  ? new Date(asOf + 'T00:00:00Z').toLocaleDateString('en-US', {
+      month: 'short',
+      day: 'numeric',
+      year: 'numeric',
+      timeZone: 'UTC',
+    })
+  : 'Aug 2026';
+const prefillNote = `Inputs are prefilled with QQQI's actual share price ($${livePrice.toFixed(
+  2
+)}) and TTM distribution yield (${liveYield.toFixed(
+  1
+)}%) as of ${asOfText} — edit any field to model your own scenario.`;
 
 export const metadata: Metadata = {
   title: { absolute: 'QQQI Dividend Calculator 2026: Monthly Income' },
@@ -56,12 +78,13 @@ export default function QqqiPage() {
       <div className="card">
         <TickerDripCalc
           ticker="QQQI"
-          defaultPrice={50}
-          defaultYield={13}
+          defaultPrice={livePrice}
+          defaultYield={liveYield}
           defaultDivGrowth={0}
           defaultPriceGrowth={4}
           defaultMonthly={0}
           defaultYears={10}
+          prefillNote={prefillNote}
         />
       </div>
 
@@ -120,6 +143,37 @@ export default function QqqiPage() {
           only because you own more shares. Use the calculator above to test what happens if yield
           drops to 10% or NAV growth turns negative: the income line bends fast.
         </p>
+
+        <DistributionHistory
+          ticker="QQQI"
+          intro="QQQI's per-share distribution moves with volatility and option premiums, so the recent history below is the honest baseline for any projection: month-to-month amounts wobble, and the projected rows simply repeat the latest payment until NEOS announces otherwise."
+        />
+
+        <ScenarioCards
+          title="QQQI example scenarios (precomputed)"
+          intro="Three concrete runs through the same math as the calculator above, using the live prefilled price and yield — DRIP on, distribution growth 0%, share price growth 4% a year. The point of the exercise: see how monthly-income compounding behaves before you touch a single input."
+          subject="QQQI"
+          scenarios={[
+            {
+              name: 'The $10,000 income starter',
+              setup: '$10,000 lump sum, no monthly additions, 10 years, DRIP on',
+              input: { initialInvestment: 10000, price: livePrice, dividendYieldPct: liveYield, dividendGrowthPct: 0, priceGrowthPct: 4, monthlyContribution: 0, years: 10 },
+              note: 'Income-first: compare with the same $10,000 in the SCHD calculator — lower starting income, but the per-share payout grows instead of staying flat.',
+            },
+            {
+              name: 'Building with $500 a month',
+              setup: '$0 to start, $500 added every month for 10 years, DRIP on',
+              input: { initialInvestment: 0, price: livePrice, dividendYieldPct: liveYield, dividendGrowthPct: 0, priceGrowthPct: 4, monthlyContribution: 500, years: 10 },
+              note: 'Watch the gap between final value and total invested — with a ~14% distribution yield reinvesting monthly, the distributions do real work even with zero price growth.',
+            },
+            {
+              name: 'The $100,000 income sleeve',
+              setup: '$100,000 lump sum, no additions, 10 years, DRIP on',
+              input: { initialInvestment: 100000, price: livePrice, dividendYieldPct: liveYield, dividendGrowthPct: 0, priceGrowthPct: 4, monthlyContribution: 0, years: 10 },
+              note: 'At the current yield the first year alone distributes roughly $14,000 — switch DRIP off in the calculator above to model taking that as cash instead.',
+            },
+          ]}
+        />
 
         <h2>QQQI vs QQQ vs QYLD</h2>
         <p>
