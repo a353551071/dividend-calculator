@@ -5,6 +5,7 @@ import ScenarioCards from '@/components/ScenarioCards';
 import FinanceNote from '@/components/FinanceNote';
 import AdBanner from '@/components/AdBanner';
 import { webAppJsonLd, breadcrumbJsonLd, faqJsonLd } from '@/lib/schema';
+import FaqAccordion from '@/components/FaqAccordion';
 
 const PATH = '/calculators/drip-calculator';
 
@@ -180,12 +181,7 @@ export default function DripPage() {
         </ul>
 
         <h2>Frequently asked questions</h2>
-        {faqs.map((f) => (
-          <div key={f.q}>
-            <h3>{f.q}</h3>
-            <p>{f.a}</p>
-          </div>
-        ))}
+        <FaqAccordion faqs={faqs} />
 
         <h2>Related calculators</h2>
         <p>

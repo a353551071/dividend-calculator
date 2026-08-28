@@ -13,12 +13,19 @@
     "test:watch": "vitest"
   },
   "dependencies": {
+    "@radix-ui/react-accordion": "^1.2.20",
+    "@tailwindcss/postcss": "^4.3.3",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
     "gray-matter": "^4.0.3",
     "next": "^14.2.5",
     "next-mdx-remote": "^6.0.0",
+    "postcss": "^8.5.26",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "remark-gfm": "^4.0.1"
+    "remark-gfm": "^4.0.1",
+    "tailwind-merge": "^3.6.0",
+    "tailwindcss": "^4.3.3"
   },
   "devDependencies": {
     "@types/node": "^20",

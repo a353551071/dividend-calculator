@@ -7,6 +7,7 @@ import { getDividendsAsOf, getTickerData } from '@/lib/dividendData';
 import UpcomingDistribution from '@/components/UpcomingDistribution';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import remarkGfm from 'remark-gfm';
+import FaqAccordion from '@/components/FaqAccordion';
 
 export function generateStaticParams() {
   return POSTS.map((p) => ({ slug: p.slug }));
@@ -47,12 +48,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
       {post.faqs && post.faqs.length > 0 && (
         <>
           <h2>Frequently asked questions</h2>
-          {post.faqs.map((f) => (
-            <div key={f.q}>
-              <h3>{f.q}</h3>
-              <p>{f.a}</p>
-            </div>
-          ))}
+          <FaqAccordion faqs={post.faqs} />
         </>
       )}
 

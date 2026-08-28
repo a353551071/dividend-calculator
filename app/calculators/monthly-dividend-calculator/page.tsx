@@ -4,6 +4,7 @@ import MonthlyIncomeCalc from '@/components/MonthlyIncomeCalc';
 import FinanceNote from '@/components/FinanceNote';
 import AdBanner from '@/components/AdBanner';
 import { webAppJsonLd, breadcrumbJsonLd, faqJsonLd } from '@/lib/schema';
+import FaqAccordion from '@/components/FaqAccordion';
 
 const PATH = '/calculators/monthly-dividend-calculator';
 
@@ -152,14 +153,7 @@ export default function MonthlyDividendPage() {
         </p>
 
         <h2>Frequently Asked Questions</h2>
-        <div className="faq">
-          {faqs.map((f) => (
-            <details key={f.q}>
-              <summary>{f.q}</summary>
-              <p>{f.a}</p>
-            </details>
-          ))}
-        </div>
+        <FaqAccordion faqs={faqs} />
 
         <h2>Related calculators</h2>
         <p>

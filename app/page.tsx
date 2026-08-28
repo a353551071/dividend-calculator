@@ -4,6 +4,7 @@ import HeadlineDividendCalc from '@/components/HeadlineDividendCalc';
 import FinanceNote from '@/components/FinanceNote';
 import AdBanner from '@/components/AdBanner';
 import { faqJsonLd } from '@/lib/schema';
+import FaqAccordion from '@/components/FaqAccordion';
 
 export const metadata: Metadata = {
   title: { absolute: 'Dividend Payout Calculator 2026 — Yield, DRIP & Income' },
@@ -198,14 +199,7 @@ export default function HomePage() {
 
       <section>
         <h2>Frequently Asked Questions</h2>
-        <div className="faq">
-          {faq.map((f) => (
-            <details key={f.q}>
-              <summary>{f.q}</summary>
-              <p>{f.a}</p>
-            </details>
-          ))}
-        </div>
+        <FaqAccordion faqs={faq} />
       </section>
 
       <script

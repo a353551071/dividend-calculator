@@ -1,4 +1,38 @@
 /* 视觉借鉴自 ai-shipany(ShipAny)模版:白色底 + 蓝色主色 + 大圆角 + 柔和阴影 */
+@import 'tailwindcss';
+
+/*
+ * Tailwind v4 设计 token(@theme 生成的 CSS 变量 = 工具类的单一来源)。
+ * ⚠️ 与下方 :root 的传统变量并存(渐进迁移期):改色必须两处同步,
+ * 全量迁移完成后删除 :root 旧块,仅留 @theme。
+ */
+@theme {
+  --color-primary: #2563eb;
+  --color-primary-hover: #1d4ed8;
+  --color-primary-soft: #eff6ff;
+  --color-foreground: #1e293b;
+  --color-card: #f8fafc;
+  --color-card-border: #e2e8f0;
+  --color-muted: #f1f5f9;
+  --color-muted-foreground: #64748b;
+  --color-ring: #3b82f6;
+  --color-money: #047857;
+  --radius-card: 1rem;
+  --shadow-card: 0 1px 3px rgba(37, 99, 235, 0.06), 0 4px 12px rgba(37, 99, 235, 0.08);
+  --shadow-card-hover: 0 6px 20px rgba(37, 99, 235, 0.14);
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+
+  @keyframes accordion-down {
+    from { height: 0; }
+    to { height: var(--radix-accordion-content-height); }
+  }
+  @keyframes accordion-up {
+    from { height: var(--radix-accordion-content-height); }
+    to { height: 0; }
+  }
+}
+
 :root {
   --background: #ffffff;
   --foreground: #1e293b;
