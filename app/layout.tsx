@@ -1,9 +1,28 @@
 import type { Metadata, Viewport } from 'next';
+import localFont from 'next/font/local';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { SITE_NAME, SITE_DESC, SITE_URL } from '@/lib/nav';
 import { organizationJsonLd, webSiteJsonLd } from '@/lib/schema';
 import './globals.css';
+
+/**
+ * 金融排版系统(fintech 事实标准,woff2 入仓自托管 —— 零构建时网络、零 CWV 代价):
+ * - Inter:正文/UI/数据(fintech 标准,tabular figures 优秀)
+ * - Source Serif 4:h1/h2/品牌(编辑金融质感 —— Investopedia/Morningstar 衬线血统)
+ */
+const inter = localFont({
+  src: './fonts/inter-latin.woff2',
+  weight: '100 900',
+  variable: '--font-sans',
+  display: 'swap',
+});
+const serif = localFont({
+  src: './fonts/source-serif-4-latin.woff2',
+  weight: '400 700',
+  variable: '--font-serif',
+  display: 'swap',
+});
 
 const gscVerification = process.env.NEXT_PUBLIC_GSC_VERIFICATION;
 
@@ -43,7 +62,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   const gaId = process.env.NEXT_PUBLIC_GA_ID;
   const clarityId = process.env.NEXT_PUBLIC_CLARITY_ID;
   return (
-    <html lang="en">
+    <html lang="en" className={`${inter.variable} ${serif.variable}`}>
       <head>
         {adsense && <link rel="preconnect" href="https://pagead2.googlesyndication.com" />}
         {gaId && <link rel="preconnect" href="https://www.googletagmanager.com" />}

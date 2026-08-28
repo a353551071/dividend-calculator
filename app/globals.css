@@ -55,12 +55,13 @@ html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  /* 金融排版:Inter 正文/数据(next/font 自托管),衬线仅给标题层 */
+  font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   color: var(--foreground);
   background: var(--background);
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
-  /* 金融数据排版硬要求:数字等宽,列对齐(系统字体栈原生支持,零成本) */
+  /* 金融数据排版硬要求:数字等宽,列对齐(Inter tabular figures) */
   font-variant-numeric: tabular-nums;
 }
 
@@ -69,8 +70,8 @@ body {
 /* Header */
 .site-header { background: var(--foreground); color: #fff; position: sticky; top: 0; z-index: 10; box-shadow: 0 1px 0 rgba(255,255,255,.08), 0 4px 16px rgba(15,23,42,.18); }
 .header-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 13px 20px; }
-.brand { color: #fff; text-decoration: none; font-weight: 800; font-size: 1.1rem; letter-spacing: -0.01em; }
-.brand-mark { margin-right: 6px; }
+.brand { color: #fff; text-decoration: none; font-weight: 700; font-size: 1.12rem; letter-spacing: -0.01em; display: inline-flex; align-items: center; font-family: var(--font-serif), Georgia, serif; }
+.brand-mark-svg { width: 27px; height: 27px; margin-right: 9px; flex-shrink: 0; }
 .main-nav { display: flex; align-items: center; gap: 6px; }
 .nav-link { color: rgba(255,255,255,.78); text-decoration: none; font-size: .92rem; padding: 7px 10px; border-radius: 8px; transition: color .15s, background .15s; background: none; border: none; cursor: pointer; font-family: inherit; }
 .nav-link:hover, .nav-link:focus-visible { color: #fff; background: rgba(255,255,255,.09); }
@@ -93,9 +94,11 @@ body {
 
 /* Main */
 main { padding: 36px 0 56px; }
-h1 { font-size: 2rem; line-height: 1.22; margin: 6px 0 12px; letter-spacing: -0.02em; }
-h2 { font-size: 1.4rem; margin-top: 36px; letter-spacing: -0.01em; }
-.lead { color: var(--muted-foreground); font-size: 1.06rem; max-width: 720px; }
+/* 标题层走衬线(Source Serif 4):编辑金融质感;h3 及以下保持无衬线(UI 层) */
+h1, h2 { font-family: var(--font-serif), Georgia, 'Times New Roman', serif; }
+h1 { font-size: 2.15rem; line-height: 1.22; margin: 6px 0 12px; letter-spacing: -0.015em; font-weight: 700; }
+h2 { font-size: 1.45rem; margin-top: 36px; letter-spacing: -0.01em; font-weight: 700; }
+.lead { color: var(--muted-foreground); font-size: 1.08rem; max-width: 720px; }
 
 .card {
   background: var(--card);
@@ -159,7 +162,8 @@ h2 { font-size: 1.4rem; margin-top: 36px; letter-spacing: -0.01em; }
 .footer-col a { color: rgba(255,255,255,.8); text-decoration: none; }
 .footer-col a:hover { color: #fff; text-decoration: underline; }
 .footer-title { margin: 0 0 4px; font-size: .68rem; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; color: rgba(255,255,255,.45); }
-.footer-brand-name { color: #fff; font-weight: 800; font-size: 1.02rem; margin-bottom: 2px; }
+.footer-brand-name { color: #fff; font-weight: 700; font-size: 1.05rem; margin-bottom: 2px; display: inline-flex; align-items: center; font-family: var(--font-serif), Georgia, serif; }
+.footer-mark-svg { width: 24px; height: 24px; margin-right: 9px; flex-shrink: 0; }
 .footer-brand p { margin: 6px 0 0; max-width: 300px; line-height: 1.55; }
 .footer-brand a { color: rgba(255,255,255,.85); }
 .footer-disclaimer { max-width: 760px; margin: 0 0 12px; }
@@ -185,6 +189,7 @@ h2 { font-size: 1.4rem; margin-top: 36px; letter-spacing: -0.01em; }
 .results-table tbody tr:hover { background: #dbeafe; }
 .results-chart-wrap { background: #fff; border: 1px solid var(--card-border); border-radius: var(--radius); padding: 12px; }
 .results-chart { width: 100%; height: auto; display: block; }
+.results-chart text { font-variant-numeric: tabular-nums; }
 .chart-legend { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; list-style: none; margin: 10px 0 0; padding: 0; font-size: .82rem; color: var(--foreground); }
 .chart-legend li { display: flex; align-items: center; gap: 6px; }
 .legend-swatch { display: inline-block; width: 12px; height: 12px; border-radius: 3px; }

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import BrandMark from '@/components/BrandMark';
 import { CALCULATOR_GROUPS, HEADER_FLAT_LINKS, SITE_NAME } from '@/lib/nav';
 
 /**
@@ -12,7 +13,7 @@ export default function Header() {
     <header className="site-header">
       <div className="container header-inner">
         <Link href="/" className="brand">
-          <span className="brand-mark">💹</span> {SITE_NAME}
+          <BrandMark className="brand-mark-svg" /> {SITE_NAME}
         </Link>
         <input
           id="nav-toggle"

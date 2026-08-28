@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import BrandMark from '@/components/BrandMark';
 import { CALCULATOR_GROUPS, SITE_LINKS, SITE_NAME } from '@/lib/nav';
 
 /**
@@ -12,7 +13,7 @@ export default function Footer() {
         <div className="footer-grid">
           <div className="footer-col footer-brand">
             <span className="footer-brand-name">
-              <span className="brand-mark">💹</span> {SITE_NAME}
+              <BrandMark className="footer-mark-svg" /> {SITE_NAME}
             </span>
             <p>
               Free, browser-based dividend math — yield, growth, DRIP, monthly income and payout

@@ -70,6 +70,11 @@ export default function ResultsChart({ labels, series, yLabel = '$', emptyText }
 
   const tickVals = Array.from({ length: ticks + 1 }, (_, i) => (yMax * i) / ticks);
 
+  // x 轴用真实日历年(竞品惯例):第 n 年 = 当前年 + n - 1;刻度稀疏化防拥挤
+  const startYear = new Date().getFullYear();
+  const yearOf = (lbl: number) => startYear + lbl - 1;
+  const step = Math.max(1, Math.ceil(labels.length / 8));
+
   return (
     <div className="results-chart-wrap" role="img" aria-label="Projection chart">
       <svg className="results-chart" viewBox={`0 0 ${VBW} ${VBH}`} preserveAspectRatio="xMidYMid meet">
@@ -81,8 +86,9 @@ export default function ResultsChart({ labels, series, yLabel = '$', emptyText }
               x2={VBW - PAD.right}
               y1={y(tv)}
               y2={y(tv)}
-              stroke="#e2e8f0"
+              stroke={i === 0 ? '#cbd5e1' : '#eef2f7'}
               strokeWidth={1}
+              strokeDasharray={i === 0 ? undefined : '3 3'}
             />
             <text x={PAD.left - 8} y={y(tv) + 4} textAnchor="end" fontSize={12} fill="#64748b">
               {formatCompact(tv, yLabel)}
@@ -107,23 +113,23 @@ export default function ResultsChart({ labels, series, yLabel = '$', emptyText }
                   width={barW - 2}
                   height={Math.max(0, bh)}
                   fill={s.color}
-                  rx={2}
+                  rx={3}
                 >
-                  <title>{`${s.label}, Year ${lbl}: ${formatCompact(safeV, yLabel)}`}</title>
+                  <title>{`${s.label}, ${yearOf(lbl)}: ${formatCompact(safeV, yLabel)}`}</title>
                 </rect>
               );
             })}
-            {/* x label: first, every other, or last — show enough without crowding */}
-            {labels.length <= 12 || i % Math.ceil(labels.length / 12) === 0 ? (
+            {/* x label: 真实年份,稀疏刻度(≤8 个)+ 恒显末年 */}
+            {i % step === 0 || i === labels.length - 1 ? (
               <text x={x(i)} y={VBH - PAD.bottom + 18} textAnchor="middle" fontSize={12} fill="#64748b">
-                Yr {lbl}
+                {yearOf(lbl)}
               </text>
             ) : null}
           </g>
         ))}
 
         {/* axes baselines */}
-        <line x1={PAD.left} x2={VBW - PAD.right} y1={PAD.top + plotH} y2={PAD.top + plotH} stroke="#94a3b8" strokeWidth={1.2} />
+        <line x1={PAD.left} x2={VBW - PAD.right} y1={PAD.top + plotH} y2={PAD.top + plotH} stroke="#cbd5e1" strokeWidth={1.2} />
       </svg>
 
       <ul className="chart-legend">
