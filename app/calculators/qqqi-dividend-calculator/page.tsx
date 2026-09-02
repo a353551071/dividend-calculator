@@ -17,6 +17,15 @@ const qqqi = getTickerData('QQQI');
 const asOf = getDividendsAsOf();
 const livePrice = qqqi?.price != null ? Math.round(qqqi.price * 100) / 100 : 50;
 const liveYield = qqqi?.ttmYieldPct != null ? Math.round(qqqi.ttmYieldPct * 10) / 10 : 13;
+const lastAmt = qqqi?.lastAmount != null ? qqqi.lastAmount : 0.65;
+// Bing 已验证长问句(what does 10k get me in qqqi dividends / 40000 into qqqi)的场景数,
+// 与 prefill 同源(dividends.json),月度刷新构建时自动跟随。
+const shares10k = Math.round(10000 / livePrice);
+const shares40k = Math.round(40000 / livePrice);
+const monthly10k = Math.round(shares10k * lastAmt);
+const monthly40k = Math.round(shares40k * lastAmt);
+const yearly10k = Math.round((monthly10k * 12) / 100) * 100;
+const monthly40kByYield = Math.round((40000 * liveYield) / 100 / 12);
 const asOfText = asOf
   ? new Date(asOf + 'T00:00:00Z').toLocaleDateString('en-US', {
       month: 'short',
@@ -48,8 +57,30 @@ const faqs = [
     a: 'QQQI pays distributions monthly — the core appeal for income seekers. That contrasts with quarterly payers like SCHD.',
   },
   {
+    q: 'What does $10,000 in QQQI pay per month?',
+    a: `At the live numbers above ($${livePrice.toFixed(2)}/share, recent monthly payments around $${lastAmt.toFixed(
+      3
+    )}), $10,000 buys about ${shares10k} shares — roughly $${monthly10k} per month, or about $${yearly10k.toLocaleString(
+      'en-US'
+    )} a year at recent rates. Two honest caveats: the per-share amount wobbles (QQQI paid $0.635–$0.657 across its last three distributions), and part of each payment is typically return of capital rather than pure income. Model your own inputs in the calculator above.`,
+  },
+  {
+    q: 'How much monthly income does $40,000 in QQQI generate?',
+    a: `Counting shares, about $${monthly40k} a month (${shares40k} shares at $${livePrice.toFixed(
+      2
+    )}, each paying around $${lastAmt.toFixed(
+      3
+    )}); estimating from the ~${liveYield.toFixed(
+      1
+    )}% TTM distribution yield instead gives $${monthly40kByYield} — so the honest range is roughly $${monthly40kByYield}–$${monthly40k} a month. Neither number is guaranteed: payouts move with option premiums, and part of each payment can be return of capital. Toggle DRIP in the calculator above to see compounding instead of flat cash flow.`,
+  },
+  {
     q: 'Is QQQI’s dividend qualified?',
     a: 'QQQI distributions are mixed: part qualified dividends, part ordinary income, part return of capital, and part Section 1256 contract gains (taxed 60% long-term / 40% short-term). The mix changes yearly. Consult a tax professional for your situation.',
+  },
+  {
+    q: 'If I DRIP QQQI, how does return of capital affect my cost basis?',
+    a: 'Each QQQI distribution has multiple parts; the return-of-capital (ROC) part is not taxed when received — instead it reduces the cost basis of the shares you hold, converting the tax into a bigger capital gain (or smaller loss) when you eventually sell. DRIP makes the bookkeeping layered: every reinvested payment buys a new lot with its own full basis, while ROC chips away at the basis of lots you already own. If your basis ever reaches zero, later ROC payouts become immediately taxable capital gains. Your broker’s lot records plus NEOS’s per-distribution Section 19a notices (final mix confirmed after year-end) are the source of truth — worth an hour with a tax professional before assuming anything.',
   },
   {
     q: 'QQQI vs QYLD: what’s the difference?',
