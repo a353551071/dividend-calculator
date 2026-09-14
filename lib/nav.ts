@@ -14,11 +14,12 @@ export const SITE_URL = 'https://www.dividendpayoutcalculator.com';
 export const SITE_DESC =
   'Free online dividend calculator: dividend yield, dividend growth, DRIP reinvestment, monthly dividend income and payout ratio. Calculate your dividend income in seconds.';
 
-/** 通用计算器(概念导向):yield / growth / DRIP / monthly / payout。 */
+/** 通用计算器(概念导向):yield / growth / DRIP / reinvestment / monthly / payout。 */
 export const GENERAL_CALCULATORS: NavItem[] = [
   { href: '/calculators/dividend-yield-calculator', label: 'Dividend Yield' },
   { href: '/calculators/dividend-growth-calculator', label: 'Dividend Growth' },
   { href: '/calculators/drip-calculator', label: 'DRIP Reinvestment' },
+  { href: '/calculators/dividend-reinvestment-calculator', label: 'Reinvest vs Cash' },
   { href: '/calculators/monthly-dividend-calculator', label: 'Monthly Income' },
   { href: '/calculators/dividend-payout-ratio-calculator', label: 'Payout Ratio' },
 ];
@@ -29,7 +30,7 @@ export const ETF_CALCULATORS: NavItem[] = [
   { href: '/calculators/qqqi-dividend-calculator', label: 'QQQI Calculator' },
 ];
 
-/** Header「Calculators ▾」下拉 + 移动端菜单共用的分组(全量 7 计算器,不换出不遗漏)。 */
+/** Header「Calculators ▾」下拉 + 移动端菜单共用的分组(全量 8 计算器,不换出不遗漏)。 */
 export const CALCULATOR_GROUPS: NavGroup[] = [
   { title: 'General calculators', items: GENERAL_CALCULATORS },
   { title: 'ETF calculators · live data', items: ETF_CALCULATORS },

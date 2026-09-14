@@ -18,6 +18,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/calculators/dividend-yield-calculator',
     '/calculators/dividend-growth-calculator',
     '/calculators/drip-calculator',
+    '/calculators/dividend-reinvestment-calculator',
     '/calculators/monthly-dividend-calculator',
     '/calculators/dividend-payout-ratio-calculator',
     '/calculators/schd-dividend-calculator',
