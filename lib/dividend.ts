@@ -86,8 +86,12 @@ export interface DripYearResult {
   sharePrice: number;
   /** 当年每股年股息(美元) */
   dividendPerShare: number;
+  /** 当年股息率(期初股息率,%) */
+  dividendYield: number;
   /** 当年收到股息总额(美元) */
   annualDividend: number;
+  /** 截至当年的累计股息总额(美元) */
+  cumulativeDividends: number;
   /** 成本收益率(当年股息 ÷ 累计投入,%;无投入时 NaN) */
   yieldOnCost: number;
   /** 当年通过股息再投资新增的股份(取现模式为 0) */
@@ -190,6 +194,7 @@ export function simulateDrip(input: DripInput, reinvest = true): DripSimulation 
     const contributionShares = annualContribution / startPrice;
     shares += reinvestedShares + contributionShares;
     const yieldOnCost = totalInvested > 0 ? (dividend / totalInvested) * 100 : NaN;
+    const currentYield = yieldPct;
     // 年末股价增长 + 股息率增长
     price *= 1 + input.priceGrowthPct / 100;
     yieldPct *= 1 + input.dividendGrowthPct / 100;
@@ -199,7 +204,9 @@ export function simulateDrip(input: DripInput, reinvest = true): DripSimulation 
       startBalance,
       sharePrice: startPrice,
       dividendPerShare: dps,
+      dividendYield: currentYield,
       annualDividend: dividend,
+      cumulativeDividends: totalDividends,
       yieldOnCost,
       reinvestedShares,
       endShares: shares,

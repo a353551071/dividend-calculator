@@ -4,6 +4,11 @@ import { useState } from 'react';
 import type { ReactNode } from 'react';
 import KpiRow, { type KpiItem } from './KpiRow';
 
+export interface CalcFieldOption {
+  label: string;
+  value: number;
+}
+
 export interface CalcField {
   key: string;
   label: string;
@@ -15,6 +20,8 @@ export interface CalcField {
   help?: string;
   /** 输入框占位文案(真实感示例,不影响默认值)。 */
   placeholder?: string;
+  /** 下拉选项(可选)。提供时渲染 <select> 替代 <input type="number"> */
+  options?: CalcFieldOption[];
 }
 
 export interface CalcRow {
@@ -48,18 +55,36 @@ export default function Calculator({ fields, compute, footnote, extra, kpis }: C
           <label key={f.key} className="calc-field">
             <span className="calc-label">{f.label}</span>
             <span className="calc-input">
-              {f.prefix && <span className="calc-affix">{f.prefix}</span>}
-              <input
-                type="number"
-                inputMode="decimal"
-                step={f.step ?? 0.01}
-                value={values[f.key]}
-                placeholder={f.placeholder}
-                onChange={(e) =>
-                  setValues((v) => ({ ...v, [f.key]: Number(e.target.value) }))
-                }
-              />
-              {f.suffix && <span className="calc-affix">{f.suffix}</span>}
+              {f.options ? (
+                <select
+                  value={values[f.key]}
+                  onChange={(e) =>
+                    setValues((v) => ({ ...v, [f.key]: Number(e.target.value) }))
+                  }
+                  className="calc-select"
+                >
+                  {f.options.map((opt) => (
+                    <option key={opt.value} value={opt.value}>
+                      {opt.label}
+                    </option>
+                  ))}
+                </select>
+              ) : (
+                <>
+                  {f.prefix && <span className="calc-affix">{f.prefix}</span>}
+                  <input
+                    type="number"
+                    inputMode="decimal"
+                    step={f.step ?? 0.01}
+                    value={values[f.key]}
+                    placeholder={f.placeholder}
+                    onChange={(e) =>
+                      setValues((v) => ({ ...v, [f.key]: Number(e.target.value) }))
+                    }
+                  />
+                  {f.suffix && <span className="calc-affix">{f.suffix}</span>}
+                </>
+              )}
             </span>
             {f.help && <small className="calc-help">{f.help}</small>}
           </label>

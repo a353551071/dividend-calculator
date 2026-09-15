@@ -11,8 +11,8 @@ interface ResultsTableProps {
 }
 
 /**
- * DRIP 逐年明细表 — 对标 dripcalc 的逐年表。
- * 复用 simulateDrip 输出 + lib/format,零新依赖。
+ * DRIP 逐年明细表 — 11 列完整对标 dripcalc。
+ * 核心亮点: 单列 Yield on Cost 高亮呈现长期复利爬升效果。
  */
 export default function ResultsTable({ yearly, emptyText }: ResultsTableProps) {
   if (!yearly.length) {
@@ -26,11 +26,14 @@ export default function ResultsTable({ yearly, emptyText }: ResultsTableProps) {
           <tr>
             <th>Year</th>
             <th>Start Balance</th>
-            <th>Shares</th>
-            <th>Price</th>
-            <th>Div / share</th>
+            <th>Start Shares</th>
+            <th>Share Price</th>
+            <th>Div / Share</th>
+            <th>Div Yield</th>
+            <th className="col-yoc">Yield on Cost</th>
             <th>Annual Div</th>
-            <th>Yield on Cost</th>
+            <th>Total Divs</th>
+            <th>End Shares</th>
             <th>End Balance</th>
           </tr>
         </thead>
@@ -39,11 +42,14 @@ export default function ResultsTable({ yearly, emptyText }: ResultsTableProps) {
             <tr key={r.year}>
               <td>{r.year}</td>
               <td>{formatMoney(r.startBalance)}</td>
-              <td>{formatNumber(r.endShares, 2)}</td>
+              <td>{formatNumber(r.startShares, 2)}</td>
               <td>{formatMoney(r.sharePrice)}</td>
               <td>{formatMoney(r.dividendPerShare)}</td>
+              <td>{formatPercent(r.dividendYield)}</td>
+              <td className="col-yoc">{formatPercent(r.yieldOnCost)}</td>
               <td>{formatMoney(r.annualDividend)}</td>
-              <td>{formatPercent(r.yieldOnCost)}</td>
+              <td>{formatMoney(r.cumulativeDividends)}</td>
+              <td>{formatNumber(r.endShares, 2)}</td>
               <td>{formatMoney(r.endBalance)}</td>
             </tr>
           ))}

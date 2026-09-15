@@ -117,7 +117,8 @@ h2 { font-size: 1.45rem; margin-top: 36px; letter-spacing: -0.01em; font-weight:
 .calc-input { display: flex; align-items: center; border: 1px solid var(--card-border); border-radius: 0.75rem; overflow: hidden; background: #fff; transition: border-color .15s, box-shadow .15s; }
 .calc-input:focus-within { border-color: var(--ring); box-shadow: 0 0 0 3px rgba(59,130,246,.15); }
 .calc-affix { padding: 0 12px; color: var(--muted-foreground); background: var(--muted); font-size: .95rem; }
-.calc-input input { width: 100%; padding: 11px 14px; border: none; outline: none; font-size: 1rem; min-width: 0; background: transparent; }
+.calc-input input, .calc-input select { width: 100%; padding: 11px 14px; border: none; outline: none; font-size: 1rem; min-width: 0; background: transparent; }
+.calc-input select { cursor: pointer; color: var(--foreground); }
 .calc-help { color: var(--muted-foreground); font-size: .8rem; }
 
 /* KPI card row (结果区顶部的关键数字层,NN/g contextualize) */
@@ -181,9 +182,10 @@ h2 { font-size: 1.45rem; margin-top: 36px; letter-spacing: -0.01em; font-weight:
 .calc-extra .results-title { font-size: .95rem; margin: 0 0 6px; color: var(--foreground); }
 .results-empty { color: var(--muted-foreground); font-size: .85rem; margin: 8px 0 0; }
 .results-table-wrap { overflow-x: auto; border: 1px solid var(--card-border); border-radius: var(--radius); background: #fff; }
-.results-table { width: 100%; border-collapse: collapse; font-size: .82rem; min-width: 560px; }
+.results-table { width: 100%; border-collapse: collapse; font-size: .82rem; min-width: 760px; }
 .results-table th, .results-table td { padding: 8px 10px; text-align: right; white-space: nowrap; }
 .results-table th { position: sticky; top: 0; background: var(--muted); color: var(--foreground); font-weight: 600; border-bottom: 1px solid var(--card-border); }
+.results-table th.col-yoc, .results-table td.col-yoc { font-weight: 700; color: var(--primary-hover); background: rgba(37,99,235,.07); }
 .results-table thead th:first-child, .results-table tbody td:first-child { text-align: left; }
 .results-table tbody tr:nth-child(even) { background: var(--primary-soft); }
 .results-table tbody tr:hover { background: #dbeafe; }

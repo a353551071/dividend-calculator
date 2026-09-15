@@ -74,4 +74,13 @@ describe('simulateDrip 逐年明细', () => {
     expect(summary.totalInvested).toBeCloseTo(10000, 6);
     expect(summary.shares).toBeCloseTo(100, 6);
   });
+
+  it('cumulativeDividends 逐年递增且与 annualDividend 累计和一致, dividendYield 随增长率爬升', () => {
+    const { yearly } = simulateDrip(baseInput, true);
+    expect(yearly[0].cumulativeDividends).toBeCloseTo(yearly[0].annualDividend, 6);
+    expect(yearly[1].cumulativeDividends).toBeCloseTo(yearly[0].annualDividend + yearly[1].annualDividend, 6);
+    expect(yearly[2].cumulativeDividends).toBeCloseTo(yearly[0].annualDividend + yearly[1].annualDividend + yearly[2].annualDividend, 6);
+    expect(yearly[0].dividendYield).toBeCloseTo(4, 6);
+    expect(yearly[1].dividendYield).toBeCloseTo(4 * 1.05, 6);
+  });
 });
