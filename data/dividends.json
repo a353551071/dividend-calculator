@@ -1,16 +1,12 @@
 {
-  "asOf": "2026-09-01",
+  "asOf": "2026-09-16",
   "tickers": {
     "JEPI": {
       "cadence": "monthly",
       "cadenceDays": 30,
-      "lastExDate": "2026-08-03",
-      "lastAmount": 0.367,
+      "lastExDate": "2026-09-01",
+      "lastAmount": 0.371,
       "recent3": [
-        {
-          "exDate": "2026-06-01",
-          "amount": 0.389
-        },
         {
           "exDate": "2026-07-01",
           "amount": 0.387
@@ -18,15 +14,19 @@
         {
           "exDate": "2026-08-03",
           "amount": 0.367
+        },
+        {
+          "exDate": "2026-09-01",
+          "amount": 0.371
         }
       ],
       "projectedNext": [
-        "2026-09-02",
-        "2026-10-02",
-        "2026-11-01"
+        "2026-10-01",
+        "2026-10-31",
+        "2026-11-30"
       ],
-      "price": 57.5,
-      "ttmYieldPct": 7.97,
+      "price": 56.19,
+      "ttmYieldPct": 8.16,
       "source": "Yahoo chart?events=div"
     },
     "SCHD": {
@@ -53,8 +53,8 @@
         "2026-12-23",
         "2027-03-24"
       ],
-      "price": 34.89,
-      "ttmYieldPct": 3.0,
+      "price": 34.33,
+      "ttmYieldPct": 3.05,
       "source": "Yahoo chart?events=div"
     },
     "QQQI": {
@@ -81,20 +81,16 @@
         "2026-10-14",
         "2026-11-11"
       ],
-      "price": 54.6,
-      "ttmYieldPct": 14.01,
+      "price": 53.89,
+      "ttmYieldPct": 14.19,
       "source": "Yahoo chart?events=div"
     },
     "JEPQ": {
       "cadence": "monthly",
       "cadenceDays": 30,
-      "lastExDate": "2026-08-03",
-      "lastAmount": 0.705,
+      "lastExDate": "2026-09-01",
+      "lastAmount": 0.683,
       "recent3": [
-        {
-          "exDate": "2026-06-01",
-          "amount": 0.564
-        },
         {
           "exDate": "2026-07-01",
           "amount": 0.637
@@ -102,15 +98,19 @@
         {
           "exDate": "2026-08-03",
           "amount": 0.705
+        },
+        {
+          "exDate": "2026-09-01",
+          "amount": 0.683
         }
       ],
       "projectedNext": [
-        "2026-09-02",
-        "2026-10-02",
-        "2026-11-01"
+        "2026-10-01",
+        "2026-10-31",
+        "2026-11-30"
       ],
-      "price": 60.22,
-      "ttmYieldPct": 10.83,
+      "price": 59.08,
+      "ttmYieldPct": 11.45,
       "source": "Yahoo chart?events=div"
     }
   }
