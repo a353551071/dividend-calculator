@@ -178,6 +178,10 @@ export default function HomePage() {
             <h3>DRIP Calculator</h3>
             <p>Simulate dividend reinvestment compounding over years.</p>
           </Link>
+          <Link href="/calculators/dividend-reinvestment-calculator" className="tool-card">
+            <h3>Dividend Reinvestment Calculator</h3>
+            <p>Compare reinvesting dividends vs. taking cash, year by year.</p>
+          </Link>
           <Link href="/calculators/monthly-dividend-calculator" className="tool-card">
             <h3>Monthly Dividend Calculator</h3>
             <p>How much monthly dividend income your portfolio generates.</p>
