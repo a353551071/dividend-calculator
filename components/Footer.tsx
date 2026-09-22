@@ -20,6 +20,23 @@ export default function Footer() {
               ratio. The engine is{' '}
               <Link href="/methodology">open source and verifiable</Link>.
             </p>
+            <p className="footer-badges">
+              <a
+                href="https://www.saashub.com/dividend-payout-calculator?utm_source=badge&utm_campaign=badge&utm_content=dividend-payout-calculator&badge_variant=color&badge_kind=approved"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Dividend Payout Calculator approved on SaaSHub"
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="https://cdn-b.saashub.com/img/badges/approved-color.png?v=1"
+                  alt="Approved on SaaSHub"
+                  width={150}
+                  height={50}
+                  style={{ maxWidth: '150px', height: 'auto' }}
+                />
+              </a>
+            </p>
           </div>
           {CALCULATOR_GROUPS.map((group) => (
             <nav className="footer-col" key={group.title} aria-label={group.title}>

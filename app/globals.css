@@ -256,3 +256,5 @@ h2 { font-size: 1.45rem; margin-top: 36px; letter-spacing: -0.01em; font-weight:
   .footer-grid { grid-template-columns: 1fr 1fr; }
   .footer-brand { grid-column: 1 / -1; }
 }
+.footer-badges { margin-top: 14px; display: flex; gap: 10px; align-items: center; }
+.footer-badges img { display: block; border-radius: 4px; }
