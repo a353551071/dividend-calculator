@@ -39,6 +39,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
+  // 除息日历 hub:数据随 dividends.json 月刷,lastModified 同口径用 asOf。
+  const calendarPage = [
+    {
+      url: `${BASE}/dividend-calendar`,
+      lastModified: dataAsOf ? new Date(dataAsOf) : now,
+      changeFrequency: 'weekly' as const,
+      priority: 0.9,
+    },
+  ];
+
   const staticPages = (
     [
       { path: '', changeFrequency: 'daily' as const, priority: 1, lastModified: now },
@@ -56,5 +66,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: entry.priority,
   }));
 
-  return [...staticPages, ...calculators, ...blogPosts];
+  return [...staticPages, ...calculators, ...calendarPage, ...blogPosts];
 }
