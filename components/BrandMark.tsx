@@ -5,24 +5,14 @@
  */
 export default function BrandMark({ className }: { className?: string }) {
   return (
-    <svg viewBox="0 0 64 64" className={className} aria-hidden="true" focusable="false">
-      <rect width="64" height="64" rx="14" fill="#2563eb" />
-      <polyline
-        points="12,44 26,32 38,36 52,18"
-        fill="none"
-        stroke="#ffffff"
-        strokeWidth="5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <polyline
-        points="45,18 52,18 52,25"
-        fill="none"
-        stroke="#ffffff"
-        strokeWidth="5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
+    <img
+      src="/logo-64.png"
+      alt="Dividend Calculator"
+      width={28}
+      height={28}
+      className={className}
+      style={{ borderRadius: '6px', objectFit: 'contain' }}
+      loading="eager"
+    />
   );
 }
