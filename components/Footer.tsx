@@ -36,6 +36,21 @@ export default function Footer() {
                   style={{ maxWidth: '150px', height: 'auto' }}
                 />
               </a>
+              <a
+                href="https://fazier.com/launches/www.dividendpayoutcalculator.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Dividend Payout Calculator on Fazier"
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="https://fazier.com/api/v1/public/badges/launch_badges.svg?badge_type=launched&theme=light"
+                  alt="Fazier badge"
+                  width={120}
+                  height={48}
+                  style={{ maxWidth: '120px', height: 'auto' }}
+                />
+              </a>
             </p>
           </div>
           {CALCULATOR_GROUPS.map((group) => (
