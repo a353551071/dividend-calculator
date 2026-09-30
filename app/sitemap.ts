@@ -23,6 +23,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/calculators/dividend-payout-ratio-calculator',
     '/calculators/schd-dividend-calculator',
     '/calculators/qqqi-dividend-calculator',
+    '/calculators/foreign-investor-dividend-calculator',
   ].map((p) => ({
     url: `${BASE}${p}`,
     lastModified: calcDate,

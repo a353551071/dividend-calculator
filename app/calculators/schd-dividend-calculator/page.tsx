@@ -204,9 +204,21 @@ export default function SchdPage() {
         <h2>Frequently Asked Questions</h2>
         <FaqAccordion faqs={faqs} />
 
+        <div className="card" style={{ marginTop: '2rem', borderLeft: '4px solid var(--color-primary, #2563eb)' }}>
+          <h3 style={{ marginTop: 0 }}>Non-U.S. Investor (NRA)? Calculate Your Net Withholding Tax</h3>
+          <p>
+            If you reside outside the United States and hold SCHD with Form W-8BEN, your dividends are subject to 10% to 30% IRS withholding tax at source.
+            Calculate your exact after-tax payout, treaty savings, and net DRIP growth in our dedicated{' '}
+            <Link href="/calculators/foreign-investor-dividend-calculator" style={{ fontWeight: 600 }}>
+              Foreign Investor (NRA) Dividend Calculator &rarr;
+            </Link>
+          </p>
+        </div>
+
         <h2>Related calculators</h2>
         <p>
           <Link href="/">Dividend Calculator</Link> ·{' '}
+          <Link href="/calculators/foreign-investor-dividend-calculator">Foreign Investor (NRA) Tax</Link> ·{' '}
           <Link href="/calculators/qqqi-dividend-calculator">QQQI Dividend Calculator</Link> ·{' '}
           <Link href="/calculators/drip-calculator">DRIP Calculator</Link> ·{' '}
           <Link href="/calculators/dividend-growth-calculator">Dividend Growth Calculator</Link>
