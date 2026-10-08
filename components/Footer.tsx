@@ -29,7 +29,7 @@ export default function Footer() {
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src="https://cdn-b.saashub.com/img/badges/approved-color.png?v=1"
+                  src="/badges/saashub-approved-color.png"
                   alt="Approved on SaaSHub"
                   width={150}
                   height={50}
@@ -44,7 +44,7 @@ export default function Footer() {
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src="https://fazier.com/api/v1/public/badges/launch_badges.svg?badge_type=launched&theme=light"
+                  src="/badges/fazier-launched-light.svg"
                   alt="Fazier badge"
                   width={120}
                   height={48}
