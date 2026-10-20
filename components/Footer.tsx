@@ -77,7 +77,7 @@ export default function Footer() {
           financial advice, and do not constitute a recommendation to buy or sell any security.
           Always consult a qualified financial professional before making investment decisions.
         </p>
-        <p className="footer-copy">© {new Date().getFullYear()} {SITE_NAME}. All rights reserved.</p>
+        <p className="footer-copy">© {new Date().getFullYear()} {SITE_NAME}. All rights reserved. · <a href="https://pikkai.com/" target="_blank" rel="nofollow noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}>Featured on Pikkai</a></p>
       </div>
     </footer>
   );
