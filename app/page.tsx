@@ -3,6 +3,7 @@ import Link from 'next/link';
 import HeadlineDividendCalc from '@/components/HeadlineDividendCalc';
 import FinanceNote from '@/components/FinanceNote';
 import AdBanner from '@/components/AdBanner';
+import DividendTrackerPromo from '@/components/DividendTrackerPromo';
 import { faqJsonLd } from '@/lib/schema';
 import FaqAccordion from '@/components/FaqAccordion';
 
@@ -60,6 +61,8 @@ export default function HomePage() {
       <FinanceNote />
 
       <AdBanner slot="home-top" />
+
+      <DividendTrackerPromo />
 
       <section>
         <h2>What is a dividend?</h2>
