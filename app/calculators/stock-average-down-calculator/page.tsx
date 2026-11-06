@@ -182,6 +182,15 @@ export default function StockAverageDownPage() {
             </span>
           </Link>
           <Link
+            href="/calculators/stock-split-calculator"
+            className="card p-4 hover:border-blue-500 transition-colors no-underline block"
+          >
+            <span className="font-bold text-sm text-slate-900 block">Stock Split Calculator</span>
+            <span className="text-xs text-slate-500 mt-1 block">
+              Calculate post-split shares, new cost basis, and DPS.
+            </span>
+          </Link>
+          <Link
             href="/calculators/drip-calculator"
             className="card p-4 hover:border-blue-500 transition-colors no-underline block"
           >

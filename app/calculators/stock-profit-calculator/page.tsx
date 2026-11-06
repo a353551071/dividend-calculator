@@ -167,6 +167,12 @@ export default function StockProfitPage() {
             </Link>
           </li>
           <li>
+            <Link href="/calculators/stock-split-calculator">
+              <strong>Stock Split Calculator</strong>
+              <span>Calculate post-split shares, adjusted cost basis, and dividend per share.</span>
+            </Link>
+          </li>
+          <li>
             <Link href="/calculators/dividend-yield-calculator">
               <strong>Dividend Yield Calculator</strong>
               <span>Convert share prices and dividend distributions into annual cash yields.</span>
