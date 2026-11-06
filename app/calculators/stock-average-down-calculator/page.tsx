@@ -54,15 +54,15 @@ export default function StockAverageDownPage() {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(webAppLd) }}
+        dangerouslySetInnerHTML={{ __html: webAppLd }}
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbsLd) }}
+        dangerouslySetInnerHTML={{ __html: breadcrumbsLd }}
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }}
+        dangerouslySetInnerHTML={{ __html: faqLd }}
       />
 
       <nav className="breadcrumbs" aria-label="Breadcrumb">
@@ -172,6 +172,15 @@ export default function StockAverageDownPage() {
       <section>
         <h2>Related tools & calculators</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 pt-2">
+          <Link
+            href="/calculators/stock-profit-calculator"
+            className="card p-4 hover:border-blue-500 transition-colors no-underline block"
+          >
+            <span className="font-bold text-sm text-slate-900 block">Stock Profit &amp; Total Return</span>
+            <span className="text-xs text-slate-500 mt-1 block">
+              Calculate net capital gains, dividend boost, fees, and CAGR.
+            </span>
+          </Link>
           <Link
             href="/calculators/drip-calculator"
             className="card p-4 hover:border-blue-500 transition-colors no-underline block"

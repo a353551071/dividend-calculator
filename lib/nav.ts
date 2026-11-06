@@ -24,6 +24,7 @@ export const GENERAL_CALCULATORS: NavItem[] = [
   { href: '/calculators/dividend-payout-ratio-calculator', label: 'Payout Ratio' },
   { href: '/calculators/foreign-investor-dividend-calculator', label: 'Foreign Investor (NRA) Tax' },
   { href: '/calculators/stock-average-down-calculator', label: 'Stock Average Down' },
+  { href: '/calculators/stock-profit-calculator', label: 'Stock Profit / Return' },
 ];
 
 /** ETF 计算器(标的导向,真数预填):SCHD / QQQI。 */
