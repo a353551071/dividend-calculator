@@ -25,8 +25,8 @@
         "2027-01-01",
         "2027-01-31"
       ],
-      "price": 57.741,
-      "ttmYieldPct": 7.9,
+      "price": 57.603,
+      "ttmYieldPct": 7.92,
       "source": "Yahoo chart?events=div"
     },
     "SCHD": {
@@ -49,12 +49,12 @@
         }
       ],
       "projectedNext": [
-        "2026-12-23",
-        "2027-03-24",
-        "2027-06-23"
+        "2026-12-10",
+        "2027-03-25",
+        "2027-06-24"
       ],
-      "price": 36.105,
-      "ttmYieldPct": 2.92,
+      "price": 36.065,
+      "ttmYieldPct": 2.93,
       "source": "Yahoo chart?events=div"
     },
     "QQQI": {
@@ -81,8 +81,8 @@
         "2026-12-16",
         "2027-01-13"
       ],
-      "price": 50.49,
-      "ttmYieldPct": 15.11,
+      "price": 50.34,
+      "ttmYieldPct": 15.16,
       "source": "Yahoo chart?events=div"
     },
     "JEPQ": {
@@ -109,8 +109,8 @@
         "2027-01-01",
         "2027-01-31"
       ],
-      "price": 55.505,
-      "ttmYieldPct": 12.52,
+      "price": 55.33,
+      "ttmYieldPct": 12.56,
       "source": "Yahoo chart?events=div"
     }
   }
