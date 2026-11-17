@@ -54,6 +54,27 @@ export default function DividendYieldPage() {
 
       <FinanceNote />
 
+      <div className="card" style={{ marginTop: '1.5rem', padding: '1.25rem', border: '1px dashed #cbd5e1', borderRadius: '1rem', background: '#f8fafc' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '0.5rem' }}>
+          <span style={{ fontSize: '1.1rem' }}>🔗</span>
+          <h3 style={{ fontSize: '0.95rem', fontWeight: 700, margin: 0, color: '#1e293b' }}>
+            Embed This Free Calculator on Your Website / Blog
+          </h3>
+        </div>
+        <p style={{ fontSize: '0.85rem', color: '#64748b', marginBottom: '0.75rem', lineHeight: 1.5 }}>
+          Writing an article on dividend investing or FIRE? You can embed this interactive calculator directly in your blog post or financial guide. Free, responsive, zero-cookie.
+        </p>
+        <textarea
+          readOnly
+          defaultValue='<iframe src="https://www.dividendpayoutcalculator.com/embed/dividend-yield" width="100%" height="340" frameborder="0" style="border:1px solid #e2e8f0; border-radius:12px; max-width:480px; width:100%;"></iframe>'
+          style={{ width: '100%', fontFamily: 'monospace', fontSize: '0.8rem', padding: '0.6rem', border: '1px solid #cbd5e1', borderRadius: '0.5rem', background: '#ffffff', color: '#334155' }}
+          rows={2}
+        />
+        <p style={{ fontSize: '0.75rem', color: '#94a3b8', marginTop: '0.4rem', margin: '0.4rem 0 0 0' }}>
+          💡 Click the box to copy code. Includes automatic mobile scaling and instant live calculations.
+        </p>
+      </div>
+
       <AdBanner slot="yield" />
 
       <div className="prose">
