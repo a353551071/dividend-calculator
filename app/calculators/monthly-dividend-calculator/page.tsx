@@ -33,6 +33,10 @@ const faqs = [
     a: 'Only if the yield and your investment are static. In reality companies raise (or cut) dividends and share prices move. This calculator includes an optional growth rate so you can project rising monthly income over time.',
   },
   {
+    q: 'Can I use a Thinkorswim scanner to find monthly dividend stocks?',
+    a: 'Yes. In Charles Schwab’s Thinkorswim (TOS) platform, open the Scan tab -> Stock Hacker, and add Fundamental filters for Dividend Yield (e.g., min 3%) and Dividend Frequency (Monthly), alongside liquidity filters (Average Volume > 500k). Once you scan and shortlist candidates (such as O, MAIN, STAG, or JEPI), enter their yields into this calculator to project your monthly payout and compounding timeline.',
+  },
+  {
     q: 'Is the monthly income shown before or after tax?',
     a: 'It is pre-tax. Your actual take-home depends on whether the dividends are qualified or ordinary, your tax bracket, and whether you hold the shares in a tax-advantaged account. Consult a tax professional for your situation.',
   },
@@ -119,6 +123,19 @@ export default function MonthlyDividendPage() {
           monthly income: a portfolio of quarterly payers on staggered schedules (some paying in
           Jan/Apr/Jul/Oct, others in Feb/May/Aug/Nov) spreads cash across all twelve months. Many
           investors prefer this diversification over concentrating in a few high-yield monthly names.
+        </p>
+
+        <h2>Finding monthly payers: Thinkorswim scanner setup</h2>
+        <p>
+          If you use Charles Schwab&apos;s Thinkorswim (TOS) to discover monthly dividend stocks, you can easily configure a custom scanner in <strong>Stock Hacker</strong>:
+        </p>
+        <ul>
+          <li><strong>Dividend Yield</strong>: Set a realistic floor (e.g., minimum 3.0% to 4.0%) to filter out zero-dividend tech growth stocks.</li>
+          <li><strong>Dividend Frequency</strong>: Filter for companies with a monthly distribution cycle (like Realty Income $O, Main Street Capital $MAIN, or monthly income ETFs like JEPI).</li>
+          <li><strong>Liquidity &amp; Market Cap</strong>: Filter for Average Volume &gt; 500,000 shares to avoid illiquid micro-caps.</li>
+        </ul>
+        <p>
+          Once your Thinkorswim scanner outputs a watchlist of candidates, plug their blended yields into this calculator above to evaluate how much capital is required to hit your monthly cash flow targets.
         </p>
 
         <h2>Dividend growth shortens the path</h2>
