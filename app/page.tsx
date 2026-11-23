@@ -8,14 +8,27 @@ import { faqJsonLd } from '@/lib/schema';
 import FaqAccordion from '@/components/FaqAccordion';
 
 export const metadata: Metadata = {
-  title: { absolute: 'Dividend Payout Calculator 2026 — Yield, DRIP & Income' },
+  title: { absolute: 'Dividend Payout Calculator 2026 — Stock Dividend & DRIP Yield' },
   description:
-    'Free dividend payout calculator: compute dividend yield, dividend growth, DRIP reinvestment returns, monthly income and payout ratio in seconds.',
+    'Free stock dividend calculator and dividend payout estimator: compute dividend yield, future growth, DRIP reinvestment returns, monthly income and payout ratios.',
+  keywords: [
+    'dividend payout calculator',
+    'stock dividend calculator',
+    'dividend calculator stock',
+    'simple dividend calculator',
+    'compound dividend calculator',
+    'dividend estimator',
+    'dividend yield calculator',
+  ],
   alternates: { canonical: '/' },
 };
 
 export default function HomePage() {
   const faq = [
+    {
+      q: 'What is a stock dividend calculator?',
+      a: 'A stock dividend calculator estimates the total annual and monthly cash flow you receive from your stock holdings based on dividend yield, share count, and dividend payment frequency. It helps investors forecast passive income and test reinvestment scenarios.',
+    },
     {
       q: 'How is dividend yield calculated?',
       a: 'Dividend yield is the annual dividend per share divided by the current share price, expressed as a percentage. For example, a stock paying $2 per share annually at a $100 price has a 2% dividend yield.',
@@ -40,8 +53,8 @@ export default function HomePage() {
       <section>
         <h1>Dividend Payout Calculator</h1>
         <p className="lead">
-          Estimate your dividend income in seconds. This free dividend payout calculator shows
-          your dividend yield, future dividend growth, DRIP reinvestment returns and monthly
+          Estimate your dividend income in seconds. This free stock dividend calculator and payout
+          estimator shows your dividend yield, future dividend growth, DRIP reinvestment returns and monthly
           dividend income — enter a share price and dividend to start.
         </p>
       </section>

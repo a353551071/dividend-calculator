@@ -9,9 +9,17 @@ import FaqAccordion from '@/components/FaqAccordion';
 const PATH = '/calculators/dividend-growth-calculator';
 
 export const metadata: Metadata = {
-  title: { absolute: 'Dividend Growth Calculator 2026 — Project Income' },
+  title: { absolute: 'Dividend Growth Calculator 2026 — Project Dividend Growth Rate & Income' },
   description:
-    'Project future dividend income with a compound annual growth rate. See what a dividend will pay in 10 or 20 years.',
+    'Free dividend growth calculator & dividend growth rate calculator. Project future stock dividend income with compound annual growth rates (CAGR) and reinvestment.',
+  keywords: [
+    'dividend growth calculator',
+    'dividend growth rate calculator',
+    'stock dividend calculator',
+    'dividend income growth calculator',
+    'compound dividend calculator',
+    'dividend growth rate',
+  ],
   alternates: { canonical: PATH },
 };
 
@@ -21,8 +29,16 @@ const faqs = [
     a: 'It is the average annual percentage by which a company increases its dividend per share. A company that lifts its dividend from $2.00 to $2.20 has grown it by 10% that year. Over many years, even mid-single-digit growth compounds dramatically.',
   },
   {
+    q: 'How does a dividend growth rate calculator differ from a standard stock dividend calculator?',
+    a: 'A standard stock dividend calculator computes your current yield and cash flow based on today\'s payout. A dividend growth rate calculator projects future compounding income by factoring in annual dividend increases (CAGR) and reinvestment over 5, 10, or 20 years.',
+  },
+  {
     q: 'How is future dividend income calculated?',
     a: 'The calculator applies the compound growth formula: future dividend = current dividend × (1 + growth rate) ^ years. At 8% growth, a $2 dividend becomes about $4.32 after 10 years and over $9 after 20 years.',
+  },
+  {
+    q: 'How do you calculate compound dividend income growth?',
+    a: 'Compound dividend income growth combines two compounding engines: annual dividend increases by the company and share accumulation via Dividend Reinvestment Plans (DRIP). Together, they accelerate dividend cash flow exponentially over time.',
   },
   {
     q: 'What is the Rule of 72 for dividends?',
@@ -140,6 +156,22 @@ export default function DividendGrowthPage() {
           decades. Pair it with reinvestment using the{' '}
           <Link href="/calculators/drip-calculator">DRIP calculator</Link> to see the full compounding
           effect.
+        </p>
+
+        <h2>How to calculate dividend growth rate on your stocks</h2>
+        <p>
+          To find a stock&apos;s compound annual dividend growth rate (CAGR), use the compound growth formula:
+        </p>
+        <p>
+          <code>Dividend Growth Rate = (Current Dividend / Historical Dividend) ^ (1 / Years) - 1</code>
+        </p>
+        <p>
+          For example, if a company paid $1.50 per share five years ago and pays $2.20 today, its 5-year dividend growth rate is <code>(2.20 / 1.50) ^ (1 / 5) - 1 = 7.96%</code> per year. Entering that rate into this <strong>dividend growth rate calculator</strong> lets you estimate whether that pace will double your income in 9 years or generate reliable replacement income over the next decade.
+        </p>
+
+        <h2>Using this tool as a forward-looking stock dividend calculator</h2>
+        <p>
+          While basic stock dividend calculators only evaluate current cash payouts based on today&apos;s yield, dividend growth investing relies on projecting how regular dividend raises increase your personal yield on cost. By modeling both the base dividend per share and expected annual raises, this calculator acts as a forward-looking <strong>stock dividend calculator</strong> designed for long-term equity investors.
         </p>
 
         <h2>Frequently Asked Questions</h2>
