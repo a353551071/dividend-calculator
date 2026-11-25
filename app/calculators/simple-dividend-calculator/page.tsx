@@ -11,7 +11,7 @@ const PATH = '/calculators/simple-dividend-calculator';
 export const metadata: Metadata = {
   title: { absolute: 'Simple Dividend Calculator — Calculate Payouts Instantly' },
   description:
-    'A free, fast, simple dividend calculator: enter your total investment and dividend yield to see annual, monthly, and daily dividend payouts immediately.',
+    'A free, fast, simple dividend calculator and dividend estimator: enter your total investment and dividend yield to see annual, monthly, and daily dividend payouts immediately.',
   alternates: { canonical: PATH },
 };
 
@@ -19,6 +19,10 @@ const faqs = [
   {
     q: 'How does this simple dividend calculator work?',
     a: 'It takes your total invested amount (or portfolio value) and multiplies it by the annual dividend yield percentage. It then breaks down your annual payout into estimated monthly and daily passive income.',
+  },
+  {
+    q: 'What is a dividend estimator?',
+    a: 'A dividend estimator is any tool that projects the income an investment will pay from dividends. This calculator is a simple dividend estimator: your investment multiplied by the yield, split into annual, monthly and daily figures. It is a planning estimate rather than a guarantee, because actual payouts depend on the dividends a company or fund declares.',
   },
   {
     q: 'How much dividend income does $10,000 make at a 4% yield?',
@@ -80,6 +84,23 @@ export default function SimpleDividendCalculatorPage() {
           If you plan to reinvest dividends over a multi-year horizon to take advantage of compound growth, explore our{' '}
           <Link href="/calculators/drip-calculator">DRIP Calculator</Link> or{' '}
           <Link href="/calculators/dividend-growth-calculator">Dividend Growth Calculator</Link>.
+        </p>
+
+        <h2>Using this tool as a dividend estimator</h2>
+        <p>
+          A dividend estimator answers a single question: how much income will this position pay?
+          Enter the amount you plan to invest, or the current value of what you already own, together
+          with the yield you expect. The result is the annual cash flow, broken down into monthly and
+          daily figures so you can match it against a savings goal or a regular expense.
+        </p>
+        <p>
+          Treat the result as an estimate. Real payouts move with the dividends a company or fund
+          declares, with changes in share price, and with payment schedules that are quarterly or
+          monthly rather than even. For a per-share or yield-on-cost view, use the{' '}
+          <Link href="/calculators/dividend-yield-calculator">Dividend Yield Calculator</Link>; for
+          the declared distributions of a named fund, try the{' '}
+          <Link href="/calculators/schd-dividend-calculator">SCHD Calculator</Link> or{' '}
+          <Link href="/calculators/qqqi-dividend-calculator">QQQI Calculator</Link>.
         </p>
 
         <h2>Frequently Asked Questions</h2>

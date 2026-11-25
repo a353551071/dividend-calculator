@@ -12,7 +12,7 @@ const PATH = '/calculators/drip-calculator';
 export const metadata: Metadata = {
   title: { absolute: 'DRIP Calculator 2026 — Dividend Reinvestment' },
   description:
-    'Free DRIP calculator and dividend reinvestment calculator in one: see how reinvested dividends compound your shares, portfolio value and annual income over time.',
+    'Free DRIP calculator, a dividend reinvestment and compound dividend calculator in one: see how reinvested dividends compound your shares, portfolio value and annual income over time.',
   alternates: { canonical: PATH },
 };
 
@@ -24,6 +24,10 @@ const faqs = [
   {
     q: 'Is a dividend drip calculator the same as a DRIP calculator?',
     a: 'Yes. "Dividend drip calculator" and "DRIP calculator" are two names for the same tool — both project the effect of a dividend reinvestment plan (DRIP), where dividends automatically buy more shares instead of arriving as cash.',
+  },
+  {
+    q: 'Is a DRIP calculator the same as a compound dividend calculator?',
+    a: 'Mostly, yes. A compound dividend calculator projects dividends that compound, and that happens in two ways: reinvesting each dividend to buy more shares (a DRIP), and growth in the dividend paid per share. This calculator includes both — set the dividend growth rate above zero to model a rising payout, or leave it at zero to see compounding from reinvestment alone.',
   },
   {
     q: 'How do I calculate dividend reinvestment?',
@@ -107,6 +111,23 @@ export default function DripPage() {
           sum into a much larger income stream over a decade. The calculator above runs this loop
           year by year with your actual numbers — try raising the dividend growth rate or the years
           to see the compound effect yourself.
+        </p>
+
+        <h2>Compound dividend calculator: two compounding engines</h2>
+        <p>
+          People searching for a compound dividend calculator usually want one thing: to see what
+          happens to their income when dividends are reinvested <em>and</em> the payout itself keeps
+          growing. Two engines compound at the same time. Reinvestment increases the number of
+          shares you own, while dividend growth increases what each of those shares pays. Because
+          the second engine acts on the output of the first, the effects multiply rather than add.
+        </p>
+        <p>
+          In round numbers, a payout growing at rate <code>g</code> multiplies the income per share
+          by about <code>(1 + g)^n</code> over <code>n</code> years, and reinvestment layers a
+          rising share count on top of that. To model it above, enter a dividend growth rate above
+          zero and leave the monthly contribution at zero for a pure lump-sum case. If you want the
+          growth-in-payout math on its own, without reinvestment, use the{' '}
+          <Link href="/calculators/dividend-growth-calculator">Dividend Growth Calculator</Link>.
         </p>
 
         <h2>A worked DRIP example</h2>
