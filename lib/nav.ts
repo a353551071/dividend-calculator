@@ -17,6 +17,7 @@ export const SITE_DESC =
 /** 通用计算器(概念导向):yield / growth / DRIP / reinvestment / monthly / payout。 */
 export const GENERAL_CALCULATORS: NavItem[] = [
   { href: '/calculators/dividend-yield-calculator', label: 'Dividend Yield' },
+  { href: '/calculators/simple-dividend-calculator', label: 'Simple Dividend' },
   { href: '/calculators/dividend-growth-calculator', label: 'Dividend Growth' },
   { href: '/calculators/drip-calculator', label: 'DRIP Reinvestment' },
   { href: '/calculators/dividend-reinvestment-calculator', label: 'Reinvest vs Cash' },

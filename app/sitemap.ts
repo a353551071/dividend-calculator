@@ -16,6 +16,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const calculators = [
     '/calculators/dividend-yield-calculator',
+    '/calculators/simple-dividend-calculator',
     '/calculators/dividend-growth-calculator',
     '/calculators/drip-calculator',
     '/calculators/dividend-reinvestment-calculator',
