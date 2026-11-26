@@ -3,6 +3,7 @@ import Link from 'next/link';
 import SimpleDividendCalc from '@/components/SimpleDividendCalc';
 import FinanceNote from '@/components/FinanceNote';
 import AdBanner from '@/components/AdBanner';
+import DividendTrackerPromo from '@/components/DividendTrackerPromo';
 import { webAppJsonLd, breadcrumbJsonLd, faqJsonLd } from '@/lib/schema';
 import FaqAccordion from '@/components/FaqAccordion';
 
@@ -54,6 +55,8 @@ export default function SimpleDividendCalculatorPage() {
       <FinanceNote />
 
       <AdBanner slot="simple-dividend" />
+
+      <DividendTrackerPromo />
 
       <div className="prose">
         <h2>The Simple Dividend Formula</h2>

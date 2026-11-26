@@ -3,6 +3,7 @@ import Link from 'next/link';
 import MonthlyIncomeCalc from '@/components/MonthlyIncomeCalc';
 import FinanceNote from '@/components/FinanceNote';
 import AdBanner from '@/components/AdBanner';
+import DividendTrackerPromo from '@/components/DividendTrackerPromo';
 import { webAppJsonLd, breadcrumbJsonLd, faqJsonLd } from '@/lib/schema';
 import FaqAccordion from '@/components/FaqAccordion';
 
@@ -59,6 +60,8 @@ export default function MonthlyDividendPage() {
       <FinanceNote />
 
       <AdBanner slot="monthly" />
+
+      <DividendTrackerPromo />
 
       <div className="prose">
         <h2>What is monthly dividend income?</h2>

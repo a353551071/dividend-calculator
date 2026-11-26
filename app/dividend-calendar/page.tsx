@@ -7,6 +7,7 @@ import {
 } from '@/lib/dividendData';
 import { breadcrumbJsonLd, faqJsonLd } from '@/lib/schema';
 import AdBanner from '@/components/AdBanner';
+import DividendTrackerPromo from '@/components/DividendTrackerPromo';
 
 const PATH = '/dividend-calendar';
 
@@ -174,6 +175,8 @@ export default function DividendCalendarPage() {
                 ))}
               </tbody>
             </table>
+
+            <DividendTrackerPromo />
 
             <h2>Per-ETF schedule and recent payments</h2>
             {rows.map(({ ticker, data }) => (

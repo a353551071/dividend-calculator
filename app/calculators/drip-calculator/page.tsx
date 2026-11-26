@@ -4,6 +4,7 @@ import DripCalc from '@/components/DripCalc';
 import ScenarioCards from '@/components/ScenarioCards';
 import FinanceNote from '@/components/FinanceNote';
 import AdBanner from '@/components/AdBanner';
+import DividendTrackerPromo from '@/components/DividendTrackerPromo';
 import { webAppJsonLd, breadcrumbJsonLd, faqJsonLd } from '@/lib/schema';
 import FaqAccordion from '@/components/FaqAccordion';
 
@@ -63,6 +64,8 @@ export default function DripPage() {
       <FinanceNote />
 
       <AdBanner slot="drip" />
+
+      <DividendTrackerPromo />
 
       <div className="prose">
         <h2>How this DRIP calculator works</h2>
@@ -207,6 +210,7 @@ export default function DripPage() {
         <h2>Related calculators</h2>
         <p>
           <Link href="/">Dividend Calculator</Link> ·{' '}
+          <Link href="/calculators/simple-dividend-calculator">Simple Dividend Calculator</Link> ·{' '}
           <Link href="/calculators/schd-dividend-calculator">SCHD Dividend Calculator</Link> ·{' '}
           <Link href="/calculators/qqqi-dividend-calculator">QQQI Dividend Calculator</Link> ·{' '}
           <Link href="/calculators/monthly-dividend-calculator">Monthly Dividend Income Calculator</Link> ·{' '}
