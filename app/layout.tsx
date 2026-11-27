@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next';
 import localFont from 'next/font/local';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import AdSenseScript from '@/components/AdSenseScript';
 import { SITE_NAME, SITE_DESC, SITE_URL } from '@/lib/nav';
 import { organizationJsonLd, webSiteJsonLd } from '@/lib/schema';
 import './globals.css';
@@ -64,15 +65,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${inter.variable} ${serif.variable}`}>
       <head>
-        {adsense && <link rel="preconnect" href="https://pagead2.googlesyndication.com" />}
+        {adsense && <meta name="google-adsense-account" content={adsense} />}
         {gaId && <link rel="preconnect" href="https://www.googletagmanager.com" />}
-        {adsense && (
-          <script
-            async
-            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsense}`}
-            crossOrigin="anonymous"
-          />
-        )}
+        {adsense && <AdSenseScript client={adsense} />}
         {gaId && (
           <>
             <script async src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`} />
